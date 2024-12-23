@@ -61,4 +61,34 @@ SummativeRubrics = {
       2: {0: "No explanation for scenario 4", 1: 0, 2: "Missing explanation for scenario 4."}
     }, 
   },
+  "MTH210Week3": {
+    1: {
+      0: {0: "Correctly identified three 1-D measurements", 1: 100, 2: "Nice job identifying three one-dimensional measurements."},
+      1: {0: "Identified two 1-D measurements", 1: 85, 2: "You identified two one-dimensional measurements, but you needed three of them."},  
+      2: {0: "Identified one 1-D measurements", 1: 70, 2: "You identified one one-dimensional measurement, but you needed three of them."},    
+      3: {0: "Identified zero 1-D measurements", 1: 0, 2: "You did not identify any one-dimensional measurements."},  
+    },
+    2: {
+      0: {0: "Correctly identified four 2-D shapes", 1: 100, 2: "Nice job identifying four two-dimensional shapes."},
+      1: {0: "Identified three 2-D shapes", 1: 90, 2: "You only identified three distinct two-dimensional shapes, but you needed four of them."},  
+      2: {0: "Identified two 2-D shapes", 1: 80, 2: "You only identified two distinct two-dimensional shapes, but you needed four of them."},    
+      3: {0: "Identified one 2-D shape", 1: 65, 2: "You only identified one distinct two-dimensional shape, but you needed four of them."}, 
+      4: {0: "Identified zero 2-D shapes", 1: 0, 2: "You did not identified any two-dimensional shapes."}, 
+    },
+    3: {
+      0: {0: "Listed dimensions of shed", 1: 100, 2: "Thanks for listing your dimensions of the shed."}, 
+      1: {0: "Didn't list dimensions of shed", 1: 0, 2: "You did not list dimensions of the shed."}, 
+    },
+    4: {
+      0: {0: "Explained choice of dimensions", 1: 100, 2: "You properly explained why you chose those dimensions."}, 
+      1: {0: "Didn't explain choice of dimensions", 1: 0, 2: "You did not explain why you chose those dimensions."}, 
+    },
+    5: {
+      0: {0: "Correctly calculated volume", 1: 100, 2: "For your choice of L,W, you calculated the correct volume."},
+      1: {0: "Incorrect volume, good range", 1: 85, 2: "For your choice of L,W, your volume calculation is incorrect.  With your choice of L,W, the correct volume does fall into the desired range: 600-1100 cubic feet.  To find the proper volume, you need to find the volume of the rectangular prism at the bottom of the shed and the triangular prism at the top of the shed."},
+      2: {0: "Incorrect volume, bad range", 1: 75, 2: "For your choice of L,W, your volume calculation is incorrect.  With your choice of L,W, the correct volume does not fall into the desired range: 600-1100 cubic feet.  To find the proper volume, you need to find the volume of the rectangular prism at the bottom of the shed and the triangular prism at the top of the shed."},
+      3: {0: "Incorrect volume, bad work", 1: 65, 2: "For your choice of L,W, your volume calculation is incorrect.  To find the proper volume, you need to find the volume of the rectangular prism at the bottom of the shed and the triangular prism at the top of the shed."},
+      4: {0: "No work", 1: 0, 2: "You did not show any work depicting the volume of the shed."},
+    },
+  }
 }
