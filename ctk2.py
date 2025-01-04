@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import ttk, font
 from summatives import SummativeRubrics
 
+import sys
 import time
 import datetime
 import subprocess
@@ -189,13 +190,94 @@ def GradeIO():
 
 
 def PostAnnouncements():
+  wait = WebDriverWait(driver,10)
   """
   this function runs to post announcements
   """
   CourseNumber = int(CN.get())
-  FT = FirstThursday.get("1.0", "end-1c")
-  print(CourseNumber, FT)
-  print(type(CourseNumber), type(FT))
+  FT = datetime.datetime.strptime(FirstThursday.get("1.0", "end-1c"),"%m/%d/%y")
+  FM = FT + datetime.timedelta(days=4) #FM stands for FirstMonday
+  #print(CourseNumber, FT)
+  #print(type(CourseNumber), type(FT))
+
+  for Week in range(1,6):
+    time.sleep(1)
+    
+    try:
+      CA = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"button[aria-label='Create Announcement']")))
+      CA.click()
+    except:
+      print("Couldn't create an announcement")
+      #sys.exit()
+
+    Title = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[placeholder='Type an announcement title']")))
+    Title.send_keys("Week {} Discussion Reminder".format(Week))
+
+    Ann = driver.find_element(By.CSS_SELECTOR,"[data-placeholder='Type an announcement message']")
+    Ann.send_keys("Hi everyone!\n\nI hope Week {} is going well for you.  Don't forget that your initial response to this week's discussion is due by the end of the day today.  Don't hesitate to ask me if you have any questions!\n\nBest,\nDrew".format(Week))
+
+
+    SA = driver.find_element(By.CSS_SELECTOR,"[id='schedule-announcement-checkbox']")
+    driver.execute_script("arguments[0].scrollIntoView(true)",SA)
+    SA.click()
+    time.sleep(0.5)
+
+    Date = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='date-input']")))
+    Date.send_keys(Keys.CONTROL + "a")
+    Date.send_keys(Keys.DELETE)
+    Offset = 7*(Week-1)
+    Delta = datetime.timedelta(days=Offset)
+    NewDate = FT + Delta
+    Date.send_keys(NewDate.strftime("%m/%d/%y"))
+
+    Time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='time-input']")))
+    Time.send_keys(Keys.CONTROL + "a")
+    Time.send_keys(Keys.DELETE)
+    Time.send_keys("2:30 AM")
+
+    Post = driver.find_element(By.CSS_SELECTOR,"button[data-analytics-id='course.announcements.detailPanel.post.button']")
+    Post.click()
+
+
+
+  for Week in range(1,6):
+    time.sleep(1)
+      
+      
+    try:
+      CA = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"button[aria-label='Create Announcement']")))
+      CA.click()
+    except:
+      print("Couldn't create an announcement")
+      #sys.exit()
+      
+      
+    Title = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[placeholder='Type an announcement title']")))
+    Title.send_keys("End of Week {} Reminder".format(Week))
+
+    Ann = driver.find_element(By.CSS_SELECTOR,"[data-placeholder='Type an announcement message']")
+    Ann.send_keys("Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates, and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew")
+
+    SA = driver.find_element(By.CSS_SELECTOR,"[id='schedule-announcement-checkbox']")
+    driver.execute_script("arguments[0].scrollIntoView(true)",SA)
+    SA.click()
+    time.sleep(0.5)
+
+    Date = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='date-input']")))
+    Date.send_keys(Keys.CONTROL + "a")
+    Date.send_keys(Keys.DELETE)
+    Offset = 7*(Week-1)
+    Delta = datetime.timedelta(days=Offset)
+    NewDate = FM + Delta
+    Date.send_keys(NewDate.strftime("%m/%d/%y"))
+
+    Time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='time-input']")))
+    Time.send_keys(Keys.CONTROL + "a")
+    Time.send_keys(Keys.DELETE)
+    Time.send_keys("2:30 AM")
+
+    Post = driver.find_element(By.CSS_SELECTOR,"button[data-analytics-id='course.announcements.detailPanel.post.button']")
+    Post.click()
 
   
 
