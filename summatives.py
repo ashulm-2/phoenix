@@ -2,7 +2,7 @@ SummativeRubrics = {
   "MTH210Week4": {
     1: {
       0: {0: "Drawing is correct.", 1: 100, 2: "You correctly drew all the pieces of furniture!  Nice job."},
-      1: {0: "Shelf drawn as triangle", 1: 90, 2: "From a top view, the shelf should look like a rectngle, but everything else was good."},
+      1: {0: "Shelf drawn as triangle", 1: 90, 2: "From a top view, the shelf should look like a rectangle, but everything else was good."},
       2: {0: "Couches not touching", 1: 90, 2: "You didn't draw all the couches touching, which is part of the directions.  Everything else is good though!"},
       3: {0: "Tables not in corners", 1: 90, 2: "The triangular tables should be in the corner.  Everything else is good."},
       4: {0: "Shelf drawing & couches not touching", 1: 80, 2: "The shelf should look like a rectangle drawn from a top view, and the couches should be touching."},
@@ -13,7 +13,7 @@ SummativeRubrics = {
     },
     2: {
       0: {0: "Good explanation of difficulties", 1: 100, 2: "Your explanation of the difficulties in making the furniture fit was well reasoned."},
-      1: {0: "Not great explanation of difficulties", 1: 85, 2: "You had an explanation of the difficulties in making the furniture fit, but some of your explanations did not make sense for the situation decribed in the assignment."},
+      1: {0: "Not great explanation of difficulties", 1: 85, 2: "You had an explanation of the difficulties in making the furniture fit, but some of your explanations did not make sense for the situation described in the assignment."},
       2: {0: "No explanation of difficulties", 1: 0, 2: "You did not give an explanation of the difficulties of making the furniture fit."},
     },
     3: {
