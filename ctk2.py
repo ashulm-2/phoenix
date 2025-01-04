@@ -5,6 +5,7 @@ from tkinter import ttk, font
 from summatives import SummativeRubrics
 
 import time
+import datetime
 import subprocess
 from prompt import R
 
@@ -184,8 +185,18 @@ def GradeIO():
       a.send_keys(V)
       a.submit()
     except:
-      print(a)   
-   
+      print(a) 
+
+
+def PostAnnouncements():
+  """
+  this function runs to post announcements
+  """
+  CourseNumber = int(CN.get())
+  FT = FirstThursday.get("1.0", "end-1c")
+  print(CourseNumber, FT)
+  print(type(CourseNumber), type(FT))
+
   
 
 # Main application window
@@ -225,6 +236,8 @@ tk.Button(sidebar, text="Grade Discussion", command=lambda: show_frame(Discussio
                           
 tk.Button(sidebar, text="Grade Summative Assessments", command=lambda: show_frame(SAButtons), bg="#444", fg="white").pack(pady=10)
 
+tk.Button(sidebar, text="Create Announcements", command=lambda: show_frame(Announcements), bg="#444", fg="white").pack(pady=10)
+
 
 
 
@@ -236,9 +249,10 @@ IO = tk.Frame(content_area, bg="#e0f7fa")
 Discussion = tk.Frame(content_area, bg="#ffe0b2")
 SA = tk.Frame(content_area, bg="#4b9cd3")
 SAButtons = tk.Frame(content_area, bg="red")
+Announcements = tk.Frame(content_area, bg="green")
 
 # Grid layout to stack frames
-for frame in (main_screen, IO, Discussion, SA, SAButtons):
+for frame in (main_screen, IO, Discussion, SA, SAButtons, Announcements):
     frame.grid(row=0, column=0, sticky="nsew")
 
 # Content for the main screen
@@ -384,6 +398,51 @@ tk.Label(SAButtons, text="Choose which course/summative assement to grade", bg="
 for count,A in enumerate(SummativeRubrics):
   tk.Button(SAButtons, text=A, command=lambda x=A: SARubric(x)).grid(row=count+1, column=0)
 
+
+
+"""this will be for the initial announcements"""
+
+AnnDict = {}
+AnnDict[210] = {}
+AnnDict[210][1] = "zyBook reading on geometry basics and triangles\nReviewQuiz"
+AnnDict[210][2] = "zyBook reading on polygons, perimeter, and area\nReviewQuiz"
+AnnDict[210][3] = "zyBook reading on geometry basics and triangles\nReview Quiz\nSummative Assessment: HOA Building Request"
+AnnDict[210][4] = "zyBook reading on analytic geometry and trigonometry\nReview Quiz\nSummativeAssessment: Arranging Furniture"
+AnnDict[210][5] = "zyBook reading on non-Euclidean geometries\nReview Quiz\nSummative Assessment: Non-Euclidean Geometries"
+
+AnnDict[217] = {}
+AnnDict[217][1] = "zyBook reading on introductions to statistical investigations and significance\nReviewQuiz"
+AnnDict[217][2] = "zyBook reading on generalization\nReviewQuiz\nSummative Assessment: Sampling Research Article"
+AnnDict[217][3] = "zyBook reading on estimation and causation\nReview Quiz\nSummative Assessment: Confidence Intervals"
+AnnDict[217][4] = "zyBook reading on comparing two proportions\nReview Quiz"
+AnnDict[217][5] = "zyBook reading on comparing two means\nReview Quiz\nSummative Assessment: Statistical Methods Research Article"
+
+
+AnnDict[221] = {}
+AnnDict[221][1] = "zyBook reading on logic, proof, and sets\nWk1 Summative Assessment"
+AnnDict[221][2] = "zyBook reading on functions, Boolean algebra, and logic gates"
+AnnDict[221][3] = "zyBook reading on integer properties and counting\nWk3 Summative Assessment"
+AnnDict[221][4] = "zyBook reading on computation and induction with recursion"
+AnnDict[221][5] = "zyBook reading on discrete probability, graphs, and trees\nWk5 Summative Assessment"
+
+tk.Label(Announcements, text="First, navigate to the announcements page of the course.  Next, choose which course the announcements are for.  Finally, type the date of the first Thursday for the course in the form MM/DD/YY.", bg="green").pack(pady=10)
+
+CN = ttk.Combobox(Announcements, values=["210", "217", "221"])
+CN["state"] = "readonly"
+CN.pack(pady=10)
+CN.set("210")
+
+FirstThursday = tk.Text(Announcements, height=1, width=10)
+FirstThursday.pack(pady=10)
+FirstThursday.insert("1.0", "MM/DD/YY")
+
+tk.Button(Announcements, text="Enter", command=PostAnnouncements,width=20, bg="#444", fg="white").pack(pady=20)
+
+
+"""
+CourseNumber = 210 #MTH/CourseNumber
+FT = datetime.datetime.strptime("11/21/24","%m/%d/%y") #FT stands for "FirstThursday"
+"""
 
 
 
