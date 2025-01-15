@@ -187,6 +187,51 @@ def GradeIO():
       a.submit()
     except:
       print(a) 
+      
+def PostIndividualAnnouncement(subject,message,ScheduleDate=None):
+  try:
+    CA = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"button[aria-label='Create Announcement']")))
+    CA.click()
+  except:
+    print("Couldn't create an announcement")
+    #sys.exit()
+
+  Title = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[placeholder='Type an announcement title']")))
+  Title.send_keys(subject)
+
+  Ann = driver.find_element(By.CSS_SELECTOR,"[data-placeholder='Type an announcement message']")
+  Ann.send_keys(message)
+  
+  if ScheduleDate is not None:
+    SA = driver.find_element(By.CSS_SELECTOR,"[id='schedule-announcement-checkbox']")
+    driver.execute_script("arguments[0].scrollIntoView(true)",SA)
+    SA.click()
+    time.sleep(0.5)
+
+    Date = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='date-input']")))
+    Date.send_keys(Keys.CONTROL + "a")
+    Date.send_keys(Keys.DELETE)
+    Date.send_keys(ScheduleDate)
+
+    Time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='time-input']")))
+    Time.send_keys(Keys.CONTROL + "a")
+    Time.send_keys(Keys.DELETE)
+    Time.send_keys("2:30 AM")
+
+  Post = driver.find_element(By.CSS_SELECTOR,"button[data-analytics-id='course.announcements.detailPanel.post.button']")
+  Post.click()
+  
+def ScoresPublishedAnnouncement():
+  WeekNumber = WW.get()
+  if WeekNumber == "5":
+    Message = "Hello class,\nThe final week’s grades are now published. Please look over your scores and my comments. The last day to make any comments about your final grade is Friday night, for I will be posting grades on Saturday morning.\nYou also have until Friday to complete any non-participation assignments for credit with a 10% penalty.\nIt was a pleasure working with everyone, and I wish you the best of luck with the remainder of your education!  If you need to contact me after the course ends, please feel free to email me:  ashulman@phoenix.edu."
+    Subject = "Week 5 Grades Posted and Final Grade Information"
+  else:
+    Message = "Hello class,\nThis week’s scores have been posted.\nPlease look over your scores and my comments and let me know if you have any questions or concerns.  In order to see my comments, there is a little box next to your score that you can click and see some information I have left for you.\nIf you complete any work (besides participation) between now and the end of the day Friday, I will update your score on Saturday with a 10% late penalty."
+    Subject = f"Week {WeekNumber} Grades Posted"
+  print(Subject,Message)
+  #PostIndividualAnnouncement(Subject,Message):
+
 
 
 def PostAnnouncements():
@@ -202,82 +247,29 @@ def PostAnnouncements():
 
   for Week in range(1,6):
     time.sleep(1)
-    
-    try:
-      CA = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"button[aria-label='Create Announcement']")))
-      CA.click()
-    except:
-      print("Couldn't create an announcement")
-      #sys.exit()
-
-    Title = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[placeholder='Type an announcement title']")))
-    Title.send_keys("Week {} Discussion Reminder".format(Week))
-
-    Ann = driver.find_element(By.CSS_SELECTOR,"[data-placeholder='Type an announcement message']")
-    Ann.send_keys("Hi everyone!\n\nI hope Week {} is going well for you.  Don't forget that your initial response to this week's discussion is due by the end of the day today.  Don't hesitate to ask me if you have any questions!\n\nBest,\nDrew".format(Week))
-
-
-    SA = driver.find_element(By.CSS_SELECTOR,"[id='schedule-announcement-checkbox']")
-    driver.execute_script("arguments[0].scrollIntoView(true)",SA)
-    SA.click()
-    time.sleep(0.5)
-
-    Date = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='date-input']")))
-    Date.send_keys(Keys.CONTROL + "a")
-    Date.send_keys(Keys.DELETE)
     Offset = 7*(Week-1)
     Delta = datetime.timedelta(days=Offset)
     NewDate = FT + Delta
-    Date.send_keys(NewDate.strftime("%m/%d/%y"))
-
-    Time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='time-input']")))
-    Time.send_keys(Keys.CONTROL + "a")
-    Time.send_keys(Keys.DELETE)
-    Time.send_keys("2:30 AM")
-
-    Post = driver.find_element(By.CSS_SELECTOR,"button[data-analytics-id='course.announcements.detailPanel.post.button']")
-    Post.click()
+    
+    PostIndividualAnnouncement(
+      subject="Week {} Discussion Reminder".format(Week),
+      message="Hi everyone!\n\nI hope Week {} is going well for you.  Don't forget that your initial response to this week's discussion is due by the end of the day today.  Don't hesitate to ask me if you have any questions!\n\nBest,\nDrew".format(Week),
+      ScheduleDate=NewDate.strftime("%m/%d/%y"))
+    
 
 
 
   for Week in range(1,6):
     time.sleep(1)
-      
-      
-    try:
-      CA = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"button[aria-label='Create Announcement']")))
-      CA.click()
-    except:
-      print("Couldn't create an announcement")
-      #sys.exit()
-      
-      
-    Title = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[placeholder='Type an announcement title']")))
-    Title.send_keys("End of Week {} Reminder".format(Week))
-
-    Ann = driver.find_element(By.CSS_SELECTOR,"[data-placeholder='Type an announcement message']")
-    Ann.send_keys("Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates, and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew")
-
-    SA = driver.find_element(By.CSS_SELECTOR,"[id='schedule-announcement-checkbox']")
-    driver.execute_script("arguments[0].scrollIntoView(true)",SA)
-    SA.click()
-    time.sleep(0.5)
-
-    Date = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='date-input']")))
-    Date.send_keys(Keys.CONTROL + "a")
-    Date.send_keys(Keys.DELETE)
     Offset = 7*(Week-1)
     Delta = datetime.timedelta(days=Offset)
     NewDate = FM + Delta
-    Date.send_keys(NewDate.strftime("%m/%d/%y"))
-
-    Time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='time-input']")))
-    Time.send_keys(Keys.CONTROL + "a")
-    Time.send_keys(Keys.DELETE)
-    Time.send_keys("2:30 AM")
-
-    Post = driver.find_element(By.CSS_SELECTOR,"button[data-analytics-id='course.announcements.detailPanel.post.button']")
-    Post.click()
+    
+    PostIndividualAnnouncement(
+      subject="End of Week {} Reminder".format(Week),
+      message="Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates, and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew",
+      ScheduleDate=NewDate.strftime("%m/%d/%y"))
+      
 
   
 
@@ -519,6 +511,17 @@ FirstThursday.pack(pady=10)
 FirstThursday.insert("1.0", "MM/DD/YY")
 
 tk.Button(Announcements, text="Enter", command=PostAnnouncements,width=20, bg="#444", fg="white").pack(pady=20)
+
+ttk.Separator(root, orient="horizontal").pack(fill="x")
+
+tk.Label(Announcements,text="To create an announcement for published grades, nagivate to the announcements page and choose the week these grades are for.", bg="green").pack(pady=10)
+
+WW = ttk.Combobox(Announcements, values=["1", "2", "3", "4", "5"])
+WW["state"] = "readonly"
+WW.pack(pady=10)
+WW.set("1")
+
+tk.Button(Announcements, text="Enter", command=ScoresPublishedAnnouncement,width=20, bg="#444", fg="white").pack(pady=20)
 
 
 """
