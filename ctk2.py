@@ -469,7 +469,7 @@ tk.Label(Discussion, text="All Posts One Day?", bg="#ffe0b2", font=Bold).grid(ro
 """this will be the content for the summative assessments buttons"""
 tk.Label(SAButtons, text="Choose which course/summative assement to grade", bg="#4b9cd3").grid(row=0,column=0)
 
-for count,A in enumerate(SummativeRubrics):
+for count,A in enumerate(sorted(SummativeRubrics)):
   tk.Button(SAButtons, text=A, command=lambda x=A: SARubric(x)).grid(row=count+1, column=0)
 
 

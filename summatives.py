@@ -32,7 +32,7 @@ SummativeRubrics = {
       2: {0: "Work for shelf distance not correct", 1: 60, 2: "Your work for calculating the shelf distance wasn't correct.  It should have been tan(74) = 6.5/X, and then solve for X."},
     },
   },
-  "MATH210Week5": {
+  "MTH210Week5": {
     1: {
       0: {0: "All four correct.", 1: 100, 2: "You correctly assigned the type of geometry to each scenario."},
       1: {0: "3 correct", 1: 90, 2: "You correctly matched three of the scenarios.  In order, they should be Taxicab, Euclidean, Spherical, Finite"},
@@ -90,5 +90,36 @@ SummativeRubrics = {
       3: {0: "Incorrect volume, bad work", 1: 65, 2: "For your choice of L,W, your volume calculation is incorrect.  To find the proper volume, you need to find the volume of the rectangular prism at the bottom of the shed and the triangular prism at the top of the shed."},
       4: {0: "No work", 1: 0, 2: "You did not show any work depicting the volume of the shed."},
     },
+  },
+  "MTH217Week2": {
+    1: {
+      0: {0: "Completed top part: name, title, subject, etc.", 1: 100, 2: "Nice job completing the top section."},
+      1: {0: "Missing some of top part", 1: 80, 2: "You're missing some of the top section."},
+      2: {0: "Top part missing completely", 1: 0, 2: "You didn't fill in the top part."},
+    },
+    2: {
+      0: {0: "Completed the purpose part", 1: 100, 2: "Well done with the purpose of the article!"},
+      1: {0: "Incomplete purpose part", 1: 80, 2: "You're missing some of the purpose section section."},
+      2: {0: "Purpose part missing completely", 1: 0, 2: "You didn't complete the purpose portion of the assignment."},
+    },
+    3: {
+      0: {0: "Completed article part: author, DOI, date, journal title, etc.", 1: 100, 2: "Thank you for completing the article information section."},
+      1: {0: "Missing article info", 1: 80, 2: "You're missing some of the article information."},
+      2: {0: "Article info missing completely", 1: 0, 2: "You didn't fill in the article information section."},
+    },
+    4: {
+      0: {0: "Completed research section: research question, groups studied, variables, description of sample", 1: 100, 2: "Completed research section!"},
+      1: {0: "Missing some of research part", 1: 80, 2: "You're missing information from the research section."},
+      2: {0: "Research part missing completely", 1: 0, 2: "You're missing all of the research information section: research question, groups studied, etc."},
+    },
+    5: {
+      0: {0: "Completed background section: hypothesis, variables, distribution, mean, st. dev.", 1: 100, 2: "Completed background section!"},
+      1: {0: "Missing some of background part", 1: 80, 2: "You're missing information from the background section."},
+      2: {0: "Background part missing completely", 1: 0, 2: "You're missing all of the background information section: hypothesis, vairables, distribution, mean, standard deviation, etc."},
+    },
+    6: {
+      0: {0: "Grammar good!", 1: 100, 2: "Grammar and mechanics were well done!"},
+      1: {0: "Grammar, mechanics issues", 1: 80, 2: "There were some slight issues with your grammar, spelling, mechanics, etc."},
+    }
   }
 }
