@@ -150,24 +150,29 @@ def SARubric(Course):
   ClearFrame(SA)
   tk.Label(SA, text="Grading for " + Course).grid(row=0, column=0)
   TKVars = [] #this holds the information from all the radio buttons
+  Row = 1
   for part in SummativeRubrics[Course]:
     var = tk.IntVar(value=0)
     TKVars.append(var)
-    tk.Label(SA, text = f"Part {part}:").grid(row=part, column=0, sticky="E")
-    col = 1
+    tk.Label(SA, text = f"Part {part}:").grid(row=Row, column=0, sticky="W")
+    Row += 1
+    #col = 1
     for grade in SummativeRubrics[Course][part]:
       tk.Radiobutton(SA, 
         text=f"{SummativeRubrics[Course][part][grade][0]}", 
         value=grade, 
         variable=var,
         #command=lambda: SelectedRadio(Course)
-      ).grid(row=part, column=col, sticky="W")
-      col += 1
+      ).grid(row=Row, column=0, sticky="W")
+      Row += 1
+      #col += 1
+    tk.Label(SA, text="=================================").grid(row=Row, column=0,sticky="W")
+    Row += 1
 
   tk.Button(SA,
     text="Submit Grade",
     command=lambda: SelectedRadio(Course)
-  ).grid(row=part+1, column=0)
+  ).grid(row=Row, column=0)
     
 
 def GradeIO():
@@ -189,6 +194,7 @@ def GradeIO():
       print(a) 
       
 def PostIndividualAnnouncement(subject,message,ScheduleDate=None):
+  wait = WebDriverWait(driver,10)
   try:
     CA = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"button[aria-label='Create Announcement']")))
     CA.click()
@@ -227,10 +233,10 @@ def ScoresPublishedAnnouncement():
     Message = "Hello class,\nThe final week’s grades are now published. Please look over your scores and my comments. The last day to make any comments about your final grade is Friday night, for I will be posting grades on Saturday morning.\nYou also have until Friday to complete any non-participation assignments for credit with a 10% penalty.\nIt was a pleasure working with everyone, and I wish you the best of luck with the remainder of your education!  If you need to contact me after the course ends, please feel free to email me:  ashulman@phoenix.edu."
     Subject = "Week 5 Grades Posted and Final Grade Information"
   else:
-    Message = "Hello class,\nThis week’s scores have been posted.\nPlease look over your scores and my comments and let me know if you have any questions or concerns.  In order to see my comments, there is a little box next to your score that you can click and see some information I have left for you.\nIf you complete any work (besides participation) between now and the end of the day Friday, I will update your score on Saturday with a 10% late penalty."
+    Message = f"Hello class,\n\nThe week {WeekNumber} scores have been posted.\n\nPlease look over your scores and my comments and let me know if you have any questions or concerns.  In order to see my comments, there is a little box next to your score that you can click and see some information I have left for you.\n\nIf you complete any work (besides participation) between now and the end of the day Friday, I will update your score on Saturday with a 10% late penalty."
     Subject = f"Week {WeekNumber} Grades Posted"
-  print(Subject,Message)
-  #PostIndividualAnnouncement(Subject,Message):
+  #print(Subject,Message)
+  PostIndividualAnnouncement(Subject,Message)
 
 
 
@@ -413,6 +419,7 @@ def on_button_click(i):
   Save.click()
   
   if AllPostsToggle.get(): #reset it to "No" -- I don't think this is working....
+    print("here")
     toggle_action()
 
   Next = WebDriverWait(driver, 3).until(
