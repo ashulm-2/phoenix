@@ -9,6 +9,7 @@ import time
 import datetime
 import subprocess
 from prompt import R
+from welcome import WM
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -250,6 +251,12 @@ def PostAnnouncements():
   FM = FT + datetime.timedelta(days=4) #FM stands for FirstMonday
   #print(CourseNumber, FT)
   #print(type(CourseNumber), type(FT))
+  
+  #post the welcome message
+  PostIndividualAnnouncement(
+    subject"Welcome and Instructor Information",
+    message=WM[CourseNumber],
+    ScheduleDate = FM.strftime("%m/%d/%y"))
 
   for Week in range(1,6):
     time.sleep(1)
