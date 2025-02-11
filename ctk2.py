@@ -231,7 +231,7 @@ def PostIndividualAnnouncement(subject,message,ScheduleDate=None):
 def ScoresPublishedAnnouncement():
   WeekNumber = WW.get()
   if WeekNumber == "5":
-    Message = "Hello class,\nThe final week’s grades are now published. Please look over your scores and my comments. The last day to make any comments about your final grade is Friday night, for I will be posting grades on Saturday morning.\nYou also have until Friday to complete any non-participation assignments for credit with a 10% penalty.\nIt was a pleasure working with everyone, and I wish you the best of luck with the remainder of your education!  If you need to contact me after the course ends, please feel free to email me:  ashulman@phoenix.edu."
+    Message = "Hello class,\n\nThe final week’s grades are now published. Please look over your scores and my comments. The last day to make any comments about your final grade is Friday night, for I will be posting grades on Saturday morning.\n\nYou also have until Friday to complete any non-participation assignments for credit with a 10% penalty.\n\nIt was a pleasure working with everyone, and I wish you the best of luck with the remainder of your education!\n\nIf you need to contact me after the course ends, please feel free to email me:  ashulman@phoenix.edu.\n\nBest,\nDrew"
     Subject = "Week 5 Grades Posted and Final Grade Information"
   else:
     Message = f"Hello class,\n\nThe week {WeekNumber} scores have been posted.\n\nPlease look over your scores and my comments and let me know if you have any questions or concerns.  In order to see my comments, there is a little box next to your score that you can click and see some information I have left for you.\n\nIf you complete any work (besides participation) between now and the end of the day Friday, I will update your score on Saturday with a 10% late penalty."
@@ -254,7 +254,7 @@ def PostAnnouncements():
   
   #post the welcome message
   PostIndividualAnnouncement(
-    subject"Welcome and Instructor Information",
+    subject="Welcome and Instructor Information",
     message=WM[CourseNumber],
     ScheduleDate = FM.strftime("%m/%d/%y"))
 
