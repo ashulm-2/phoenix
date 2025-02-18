@@ -224,6 +224,10 @@ def PostIndividualAnnouncement(subject,message,ScheduleDate=None):
     Time.send_keys(Keys.CONTROL + "a")
     Time.send_keys(Keys.DELETE)
     Time.send_keys("2:30 AM")
+  else: #send email announcement
+    Btn = driver.find_element(By.CSS_SELECTOR,"[id='send-email-checkbox']")
+    Btn.click()
+    
 
   Post = driver.find_element(By.CSS_SELECTOR,"button[data-analytics-id='course.announcements.detailPanel.post.button']")
   Post.click()
