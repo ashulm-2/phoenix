@@ -10,6 +10,17 @@ Nice work with your weekly participation!""",
     2: "40",
     3:1},
 
+  "401": {
+    0: "Credited, but replies need more",
+    1: """Thursday post (25% of credit): Yes
+Thursday post on time (25% of credit): Yes
+First reply (25% of credit): Yes
+Second Reply (25% of credit): Yes
+
+Very nice job with your initial reply!  I did credit your replies this week, but they were a little light on content.  Replies should meet the 75 word minimum, but also push the conversation forward (by including new information or by asking leading questions).  Please try to include that in subsequent weeks, and let me know if you have any questions.""",
+    2: "40",
+    3:1},
+
   "300": {
     0: "combined replies",
     1: """Thursday post (25% of credit): Yes

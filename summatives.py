@@ -184,4 +184,59 @@ SummativeRubrics = {
       1: {0: "Grammar, mechanics issues", 1: 80, 2: "There were some slight issues with your grammar, spelling, mechanics, etc."},
     }
   },
+ "MTH110Week2": {
+    1: {
+      0: {0: "Resume 1: information included", 1: 100, 2: "Great job listing all of Resume 1's personal information."},
+      1: {0: "Missing info: name, birthplace, date of birth", 1: 85, 2: "You are missing some of the personal information for Resume 1, which should have included name, place of birth, and date of birth."},
+      2: {0: "Missing all info", 1: 0, 2: "You are missing all of the personal information for Resume 1, which should have included name, place of birth, and date of birth."},
+    },
+    2: {
+      0: {0: "Resume 1: Two education and two experiences", 1: 100, 2: "I enjoyed reading your experiences for Resume 1."},
+      1: {0: "Resume 1: Missing education or experiences", 1: 80, 2: "You didn't include the mathematician's education and two experiences."},
+      2: {0: "Resume 1: Missing education and experiences", 1: 0, 2: "You didn't include the mathematician's education and two experiences."}
+    },
+    3: {
+      0: {0: "Resume 1: Accolades/awards, achievements, and skills", 1: 100, 2: "Thanks for sharing the awards, achievements, and skills on your first resume!"},
+      1: {0: "Resume 1: Missing at least 2 accolades, awards, or publications", 1: 90, 2: "You didn't include at least two accolades, awards, or publications for your first resume."},
+      2: {0: "Resume 1: Missing at least 3 achievements or discoveries", 1: 90, 2: "You didn't include at least three achievements or discoveries for your first resume."},
+      3: {0: "Resume 1: Missing at least 5 skills", 1: 90, 2: "You didn't include at least five skills of the mathematician on your first resume."},
+      4: {0: "Resume 1: Missing accolades, awards, or publications and achievements", 1: 75, 2: "You didn't include at least two accolades, awards, or publications and you didn't include at least three achievements or discoveries for your first resume."},
+      5: {0: "Resume 1: Missing accolades, awards, or publications and skills", 1: 75, 2: "You didn't include at least two accolades, awards, or publications and you didn't include at least five skills for your first resume."},
+      6: {0: "Resume 1: Missing achievements and skills", 1: 75, 2: "You didn't include at least three achievements or discoveries and you didn't include at least five skills for your first resume."},
+      7: {0: "Resume 1: Missing awards, achievements, AND skills", 1: 50, 2: "You didn't include at least two accoldates, awards, or publications, nor did you include at least three achievements or discoveries and you didn't include at least five skills for your first resume."},
+    },
+    4: {
+      0: {0: "Resume 1: 2 References or reviews", 1: 100, 2: "Those were excellent references/reviews by contemporary mathematicians about your first mathematician!"},
+      1: {0: "Resume 1: Missing 1 references or reviews", 1: 80, 2: "You were missing one review or reference by contemporary mathematicians about your first mathematician.  There should have been two such reviews."},
+      2: {0: "Resume 1: Missing both references or reviews", 1: 00, 2: "You were missing at least two reviews or references by contemporary mathematicians about your first mathematician."},
+    },
+    5: {
+      0: {0: "Resume 2: information included", 1: 100, 2: "Great job listing all of Resume 2's personal information."},
+      1: {0: "Missing info: name, birthplace, date of birth", 1: 85, 2: "You are missing some of the personal information for Resume 2, which should have included name, place of birth, and date of birth."},
+      2: {0: "Missing all info", 1: 0, 2: "You are missing all of the personal information for Resume 2, which should have included name, place of birth, and date of birth."},
+    },
+    6: {
+      0: {0: "Resume 2: Two education and two experiences", 1: 100, 2: "I enjoyed reading your experiences for Resume 2."},
+      1: {0: "Resume 2: Missing education or experiences", 1: 80, 2: "You didn't include the mathematician's education and two experiences."},
+      2: {0: "Resume 2: Missing education and experiences", 1: 0, 2: "You didn't include the mathematician's education and two experiences."}
+    },
+    7: {
+      0: {0: "Resume 2: Accolades/awards, achievements, and skills", 1: 100, 2: "Thanks for sharing the awards, achievements, and skills on your second resume!"},
+      1: {0: "Resume 2: Missing at least 2 accolades, awards, or publications", 1: 90, 2: "You didn't include at least two accolades, awards, or publications for your second resume."},
+      2: {0: "Resume 2: Missing at least 3 achievements or discoveries", 1: 90, 2: "You didn't include at least three achievements or discoveries for your second resume."},
+      3: {0: "Resume 2: Missing at least 5 skills", 1: 90, 2: "You didn't include at least five skills of the mathematician on your second resume."},
+      4: {0: "Resume 2: Missing accolades, awards, or publications and achievements", 1: 75, 2: "You didn't include at least two accolades, awards, or publications and you didn't include at least three achievements or discoveries for your second resume."},
+      5: {0: "Resume 2: Missing accolades, awards, or publications and skills", 1: 75, 2: "You didn't include at least two accolades, awards, or publications and you didn't include at least five skills for your second resume."},
+      6: {0: "Resume 2: Missing achievements and skills", 1: 75, 2: "You didn't include at least three achievements or discoveries and you didn't include at least five skills for your second resume."},
+      7: {0: "Resume 2: Missing awards, achievements, AND skills", 1: 50, 2: "You didn't include at least two accoldates, awards, or publications, nor did you include at least three achievements or discoveries and you didn't include at least five skills for your second resume."},
+    },
+    8: {
+      0: {0: "Resume 2: 2 References or reviews", 1: 100, 2: "Those were excellent references/reviews by contemporary mathematicians about your second mathematician!"},
+      1: {0: "Resume 2: Missing 1 references or reviews", 1: 80, 2: "You were missing one review or reference by contemporary mathematicians about your second mathematician.  There should have been two such reviews."},
+      2: {0: "Resume 2: Missing both references or reviews", 1: 00, 2: "You were missing at least two reviews or references by contemporary mathematicians about your second mathematician."},
+    },
+    9: {
+      0: {0: "Grammar good!", 1: 100, 2: "Grammar and mechanics were well done!"},
+      1: {0: "Grammar, mechanics issues", 1: 80, 2: "There were some slight issues with your grammar, spelling, mechanics, etc."},
+    }
 }

@@ -188,9 +188,10 @@ def GradeIO():
   V = IOValue.get()
 
   for a in AllInputs:
+    time.sleep(0.5)
     try: #try to add scores to all the elements  
       a.send_keys(V)
-      a.submit()
+      a.send_keys(Keys.ENTER)
     except:
       print(a) 
       
@@ -253,6 +254,7 @@ def PostAnnouncements():
   CourseNumber = int(CN.get())
   FT = datetime.datetime.strptime(FirstThursday.get("1.0", "end-1c"),"%m/%d/%y")
   FM = FT + datetime.timedelta(days=4) #FM stands for FirstMonday
+  FirstTuesday = FT + datetime.timedelta(days=-2)
   #print(CourseNumber, FT)
   #print(type(CourseNumber), type(FT))
   
@@ -260,7 +262,7 @@ def PostAnnouncements():
   PostIndividualAnnouncement(
     subject="Welcome and Instructor Information",
     message=WM[CourseNumber],
-    ScheduleDate = FM.strftime("%m/%d/%y"))
+    ScheduleDate = FirstTuesday.strftime("%m/%d/%y"))
 
   for Week in range(1,6):
     time.sleep(1)
@@ -357,12 +359,28 @@ Content for Interactive Over Screen
 """
 tk.Label(IO, text="Navigate to the Interactive Overview page", font=("Arial", 20), bg="#e0f7fa").pack(pady=20)
 tk.Label(IO, text="Pick the point value of the assignment, and then hit enter.", font=("Arial", 15), bg="#e0f7fa").pack(pady=20)
-IOValue = ttk.Combobox(IO, values=["4", "5"])
+IOValue = ttk.Combobox(IO, values=["4", "5","10"])
 IOValue["state"] = "readonly"
 IOValue.pack(pady=10)
 IOValue.set("4")
 
 tk.Button(IO, text="Enter", command=GradeIO,width=20, bg="#444", fg="white").pack(pady=20)
+
+IOMessage = """I am just following up on your "Interactive Overview" response from this where you weren't able to say that you were confident with the material. That is totally fine, and I appreciate your honesty. I just wanted to reach out and ask if there's anything I can help with to increase that confidence level.
+
+I hope all is well.
+
+Best,
+Drew
+"""
+
+IOText = tk.Text(IO, wrap="word")
+IOText.insert("1.0", IOMessage)
+IOText.config(state="disabled")
+IOText.pack(pady=20)
+
+
+#text=IOMessage,font=("Arial", 15), bg="#e0f7fa").pack(pady=20)
 
 """ 
 End of Content for Interactive Over Screen
@@ -384,7 +402,7 @@ DiscussionValue.insert("1.0", "40")
 
 # Different buttons for participation
 data = [
-  [ ["All Good","40"]],
+  [ ["All Good","40"], ["Credited, but replies need more","401"]],
   [ ["Combined Replies","300"],
     ["Initial Reply Late", "301"], 
     ["Missing Second Reply", "302"]],
