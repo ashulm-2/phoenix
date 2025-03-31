@@ -207,8 +207,9 @@ SummativeRubrics = {
     },
     4: {
       0: {0: "Resume 1: 2 References or reviews", 1: 100, 2: "Those were excellent references/reviews by contemporary mathematicians about your first mathematician!"},
-      1: {0: "Resume 1: Missing 1 references or reviews", 1: 80, 2: "You were missing one review or reference by contemporary mathematicians about your first mathematician.  There should have been two such reviews."},
-      2: {0: "Resume 1: Missing both references or reviews", 1: 00, 2: "You were missing at least two reviews or references by contemporary mathematicians about your first mathematician."},
+      1: {0: "Resume 1: lacking decent quotes", 1: 80, 2: "Your references were quite light on content relating the two individuals (i.e. the resume writer and the reviewer)."},
+      2: {0: "Resume 1: Missing 1 references or reviews", 1: 80, 2: "You were missing one review or reference by contemporary mathematicians about your first mathematician.  There should have been two such reviews."},
+      3: {0: "Resume 1: Missing both references or reviews", 1: 00, 2: "You were missing at least two reviews or references by contemporary mathematicians about your first mathematician."},
     },
     5: {
       0: {0: "Resume 2: information included", 1: 100, 2: "Great job listing all of Resume 2's personal information."},
@@ -232,11 +233,13 @@ SummativeRubrics = {
     },
     8: {
       0: {0: "Resume 2: 2 References or reviews", 1: 100, 2: "Those were excellent references/reviews by contemporary mathematicians about your second mathematician!"},
-      1: {0: "Resume 2: Missing 1 references or reviews", 1: 80, 2: "You were missing one review or reference by contemporary mathematicians about your second mathematician.  There should have been two such reviews."},
-      2: {0: "Resume 2: Missing both references or reviews", 1: 00, 2: "You were missing at least two reviews or references by contemporary mathematicians about your second mathematician."},
+      1: {0: "Resume 2: lacking decent quotes", 1: 80, 2: "Your references were quite light on content relating the two individuals (i.e. the resume writer and the reviewer)."},
+      2: {0: "Resume 2: Missing 1 references or reviews", 1: 80, 2: "You were missing one review or reference by contemporary mathematicians about your second mathematician.  There should have been two such reviews."},
+      3: {0: "Resume 2: Missing both references or reviews", 1: 00, 2: "You were missing at least two reviews or references by contemporary mathematicians about your second mathematician."},
     },
     9: {
       0: {0: "Grammar good!", 1: 100, 2: "Grammar and mechanics were well done!"},
       1: {0: "Grammar, mechanics issues", 1: 80, 2: "There were some slight issues with your grammar, spelling, mechanics, etc."},
     }
+  }
 }

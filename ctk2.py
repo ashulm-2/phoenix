@@ -65,6 +65,7 @@ def SwitchTab():
       driver.switch_to.window(chwd[j])
       break
   PrintTitle()
+  
 
 
 
@@ -149,13 +150,15 @@ def SARubric(Course):
   show_frame(SA)
   global TKVars
   ClearFrame(SA)
+  
   tk.Label(SA, text="Grading for " + Course).grid(row=0, column=0)
   TKVars = [] #this holds the information from all the radio buttons
   Row = 1
+  Column = 0
   for part in SummativeRubrics[Course]:
     var = tk.IntVar(value=0)
     TKVars.append(var)
-    tk.Label(SA, text = f"Part {part}:").grid(row=Row, column=0, sticky="W")
+    tk.Label(SA, text = f"Part {part}:").grid(row=Row, column=Column, sticky="W")
     Row += 1
     #col = 1
     for grade in SummativeRubrics[Course][part]:
@@ -164,16 +167,19 @@ def SARubric(Course):
         value=grade, 
         variable=var,
         #command=lambda: SelectedRadio(Course)
-      ).grid(row=Row, column=0, sticky="W")
+      ).grid(row=Row, column=Column, sticky="W")
       Row += 1
       #col += 1
-    tk.Label(SA, text="=================================").grid(row=Row, column=0,sticky="W")
+    tk.Label(SA, text="=================================").grid(row=Row, column=Column,sticky="W")
     Row += 1
+    if (Row > 20):
+      Row = 0
+      Column += 1
 
   tk.Button(SA,
     text="Submit Grade",
     command=lambda: SelectedRadio(Course)
-  ).grid(row=Row, column=0)
+  ).grid(row=Row, column=Column)
     
 
 def GradeIO():
