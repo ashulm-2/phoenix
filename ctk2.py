@@ -46,6 +46,25 @@ def show_frame(frame):
 def ClearFrame(frame): #clear the current frame of all elements
   for widget in frame.winfo_children():
     widget.destroy()
+
+def focus_next(event, next_widget):
+  next_widget.focus_set()
+  return "break"  # Prevent default tab behavior
+
+
+def on_text_change(event):
+  #this will update the volume calculation each time the length and width from MTH210Week3 are changed
+  try:
+    L = float(Length.get("1.0", "end-1c"))
+    W = float(Width.get("1.0", "end-1c"))
+    V = (7*W+W*W/4)*L
+    Volume.config(text=f"Volume: {V}")
+    Length.edit_modified(False) #resets the modified flag
+    Width.edit_modified(False)
+  except:
+    Length.edit_modified(False) #resets the modified flag
+    Width.edit_modified(False)
+  
   
 
 
@@ -145,10 +164,13 @@ def SelectedRadio(Course):
   SARubric(Course)
   
 
+Length = None
+Width = None
+Volume = None
 
 def SARubric(Course):
   show_frame(SA)
-  global TKVars
+  global TKVars, Length, Width, Volume
   ClearFrame(SA)
   
   tk.Label(SA, text="Grading for " + Course).grid(row=0, column=0)
@@ -173,6 +195,8 @@ def SARubric(Course):
     tk.Label(SA, text="=================================").grid(row=Row, column=Column,sticky="W")
     Row += 1
     if (Row > 20):
+      if Column == 0:
+        MaxRow1 = Row #this will allow us to move below column 1
       Row = 0
       Column += 1
 
@@ -180,6 +204,31 @@ def SARubric(Course):
     text="Submit Grade",
     command=lambda: SelectedRadio(Course)
   ).grid(row=Row, column=Column)
+
+  if Course == "MTH210Week3":
+    Row = MaxRow1 + 10
+    tk.Label(SA,text="Length: ").grid(row=Row, column=0)
+    Length = tk.Text(SA, height=1, width=10)
+    Length.grid(row=Row, column=1)
+    Length.insert("1.0", "10")
+
+    tk.Label(SA,text="Width: ").grid(row=Row, column=2)
+    Width = tk.Text(SA, height=1, width=10)
+    Width.grid(row=Row, column=3)
+    Width.insert("1.0", "10")
+
+    Volume = tk.Label(SA, text="Volume: 900")
+    Volume.grid(row=Row+1,column=0)
+
+    Length.bind("<<Modified>>",on_text_change)
+    Width.bind("<<Modified>>",on_text_change)
+
+    #set tab order
+    Length.bind("<Tab>", lambda e: focus_next(e, Width))
+    Width.bind("<Tab>", lambda e: focus_next(e, Length))
+
+    
+
     
 
 def GradeIO():
@@ -322,7 +371,7 @@ content_area.grid_columnconfigure(0, weight=1)
 
 
 # Sidebar buttons for navigation
-tk.Button(sidebar, text="Switch Tab", command=SwitchTab, width=20, bg="#444", fg="white").pack(pady=10)
+tk.Button(sidebar, text="Switch Tablength", command=SwitchTab, width=20, bg="#444", fg="white").pack(pady=10)
 
 TitleLabel = tk.Label(sidebar, text="", wraplength=200)
 TitleLabel.pack(pady=10)
