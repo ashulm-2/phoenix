@@ -10,6 +10,8 @@ SummativeRubrics = {
       6: {0: "Triangles not in corners & couches not touching", 1: 80, 2: "The triangular tables should be in the corners, and the couches should be touching."},
       7: {0: "Shelf drawing, tables not in corners, & couches not touching", 1: 70, 2: "The shelf should look like a rectangle drawn from a top view, the triangular tables should be in the corners, and the couches should be touching."},
       8: {0: "Major issues with furniture", 1: 60, 2: "You had some issues with the furniture drawing.  The couches should all be touching, with one of them on a wall, and the triangular tables should be in the corners, and the shelf should look like a rectangle drawn from a top view."},
+      9: {0: "Couches wrong size", 1: 80, 2: "our couches are not drawn to the right size.  There should be one 5x3 and two 4x3 couches.  This change will effect your setup."},
+      10: {0: "Shelf drawing & couches wrong size", 1: 70, 2: "The shelf should look like a rectangle drawn from a top view, and your couches are not drawn to the right size.  There should be one 5x3 and two 4x3 couches.  This change will effect your setup."},
     },
     2: {
       0: {0: "Good explanation of difficulties", 1: 100, 2: "Your explanation of the difficulties in making the furniture fit was well reasoned."},
