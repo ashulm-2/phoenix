@@ -64,6 +64,8 @@ def on_text_change(event):
   except:
     Length.edit_modified(False) #resets the modified flag
     Width.edit_modified(False)
+
+
   
   
 
@@ -371,7 +373,7 @@ content_area.grid_columnconfigure(0, weight=1)
 
 
 # Sidebar buttons for navigation
-tk.Button(sidebar, text="Switch Tablength", command=SwitchTab, width=20, bg="#444", fg="white").pack(pady=10)
+tk.Button(sidebar, text="Switch Tab", command=SwitchTab, width=20, bg="#444", fg="white").pack(pady=10)
 
 TitleLabel = tk.Label(sidebar, text="", wraplength=200)
 TitleLabel.pack(pady=10)
@@ -476,6 +478,28 @@ def on_button_click(i):
 
   #P is the amount of points discussion is worth; most times it is worth 30 points, but other times it is worth 4 points
   P = float(DiscussionValue.get("1.0", "end-1c"))
+
+  Score = driver.find_elements(By.CSS_SELECTOR, "input[type='text'][placeholder='--']")
+
+  for s in Score:
+    try:
+      TP = R[i][3]*P
+      if AllPostsToggle.get(): #this means we need to deduct for all posts being on the same day
+        TP -= .125*P
+      s.click()
+      s.send_keys(str(TP))
+      s.send_keys(Keys.ENTER)
+      break
+    except Exception as e:
+      pass
+  
+  if AllPostsToggle.get(): #reset it to "No" -- I don't think this is working....
+    print("here")
+    toggle_action()
+
+
+
+
   Feedback = driver.find_element(By.CSS_SELECTOR, "bb-svg-icon[icon='add-feedback']")
   Feedback.click()
   FB = WebDriverWait(driver, 10).until(
@@ -486,25 +510,13 @@ def on_button_click(i):
   if AllPostsToggle.get(): #this is if all their posts were done on the same day
     Message += "\n\nAlso, all of your posts were on the same day, so there is a 12.5% deduction.  Make sure you spread your posts out over two separate days, per UOP policy."
   FB.send_keys(Message)
-  
-  Score = driver.find_elements(By.CSS_SELECTOR, "input[type='text'][placeholder='--']")
-  for s in Score:
-    try:
-      TP = R[i][3]*P
-      if AllPostsToggle.get(): #this means we need to deduct for all posts being on the same day
-        TP -= .125*P
-      s.send_keys(str(TP))
-      s.send_keys(Keys.ENTER)
-      break
-    except:
-      pass 
 
   Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='engagement.feedbackAuthoring.components.feedbackBody.content.primaryFeedback.graderFeedback.feedbackEditor.save']")
   Save.click()
+
+  #time.sleep(1)
+
   
-  if AllPostsToggle.get(): #reset it to "No" -- I don't think this is working....
-    print("here")
-    toggle_action()
 
   Next = WebDriverWait(driver, 3).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "a[analytics-id='course.engagement.nextSubmission.link']"))
