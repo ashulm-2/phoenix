@@ -228,7 +228,7 @@ def SARubric(Course):
     #set tab order
     Length.bind("<Tab>", lambda e: focus_next(e, Width))
     Width.bind("<Tab>", lambda e: focus_next(e, Length))
-
+    
     
 
     
