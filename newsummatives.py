@@ -33,6 +33,11 @@ NewSummativeRubrics = {
         2:"For 1(a), you chose the separable equation but it IS an initial value problem.  You should've chosen equation #4." #student feedback
       },
       1: {
+        0:"1(a) should be #4, but student chose 3 and also solved #3 in question 2", #GUI display
+        1: 25, #point deduction
+        2:"For 1(a), you chose the separable equation but it IS an initial value problem.  You should've chosen equation #4." #student feedback
+      },
+      2: {
         0:"1(a) should be #4, but student chose 1 or 2", #GUI display
         1: 30, #point deduction
         2:"For 1(a), #3 and #4 are the only separable equations, and only #4 is not an initial value problem, which is the one you should've chosen." #student feedback
@@ -53,6 +58,11 @@ NewSummativeRubrics = {
         0:"Minor error if they chose #3", #GUI display
         1: 5, #point deduction
         2:"In 1(b), when separating the variables from equation 3, it should have been 1/(y^2+1) dy = 4 dx." #student feedback
+      },
+      3: {
+        0:"Student chose 3 and also solved #3 in question 2", #GUI display
+        1: 100, #point deduction
+        2:"For 1(a), you chose the separable equation but it IS an initial value problem.  You again solved this problem in question 2, so you didn't end up solving both separable equations.  Note that in 1(a) it said which separable equation is NOT an IVP and in 2(a) it said which separable equation IS an IVP, so #3 cannot be both of those." #student feedback
       },
     },
     3: {
@@ -201,11 +211,16 @@ NewSummativeRubrics = {
         2:"For 4(a), you did not complete the problem." #student feedback
       },
       1: {
-        0:"Direction field missing parts", #GUI display
+        0:"Missing direction field slope lines", #GUI display
         1: 10, #point deduction
-        2:"For 4(a), your direction field is not correct." #student feedback
+        2:"For 4(a), you are missing the slope tick marks drawn on the direction field." #student feedback
       },
       2: {
+        0:"Missing sketch of solution on direction field", #GUI display
+        1: 10, #point deduction
+        2:"Your graph is missing the sketch of the solution, or that sketch is not correct.  The correct solution should look like a parabola that opens downward with vertex at (0, -2)." #student feedback
+      },
+      3: {
         0:"Direction field serious issues", #GUI display
         1: 25, #point deduction
         2:"For 4(a), your direction field is not correct." #student feedback

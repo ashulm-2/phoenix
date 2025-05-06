@@ -1,9 +1,29 @@
 #"C:\Program Files\Google\Chrome\Application\chrome.exe" https://faculty.phoenix.edu --remote-debugging-port=9222 --user-data-dir="C:/Users/ashul/AppData/Local/Google/Chrome/User Data/Default"
 
 import sys
+import os
+import psutil
 import time
+#first we make sure we're ready to close all browser windows
+
+"""
+C = input("You must close all Chrome browser windows before continuing.  If you're ready, type \"Y\".")
+if "y" in C.lower():
+  for proc in psutil.process_iter(['pid', 'name']):
+    if proc.info['name'] and 'chrome' in proc.info['name'].lower():
+      proc.kill()
+else:
+  import subprocess
+  cwd = os.getcwd()
+  subprocess.Popen("cmd",cwd=cwd)
+  time.sleep(10)
+  sys.exit()
+"""
+
+
 import datetime
 import subprocess
+import socket
 from prompt import R
 from welcome import WM
 from summatives import SummativeRubrics
@@ -21,9 +41,53 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
+
 # Set up the desired capabilities
 options = webdriver.ChromeOptions()
 options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+
+ChromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+RemoteDebuggingPort = 9222
+URL = "https://faculty.phoenix.edu"
+ChromeArgs = [
+  ChromePath,
+  f'--remote-debugging-port={RemoteDebuggingPort}',
+  '--new-window',
+  '--disable-popup-blocking',
+  '--disable-infobars',
+  URL
+]
+
+# === FUNCTION TO CHECK IF PORT IS OPEN ===
+def is_port_open(host: str, port: int, timeout=1.0) -> bool:
+  with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.settimeout(timeout)
+    try:
+      s.connect((host, port))
+      return True
+    except (ConnectionRefusedError, socket.timeout):
+      return False
+      
+"""
+# === LAUNCH CHROME ===
+print("Launching Chrome...")
+chrome_process = subprocess.Popen(ChromeArgs)
+
+# === WAIT FOR CHROME TO START LISTENING ===
+print(f"Waiting for Chrome to open port {RemoteDebuggingPort}...")
+for _ in range(10):  # Wait up to 30 seconds
+  if is_port_open('localhost', RemoteDebuggingPort):
+    print("Chrome is ready.")
+    break
+  time.sleep(5)
+else:
+  print("Failed to detect Chrome on port in time.")
+  chrome_process.terminate()
+  exit(1)
+"""  
+  
+
 
 """
 command = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
@@ -321,10 +385,15 @@ tk.Button(left_frame, text="Grade Discussion", command=lambda :(Clear(),DisplayD
 """List of Summative Assessments"""
 
 def DisplayListofSAs():
-  for count,A in enumerate(sorted(SummativeRubrics)):
-    tk.Button(scrollable_frame, text=A, command=lambda x=A: (Clear(),DisplaySA(x))).pack(pady=5)
+  tk.Label(scrollable_frame, text="New Version:").pack(pady=5)
   for count,A in enumerate(sorted(NewSummativeRubrics)):
     tk.Button(scrollable_frame, text=A, command=lambda x=A: (Clear(),NewDisplaySA(x))).pack(pady=5)
+  tk.Label(scrollable_frame, text="====================").pack(pady=5)
+  tk.Label(scrollable_frame, text="Old Version:").pack(pady=5)
+  for count,A in enumerate(sorted(SummativeRubrics)):
+    tk.Button(scrollable_frame, text=A, command=lambda x=A: (Clear(),DisplaySA(x))).pack(pady=5)
+  
+
                           
 tk.Button(left_frame, text="Grade Summative Assessments", command=lambda :(Clear(),DisplayListofSAs()), bg="#444", fg="white").pack(pady=10)
 
@@ -414,6 +483,7 @@ def SelectedCheckButtons(Course):
     Message = "Fantastic job with this assignment!  You did everything perfectly!"
   else:
     Message += "Everything else looks good!"
+    
 
   #this part sets the message for the student
   FB = driver.find_element(By.CSS_SELECTOR, "div[data-placeholder='Enter your feedback']")
@@ -425,7 +495,7 @@ def SelectedCheckButtons(Course):
   D = driver.find_elements(By.CSS_SELECTOR,"div[class^='makeStyleslabel-0-2-']")
   for part,v in Scores.items():
     D[4*(part-1)+WhichButton(v)].click()
-    time.sleep(0.25)
+    time.sleep(0.5)
     Input = driver.find_elements(By.CSS_SELECTOR, "input[aria-label^='Add a value']")
     for i in Input:
       i.send_keys(str(v))
@@ -515,6 +585,14 @@ def ScoresPublishedAnnouncement():
   print(Subject,Message)
   PostIndividualAnnouncement(Subject,Message)
 
+def UpdateWeeks(event):
+  """
+  when the course number combobox is changed, this will update the number of weeks available in the lower combobox
+  """
+  CourseNumber = CN.get()
+  NWeeks = len(AnnDict[int(CourseNumber)])
+  WW['values'] = [str(i) for i in range(1,NWeeks+1)]
+  WW.set("1")
 
 CN = None
 WW = None
@@ -525,6 +603,7 @@ def DisplayAnnouncements():
   CN = ttk.Combobox(scrollable_frame, values=CoursesList)
   CN["state"] = "readonly"
   CN.pack(pady=10)
+  CN.bind("<<ComboboxSelected>>", UpdateWeeks)
   CN.set("210")
 
   FirstThursday = tk.Text(scrollable_frame, height=1, width=10)
@@ -537,7 +616,7 @@ def DisplayAnnouncements():
 
   tk.Label(scrollable_frame,text="To create an announcement for published grades, nagivate to the announcements page, MAKE SURE TO CHOOSE THE CORRECT COURSE NUMBER ABOVE, and choose the week these grades are for.").pack(pady=10)
 
-  WW = ttk.Combobox(scrollable_frame, values=["1", "2", "3", "4", "5","6","7"])
+  WW = ttk.Combobox(scrollable_frame, values=["1", "2", "3", "4", "5"])
   WW["state"] = "readonly"
   WW.pack(pady=10)
   WW.set("1")

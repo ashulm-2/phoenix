@@ -321,6 +321,7 @@ def PostAnnouncements():
     message=WM[CourseNumber],
     ScheduleDate = FirstTuesday.strftime("%m/%d/%y"))
     
+
   #post AI announcements
   
   PostIndividualAnnouncement(
@@ -335,7 +336,10 @@ def PostAnnouncements():
   
     
 
-  for Week in range(1,6):
+  N = len(AnnDict[CourseNumber])
+
+
+  for Week in range(1,N+1):
     time.sleep(1)
     Offset = 7*(Week-1)
     Delta = datetime.timedelta(days=Offset)
@@ -349,7 +353,7 @@ def PostAnnouncements():
 
 
 
-  for Week in range(1,6):
+  for Week in range(1,N+1):
     time.sleep(1)
     Offset = 7*(Week-1)
     Delta = datetime.timedelta(days=Offset)
@@ -616,9 +620,20 @@ AnnDict[221][3] = "zyBook reading on integer properties and counting\nWk3 Summat
 AnnDict[221][4] = "zyBook reading on computation and induction with recursion"
 AnnDict[221][5] = "zyBook reading on discrete probability, graphs, and trees\nWk5 Summative Assessment"
 
+AnnDict[290] = {}
+AnnDict[290][1] = "zyBook reading\nReview Quiz"
+AnnDict[290][2] = "zyBook reading\nReview Quiz\nWk2 Summative Assessment"
+AnnDict[290][3] = "zyBook reading\nReview Quiz\nWk3 Summative Assessment"
+AnnDict[290][4] = "zyBook reading\nReview Quiz"
+AnnDict[290][5] = "zyBook reading\nReview Quiz"
+AnnDict[290][6] = "zyBook reading\nReview Quiz\nWk6 Summative Assessment"
+AnnDict[290][7] = "zyBook reading\nReview Quiz\nWk7 Summative Assessment"
+
+CoursesList = list(AnnDict.keys())
+
 tk.Label(Announcements, text="First, navigate to the announcements page of the course.  Next, choose which course the announcements are for.  Finally, type the date of the first Thursday for the course in the form MM/DD/YY.", bg="green").pack(pady=10)
 
-CN = ttk.Combobox(Announcements, values=["210", "217", "221"])
+CN = ttk.Combobox(Announcements, values=CoursesList)
 CN["state"] = "readonly"
 CN.pack(pady=10)
 CN.set("210")
