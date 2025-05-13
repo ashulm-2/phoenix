@@ -1,4 +1,154 @@
 NewSummativeRubrics = {
+  "MTH210Week3": {
+    1: {
+      0: {
+        0: "Identified two 1-D measurements", 
+        1: 15, 
+        2: "You only identified two different one-dimensional measurements, but you needed three of them."
+      },
+      1: {
+        0: "Identified one 1-D measurement", 
+        1: 30, 
+        2: "You only identified one distinct one-dimensional measurement, but you needed three of them."
+      }, 
+      2: {
+        0: "Missing all 1-D measurements", 
+        1: 100, 
+        2: "You did not identify any one-dimensional measurements."
+      },
+    },
+    2: {
+      0: {
+        0: "Identified three 2D shapes", 
+        1: 10, 
+        2: "You only identified three different two-dimensional shapes, but you needed four of them."
+      },
+      1: {
+        0: "Identified two 2D shapes", 
+        1: 20, 
+        2: "You only identified two different two-dimensional shapes, but you needed four of them."
+      },
+      2: {
+        0: "Identified one 2D shape", 
+        1: 35, 
+        2: "You only identified one distinct two-dimensional shapes, but you needed four of them."
+      }, 
+      2: {
+        0: "Missing all 2D shapes", 
+        1: 100, 
+        2: "You did not identify any two-dimensional shapes."
+      },
+    },
+    3: {
+      0: {
+        0: "Didn't list dimensions of shed", 
+        1: 100, 
+        2: "You did not list dimensions of the shed."
+      }, 
+    },
+    4: {
+      0: {
+        0: "Didn't explain choice of dimensions", 
+        1: 100, 
+        2: "You did not explain why you chose those dimensions."
+      }, 
+    },
+    5: {
+      0: {
+        0: "Incorrect volume, good range",
+        1: 15,
+        2: "For your choice of L,W, your volume calculation is incorrect.  With your choice of L,W, the correct volume does fall into the desired range: 600-1100 cubic feet.  To find the proper volume, you need to find the volume of the rectangular prism at the bottom of the shed and the triangular prism at the top of the shed."
+      },
+      1: {
+        0: "Incorrect volume, bad range", 
+        1: 25, 
+        2: "For your choice of L,W, your volume calculation is incorrect.  With your choice of L,W, the correct volume does not fall into the desired range: 600-1100 cubic feet.  To find the proper volume, you need to find the volume of the rectangular prism at the bottom of the shed and the triangular prism at the top of the shed."
+      },
+      2: {
+        0: "Incorrect volume, bad work", 
+        1: 40, 
+        2: "For your choice of L,W, your volume calculation is incorrect.  To find the proper volume, you need to find the volume of the rectangular prism at the bottom of the shed and the triangular prism at the top of the shed."
+      },
+      3: {
+        0: "No work", 
+        1: 100, 
+        2: "You did not show any work depicting the volume of the shed."
+      },
+    },
+  },
+  
+  "MTH210Week4": {
+    1: {
+      0: {
+        0: "Shelf drawn as triangle", 
+        1: 10, 
+        2: "From a top view, the shelf should look like a rectangle."
+      },
+      1: {
+        0: "Couches not touching", 
+        1: 10, 
+        2: "You didn't draw all the couches touching, which is part of the directions."
+      },
+      2: {
+        0: "Tables not in corners", 
+        1: 10, 
+        2: "The triangular tables should be in the corner."
+      },
+      3: {
+        0: "Issues with couch sizes", 
+        1: 20, 
+        2: "You have some minor issues with sizes of your couches."
+      },
+    },
+    2: {
+      0: {
+        0: "Minor issues with explanation of difficulties", 
+        1: 15, 
+        2: "You had an explanation of the difficulties in making the furniture fit, but some of your explanations did not make sense for the situation described in the assignment."
+      },
+      1: {
+        0: "No explanation of difficulties", 
+        1: 100, 
+        2: "You did not give an explanation of the difficulties of making the furniture fit."
+      },
+    },
+    3: {
+      0: {
+        0: "Not great explanation of sliding/rotating", 
+        1: 15, 
+        2: "You talked about sliding or rotating the furniture, but your explanation wasn't exactly correct."
+      },
+      1: {
+        0: "No explanation of sliding/rotating", 
+        1: 100, 
+        2: "You did not give an explanation of whether you could slide or rotate the furniture." 
+      },
+    },
+    4: {
+      0: {
+        0: "Shelf distance not quite correct (should be 1.86 feet)", 
+        1: 15, 
+        2: "Your calculation for the shelf distance wasn't correct, but you were on the right track."
+      },
+      1: {
+        0: "Shelf distance not close", 
+        1: 40, 
+        2: "Your calculation for the shelf distance wasn't correct.  It should have been 1.86 feet."
+      },
+    },
+    5: {
+      0: {
+        0: "Work for shelf distance not quite correct (should be tan(74) = 6.5/X)", 
+        1: 15, 
+        2: "Your work for calculating the shelf distance wasn't correct.  It should have been tan(74) = 6.5/X, and then solve for X."
+      },
+      1: {
+        0: "Work for shelf distance not correct", 
+        1: 40, 
+        2: "Your work for calculating the shelf distance wasn't correct.  It should have been tan(74) = 6.5/X, and then solve for X."
+      },
+    }, 
+  },
   "MTH290Week2": {
     1: {
       0: {
