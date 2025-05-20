@@ -135,7 +135,7 @@ root.title("Phoenix Grader")
 root.state("zoomed")
 
 root.grid_columnconfigure(0, weight=1)
-root.grid_columnconfigure(1, weight=3)
+root.grid_columnconfigure(1, weight=10)
 root.grid_rowconfigure(0, weight=1)
     
     
