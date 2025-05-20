@@ -377,4 +377,204 @@ NewSummativeRubrics = {
       },
     },
   },
+  "MTH290Week6": {
+    1: {
+      0: {
+        0:"1(a) -- not geometric explanation", #GUI display
+        1: 10, #point deduction
+        2:"To show that a series is not geometric, you should calculate the first few terms and show there is no common ratio.  For 1(a), the first few terms are 0, 1/5, and 4/25, and there is no common ratio to go from one term to the next for these three terms." #student feedback
+      },
+      1: {
+        0:"2(a) -- not geometric explanation", #GUI display
+        1: 10, #point deduction
+        2:"To show that a series is not geometric, you can calculate the first few terms and show there is no common ratio.  For 2(a), the first few terms are 1, 1/4, and 1/9, and there is no common ratio to go from one term to the next for these three terms. To go from 1 to 1/4, you must multiply by 1/4, but to go from 1/4 to 1/9 is not to multiply by 1/4." #student feedback
+      },
+      2: {
+        0:"3(a) -- not geometric explanation", #GUI display
+        1: 10, #point deduction
+        2:"To show that a series is not geometric, you can calculate the first few terms and show there is no common ratio.  For 3(a), this is like 2(a) where th3e first few terms are 1, 1/8, 1/27." #student feedback
+      },
+    },
+    2: {
+      0: {
+        0:"1(b) -- incorrect series test application", #GUI display
+        1: 35, #point deduction
+        2:"The series test you chose will not work here.  You should use the ratio or root tests." #student feedback
+      },
+      1: {
+        0:"1(b) -- missing work", #GUI display
+        1: 10, #point deduction
+        2:"Your solution for convergence in 1(b) is missing work." #student feedback
+      },
+    },
+    3: {
+      0: {
+        0:"1(c) -- missing work", #GUI display
+        1: 15, #point deduction
+        2:"Your solution for convergence in 1(c) is missing work." #student feedback
+      },
+      1: {
+        0:"1(c) -- missing first differentiation", #GUI display
+        1: 10, #point deduction
+        2:"In 1(c), your first step should be to differentiate the given power series." #student feedback
+      },
+      2: {
+        0:"1(c) -- missing first multiply by x", #GUI display
+        1: 10, #point deduction
+        2:"In 1(c), your second step should be to multiply the power series by x." #student feedback
+      },
+      3: {
+        0:"1(c) -- missing second differentiation", #GUI display
+        1: 10, #point deduction
+        2:"In 1(c), your third step should be to differentiate the power series." #student feedback
+      },
+      4: {
+        0:"1(c) -- missing second multiply by x", #GUI display
+        1: 10, #point deduction
+        2:"In 1(c), your final step should be to multiply the power series by x." #student feedback
+      },
+    },
+    4: {
+      1: {
+        0:"1(d) -- incorrect interval, missing work", #GUI display
+        1: 25, #point deduction
+        2:"You have the incorrect interval of convergence in 1(d) and missing or incorrect work showing how you got it.  You should either use the Ratio Test and test the endpoints, or you can use your knowledge of operations on power series based on the operations you performed in part (c)." #student feedback
+      },
+      1: {
+        0:"1(d) -- correct interval of (-1,1), missing work", #GUI display
+        1: 20, #point deduction
+        2:"You have the correct interval of convergence in 1(d), but no work showing how you got it.  You should either use the Ratio Test and test the endpoints, or you can use your knowledge of operations on power series based on the operations you performed in part (c)." #student feedback
+      },
+      2: {
+        0:"1(d) -- wrong Ratio/Root Test", #GUI display
+        1: 10, #point deduction
+        2:"You should have found that the radius of convergence is R=1." #student feedback
+      },
+      3: {
+        0:"1(d) -- wrong left endpoint", #GUI display
+        1: 5, #point deduction
+        2:"The left endpoint is x=-1 and should not be included." #student feedback
+      },
+      4: {
+        0:"1(d) -- wrong right endpoint", #GUI display
+        1: 5, #point deduction
+        2:"The left endpoint is x=+1 and should not be included." #student feedback
+      },
+      5: {
+        0:"1(e) -- correct value of 15/32, didn't specify x value or show work", #GUI display
+        1: 20, #point deduction
+        2:"In 1(e), how did you get the value of 15/32?  You didn't show your work.  " #student feedback
+      },
+      6: {
+        0:"1(e) -- incorrect value, tried something", #GUI display
+        1: 10, #point deduction
+        2:"In 1(e), you should plug in x=1/5, and you would get a value of 15/32." #student feedback
+      },
+      7: {
+        0:"1(e) -- blank", #GUI display
+        1: 25, #point deduction
+        2:"In 1(e), it is blank or all incorreect.  You should plug in x=1/5 to the series from (c), and you would get a value of 15/32." #student feedback
+      },
+    },
+    5: {
+      0: {
+        0:"2(b) -- bad work, but something", #GUI display
+        1: 10, #point deduction
+        2:"In 2(b), you should use the p-series test with p=2 to find that since p=2>1, the series converges." #student feedback
+      },
+      1: {
+        0:"2(b) -- bad work, nothing", #GUI display
+        1: 50, #point deduction
+        2:"In 2(b), you should use the p-series test with p=2 to find that since p=2>1, the series converges." #student feedback
+      },
+      2: {
+        0:"3(b) -- bad work, but something", #GUI display
+        1: 10, #point deduction
+        2:"In 3(b), you should use the p-series test with p=3 to find that since p=3>1, the series converges." #student feedback
+      },
+      3: {
+        0:"3(b) -- bad work, nothing", #GUI display
+        1: 50, #point deduction
+        2:"In 3(b), you should use the p-series test with p=3 to find that since p=3>1, the series converges." #student feedback
+      },
+    },
+    6: {
+      0: {
+        0:"2(c) -- terms should be 1, 5/4, 49/36, 205/144, 5269/3600", #GUI display
+        1: 5, #point deduction
+        2:"In 2(c), you have most of the terms in the sequence of partial sums.  They should be 1, 5/4, 49/36, 205/144, 5269/3600." #student feedback
+      },
+      1: {
+        0:"2(c) -- terms should be 1, 5/4, 49/36, 205/144, 5269/3600", #GUI display
+        1: 15, #point deduction
+        2:"In 2(c), you have some of the terms in the sequence of partial sums.  They should be 1, 5/4, 49/36, 205/144, 5269/3600." #student feedback
+      },
+      2: {
+        0:"2(c) -- terms should be 1, 5/4, 49/36, 205/144, 5269/3600", #GUI display
+        1: 25, #point deduction
+        2:"In 2(c), the terms should be 1, 5/4, 49/36, 205/144, 5269/3600." #student feedback
+      },
+      3: {
+        0:"2(c) -- found terms of series", #GUI display
+        1: 45, #point deduction
+        2:"In 2(c), you found the terms of the series and not the terms in the sequence of partial sums." #student feedback
+      },
+      4: {
+        0:"2(c) -- bad guess for series convergence", #GUI display
+        1: 10, #point deduction
+        2:"In 2(c), based on your sequence of partial sums, your guess does not match.  The guess should be what the terms in the sequence of partial sums are approaching." #student feedback
+      },
+    },
+    7: {
+      0: {
+        0:"2(d) -- some research", #GUI display
+        1: 10, #point deduction
+        2:"In 2(d), you should have found that Leonhard Euler found that the series sums to pi^2/6.  This is an extraordinary result given that it took mathematicians years to determine its true value!" #student feedback
+      },
+      1: {
+        0:"2(d) -- no research", #GUI display
+        1: 100, #point deduction
+        2:"In 2(d), you should have found that Leonhard Euler found that the series sums to pi^2/6.  This is an extraordinary result given that it took mathematicians years to determine its true value!" #student feedback
+      },
+    },
+    8: {
+      0: {
+        0:"3(c) -- terms should be 1, 9/8, 251/216, 2035/1728, 256103/216000", #GUI display
+        1: 5, #point deduction
+        2:"In 3(c), you have most of the terms in the sequence of partial sums.  They should be 1, 9/8, 251/216, 2035/1728, 256103/216000." #student feedback
+      },
+      1: {
+        0:"3(c)", #GUI display
+        1: 15, #point deduction
+        2:"In 3(c), you have some of the terms in the sequence of partial sums.  They should be 1, 9/8, 251/216, 2035/1728, 256103/216000." #student feedback
+      },
+      2: {
+        0:"3(c)", #GUI display
+        1: 25, #point deduction
+        2:"In 3(c), the terms should be 1, 9/8, 251/216, 2035/1728, 256103/216000." #student feedback
+      },
+      3: {
+        0:"3(c) -- found terms of series", #GUI display
+        1: 45, #point deduction
+        2:"In 3(c), you found the terms of the series and not the terms in the sequence of partial sums." #student feedback
+      },
+      4: {
+        0:"3(c) -- bad guess for series convergence", #GUI display
+        1: 10, #point deduction
+        2:"In 3(c), based on your sequence of partial sums, your guess does not match.  The guess should be what the terms in the sequence of partial sums are approaching." #student feedback
+      },
+    },
+    9: {
+      0: {
+        0:"3(d) -- some research", #GUI display
+        1: 10, #point deduction
+        2:"In 3(d), you should have found that to this day, we still do not know what this series sums to.  It is almost 300 years since Euler found the sum of the series in problem 2, and still no one has been able to figure out what the sum of the series in problem 3 is!  The first mathematician to solve this problem will achieve immediate fame!" #student feedback
+      },
+      1: {
+        0:"3(d) -- no research", #GUI display
+        1: 100, #point deduction
+        2:"In 3(d), you should have found that to this day, we still do not know what this series sums to.  It is almost 300 years since Euler found the sum of the series in problem 2, and still no one has been able to figure out what the sum of the series in problem 3 is!  The first mathematician to solve this problem will achieve immediate fame!" #student feedback
+      },
+    },
+  },
 }
