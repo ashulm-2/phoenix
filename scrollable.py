@@ -273,6 +273,54 @@ tk.Button(left_frame, text="Grade Interactive Overviews", command= lambda :(Clea
 
 """Grading Discussion"""
 
+import nltk
+import re
+nltk.download('punkt_tab')
+from nltk.tokenize import sent_tokenize
+
+def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
+  sentence = sentence.lower()
+  if any(re.search(p, sentence) for p in substantive_clues):
+    return True
+  if all(re.search(p, sentence) for p in shallow_phrases if re.search(p, sentence)):
+    return False
+  # fallback: check length
+  return len(sentence.split()) >= 6
+
+def is_substantive_reply_advanced(reply):
+  # Common phrases that are non-substantive
+  shallow_phrases = [
+    r"\bthank(s| you)\b", r"\bgreat (job|post)\b", r"\bwell said\b",
+    r"\bi agree\b", r"\bnice work\b", r"\bgood point\b", r"\bloved your post\b",
+    r"\byou're right\b", r"\binspiring\b", r"\bhelpful\b"
+  ]
+
+  # Phrases that indicate substance
+  substantive_clues = [
+    r"\baccording to\b", r"\bin my experience\b", r"\bthis relates to\b",
+    r"\bone thing i'd add\b", r"\bi wonder if\b", r"\bthis connects to\b",
+    r"\bi also found\b", r"\bwhat do you think\b", r"\ba possible limitation\b",
+    r"\bthe reading (says|explains|shows)\b", r"\bfor example\b"
+  ]
+
+  sentences = sent_tokenize(reply)
+  substantive_count = sum(is_substantive_sentence(s, shallow_phrases, substantive_clues) for s in sentences)
+
+  return substantive_count > 0
+
+
+def GetMessageInfo(Message,cls = "span.date"):
+  """
+  given the Message element, it finds the specific element with class like selection "cls"
+
+  The function can grab the user name, the date, time, and actual message
+  """
+  try:
+    D = Message.find_element(By.CSS_SELECTOR, cls)
+    return D.text
+  except:
+    return ""
+
 def on_button_click(i):
   global AllPostsToggle
 
@@ -374,6 +422,58 @@ def DisplayDiscussion():
   )
   ToggleButton.grid(row=7,column=1, pady=10)
   tk.Label(scrollable_frame, text="All Posts One Day?", font=Bold).grid(row=7, column=0)
+
+  CurrentName = driver.find_element(By.CSS_SELECTOR,"li.slick-current")
+  Name = CurrentName.find_element(By.CSS_SELECTOR, "bdi[class^='makeStylesbaseText-0-2']")
+  
+  S = driver.find_element(By.CSS_SELECTOR, "div.engagement-detail")
+  for _ in range(10):
+    driver.execute_script("arguments[0].scrollTop += 300;", S)
+    time.sleep(0.1)
+  #time.sleep(3)
+  
+  
+  
+  # Weekday numbers: Monday=0, ..., Friday=4, Sunday=6
+  Now = datetime.datetime.now()
+  DaysSinceFriday = (Now.weekday() - 4) % 7 or 7
+  PreviousFridayAt5 = Now - datetime.timedelta(days=DaysSinceFriday)
+  
+  #set time to 5AM
+  PreviousFridayAt5.replace(hour=5, minute=0, second=0, microsecond=0)
+  
+  Messages = driver.find_elements(By.CSS_SELECTOR, "bb-message")
+  Row = 8
+  for Message in Messages:  
+    User = GetMessageInfo(Message,"bb-linked-username[analytics-id='discussion.message.user']")
+    
+    if User != Name.text:
+      continue
+    
+    Date = GetMessageInfo(Message,"span.date")
+    Time = GetMessageInfo(Message,"span.time")
+    Content = GetMessageInfo(Message,"bb-rich-text-editor")
+
+    if Date == "" or Time == "" or Content == "":
+      continue
+
+    WordCount = len(Content.split())
+    
+    DateTimeStr = Date + " " + Time
+    DT = datetime.datetime.strptime(DateTimeStr, "%b %d, %Y %I:%M %p")
+    
+    BeforeDeadline = False
+    BDM = "not"
+    if DT < PreviousFridayAt5:
+      BeforeDeadline = True
+      BDM = ""
+
+    
+    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words is {BDM} substantive").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
+    Row += 1
+      
+    #print(User,Date,Time,WordCount)
+    #print(is_substantive_reply_advanced(Content))
 
   
   
@@ -638,106 +738,15 @@ tk.Button(left_frame, text="Create Announcements", command= lambda :(Clear(),Dis
 
 """testing page"""
 
-import nltk
-import re
-nltk.download('punkt_tab')
-from nltk.tokenize import sent_tokenize
 
-def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
-  sentence = sentence.lower()
-  if any(re.search(p, sentence) for p in substantive_clues):
-    return True
-  if all(re.search(p, sentence) for p in shallow_phrases if re.search(p, sentence)):
-    return False
-  # fallback: check length
-  return len(sentence.split()) >= 6
-
-def is_substantive_reply_advanced(reply):
-  # Common phrases that are non-substantive
-  shallow_phrases = [
-    r"\bthank(s| you)\b", r"\bgreat (job|post)\b", r"\bwell said\b",
-    r"\bi agree\b", r"\bnice work\b", r"\bgood point\b", r"\bloved your post\b",
-    r"\byou're right\b", r"\binspiring\b", r"\bhelpful\b"
-  ]
-
-  # Phrases that indicate substance
-  substantive_clues = [
-    r"\baccording to\b", r"\bin my experience\b", r"\bthis relates to\b",
-    r"\bone thing i'd add\b", r"\bi wonder if\b", r"\bthis connects to\b",
-    r"\bi also found\b", r"\bwhat do you think\b", r"\ba possible limitation\b",
-    r"\bthe reading (says|explains|shows)\b", r"\bfor example\b"
-  ]
-
-  sentences = sent_tokenize(reply)
-  substantive_count = sum(is_substantive_sentence(s, shallow_phrases, substantive_clues) for s in sentences)
-
-  return substantive_count > 0
   
   
 tk.Button(left_frame, text="Testing", command= lambda :(Clear(), Testing()), bg="#444", fg="white").pack(pady=10) 
 
+
+
 def Testing():
-  CurrentName = driver.find_element(By.CSS_SELECTOR,"li.slick-current")
-  Name = CurrentName.find_element(By.CSS_SELECTOR, "bdi[class^='makeStylesbaseText-0-2']")
-  print(Name.text)
-  
-  S = driver.find_element(By.CSS_SELECTOR, "div.engagement-detail")
-  for _ in range(10):
-    driver.execute_script("arguments[0].scrollTop += 300;", S)
-  time.sleep(3)
-  
-  
-  
-  # Weekday numbers: Monday=0, ..., Friday=4, Sunday=6
-  Now = datetime.datetime.now()
-  DaysSinceFriday = (Now.weekday() - 4) % 7 or 7
-  PreviousFridayAt5 = Now - datetime.timedelta(days=DaysSinceFriday)
-  
-  #set time to 5AM
-  PreviousFridayAt5.replace(hour=5, minute=0, second=0, microsecond=0)
-  
-  Messages = driver.find_elements(By.CSS_SELECTOR, "bb-message")
-  print(len(Messages))
-  for Message in Messages:   
-    try:
-      U = Message.find_element(By.CSS_SELECTOR, "bb-linked-username[analytics-id='discussion.message.user']")
-      User = U.text
-    except:
-      continue
-      
-    if User != Name.text:
-      continue
-      
-    try:
-      D = Message.find_element(By.CSS_SELECTOR, "span.date")
-      Date = D.text
-    except:
-      continue
-    
-    try:
-      T = Message.find_element(By.CSS_SELECTOR, "span.time")
-      Time = T.text
-    except:
-      continue
-    
-      
-    try:
-      C = Message.find_element(By.CSS_SELECTOR, "bb-rich-text-editor")
-      Content = C.text
-      WordCount = len(Content.split())
-    except:
-      continue
-      
-    DateTimeStr = Date + " " + Time
-    DT = datetime.datetime.strptime(DateTimeStr, "%b %d, %Y %I:%M %p")
-    
-    if DT < PreviousFridayAt5:
-      print("Before Friday")
-    else:
-      print("After Friday")
-      
-    print(User,Date,Time,WordCount)
-    print(is_substantive_reply_advanced(Content))
+  pass
  
   
 
