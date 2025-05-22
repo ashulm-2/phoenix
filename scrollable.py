@@ -10,8 +10,8 @@ import time
 C = input("You must close all Chrome browser windows before continuing.  If you're ready, type \"Y\".")
 if "y" in C.lower():
   for proc in psutil.process_iter(['pid', 'name']):
-    if proc.info['name'] and 'chrome' in proc.info['name'].lower():
-      proc.kill()
+  if proc.info['name'] and 'chrome' in proc.info['name'].lower():
+    proc.kill()
 else:
   import subprocess
   cwd = os.getcwd()
@@ -43,10 +43,13 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 
+
 # Set up the desired capabilities
 options = webdriver.ChromeOptions()
 options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 
+
+"""
 ChromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 RemoteDebuggingPort = 9222
 URL = "https://faculty.phoenix.edu"
@@ -59,17 +62,19 @@ ChromeArgs = [
   URL
 ]
 
+
+
 # === FUNCTION TO CHECK IF PORT IS OPEN ===
 def is_port_open(host: str, port: int, timeout=1.0) -> bool:
   with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.settimeout(timeout)
-    try:
-      s.connect((host, port))
-      return True
-    except (ConnectionRefusedError, socket.timeout):
-      return False
-      
-"""
+  s.settimeout(timeout)
+  try:
+    s.connect((host, port))
+    return True
+  except (ConnectionRefusedError, socket.timeout):
+    return False
+    
+
 # === LAUNCH CHROME ===
 print("Launching Chrome...")
 chrome_process = subprocess.Popen(ChromeArgs)
@@ -80,11 +85,11 @@ for _ in range(10):  # Wait up to 30 seconds
   if is_port_open('localhost', RemoteDebuggingPort):
     print("Chrome is ready.")
     break
-  time.sleep(5)
-else:
-  print("Failed to detect Chrome on port in time.")
-  chrome_process.terminate()
-  exit(1)
+    time.sleep(5)
+  else:
+    print("Failed to detect Chrome on port in time.")
+    chrome_process.terminate()
+    exit(1)
 """  
   
 
@@ -137,10 +142,10 @@ root.state("zoomed")
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=10)
 root.grid_rowconfigure(0, weight=1)
-    
-    
+  
+  
 
-    
+  
 
 
 # Right Pane
@@ -188,7 +193,7 @@ def PrintTitle():
   except Exception as e:
     print(e)
     TitleLabel.config(text="error")
-    
+  
 def SwitchTab():
   chwd = driver.window_handles
   p = driver.current_window_handle
@@ -231,7 +236,7 @@ def GradeIO():
       a.send_keys(Keys.ENTER)
     except:
       print(a) 
-      
+    
 
 def DisplayIO():
   """ 
@@ -288,14 +293,14 @@ def on_button_click(i):
     except Exception as e:
       pass
   
-  if AllPostsToggle.get(): #reset it to "No" -- I don't think this is working....
+  if AllPostsToggle.get(): 
     AllPostsToggle.set(False)
-    ToggleButton.config(text=f"{AllPostsToggle.get()}")
+  ToggleButton.config(text=f"{AllPostsToggle.get()}")
 
   Feedback = driver.find_element(By.CSS_SELECTOR, "bb-svg-icon[icon='add-feedback']")
   Feedback.click()
   FB = WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-placeholder='Students see your feedback when you post grades']"))
+  EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-placeholder='Students see your feedback when you post grades']"))
   )
 
   Message = R[i][1] #this is the message explaining the grade
@@ -311,7 +316,7 @@ def on_button_click(i):
   
 
   Next = WebDriverWait(driver, 3).until(
-    EC.element_to_be_clickable((By.CSS_SELECTOR, "a[analytics-id='course.engagement.nextSubmission.link']"))
+  EC.element_to_be_clickable((By.CSS_SELECTOR, "a[analytics-id='course.engagement.nextSubmission.link']"))
   )
   Next.click()
   
@@ -351,21 +356,21 @@ def DisplayDiscussion():
     for col_index, cell_data in enumerate(row_data):
       # Create a button for each cell
       button = tk.Button(
-        scrollable_frame,
-        text=cell_data[0],
-        command=lambda cd = cell_data[1]:on_button_click(cd),
-        width=30,  # Adjust button width
-        height=2   # Adjust button height
+      scrollable_frame,
+      text=cell_data[0],
+      command=lambda cd = cell_data[1]:on_button_click(cd),
+      width=30,  # Adjust button width
+      height=2   # Adjust button height
       )
       button.grid(row=row_index+2, column=col_index+1, padx=5, pady=5)
-    
-    
+  
+  
   ToggleButton = ttk.Checkbutton(
-    scrollable_frame,
-    text="False",
-    variable=AllPostsToggle,
-    command=lambda: ToggleButton.config(text=f"{AllPostsToggle.get()}"),
-    style="Toggle.TButton"
+  scrollable_frame,
+  text="False",
+  variable=AllPostsToggle,
+  command=lambda: ToggleButton.config(text=f"{AllPostsToggle.get()}"),
+  style="Toggle.TButton"
   )
   ToggleButton.grid(row=7,column=1, pady=10)
   tk.Label(scrollable_frame, text="All Posts One Day?", font=Bold).grid(row=7, column=0)
@@ -374,10 +379,10 @@ def DisplayDiscussion():
   
 
 tk.Button(left_frame, text="Grade Discussion", command=lambda :(Clear(),DisplayDiscussion()), bg="#444", fg="white").pack(pady=10)
-                            
-                            
-                            
-                            
+              
+              
+              
+              
 """end of Grading Discussion"""
 
 ##########################################
@@ -394,7 +399,7 @@ def DisplayListofSAs():
     tk.Button(scrollable_frame, text=A, command=lambda x=A: (Clear(),DisplaySA(x))).pack(pady=5)
   
 
-                          
+              
 tk.Button(left_frame, text="Grade Summative Assessments", command=lambda :(Clear(),DisplayListofSAs()), bg="#444", fg="white").pack(pady=10)
 
 """end of List of Summative Assessments"""
@@ -418,16 +423,16 @@ def DisplaySA(Course):
     tk.Label(scrollable_frame, text = f"Part {part}:").pack(pady=2, anchor="w")
     for grade in SummativeRubrics[Course][part]:
       tk.Radiobutton(scrollable_frame, 
-        text=f"{SummativeRubrics[Course][part][grade][0]}", 
-        value=grade, 
-        variable=var,
-        #command=lambda: SelectedRadio(Course)
+      text=f"{SummativeRubrics[Course][part][grade][0]}", 
+      value=grade, 
+      variable=var,
+      #command=lambda: SelectedRadio(Course)
       ).pack(pady=2, anchor="w")
     tk.Label(scrollable_frame, text="=================================").pack(pady=5)
 
   tk.Button(scrollable_frame,
-    text="Submit Grade",
-    command=lambda: SelectedRadio(Course)
+  text="Submit Grade",
+  command=lambda: SelectedRadio(Course)
   ).pack(pady=10, anchor="w")
 
 def NewDisplaySA(Course):
@@ -442,14 +447,14 @@ def NewDisplaySA(Course):
       var = tk.IntVar(value=0)
       TKVars.append((part,count,var))
       tk.Checkbutton(scrollable_frame, 
-        text=f"{NewSummativeRubrics[Course][part][count][0]} (-{NewSummativeRubrics[Course][part][count][1]} points)", 
-        variable=var,
+      text=f"{NewSummativeRubrics[Course][part][count][0]} (-{NewSummativeRubrics[Course][part][count][1]} points)", 
+      variable=var,
       ).pack(pady=2, anchor="w")
     tk.Label(scrollable_frame, text=40*"=").pack(pady=5, anchor="w")
-    
+  
   tk.Button(scrollable_frame,
-    text="Submit Grade",
-    command=lambda: SelectedCheckButtons(Course)
+  text="Submit Grade",
+  command=lambda: SelectedCheckButtons(Course)
   ).pack(pady=10, anchor="w")
   
 def WhichButton(value):
@@ -483,7 +488,7 @@ def SelectedCheckButtons(Course):
     Message = "Fantastic job with this assignment!  You did everything perfectly!"
   else:
     Message += "Everything else looks good!"
-    
+  
 
   #this part sets the message for the student
   FB = driver.find_element(By.CSS_SELECTOR, "div[data-placeholder='Enter your feedback']")
@@ -500,7 +505,7 @@ def SelectedCheckButtons(Course):
     for i in Input:
       i.send_keys(str(v))
       i.send_keys(Keys.ENTER)
-    
+  
   #the next line resets radio buttons for the next student 
   Clear()
   NewDisplaySA(Course)
@@ -531,7 +536,7 @@ def PostAnnouncements():
     subject="Welcome and Instructor Information",
     message=WM[CourseNumber],
     ScheduleDate = FirstTuesday.strftime("%m/%d/%y"))
-    
+  
 
   #post AI announcements
   
@@ -539,7 +544,7 @@ def PostAnnouncements():
     subject="UOP Policy on AI Tools",
     message="Hi everyone,\n\nThis is a reminder that University of Phoenix has a policy that covers appropriate use of artificial intelligence (AI) in our classes. This is included in the Academic Policies document under Tools & Resources.\n\nIf you use an artificial intelligence (AI) tool when preparing an assignment or discussion response, make sure to include a statement that describes how you used it and remember: 1) the majority of assignments must be your own writing; 2) you must quote and cite any content generated by the AI tool; and 3) you must verify the accuracy of the content generated by the AI tool.\n\nTake a moment to read the UOPX Philosophy Statement on Generative AI[1] and watch How to Meet University Requirements When Using Generative AI[2]. It’s less than two minutes and provides a clear description of how to make sure you’re meeting requirements if you use generative AI for an assignment or discussion post.\n\nIt’s important to ensure you understand how to use AI effectively and ethically. If you have any questions or concerns regarding the use of AI in our class, please let me know.\n\nBest,\nDrew\n\n [1]https://multimedia.phoenix.edu/cms/202340709 \n[2]https://player.vimeo.com/video/1053433552",
     ScheduleDate = FirstTuesday.strftime("%m/%d/%y"))
-    
+  
   PostIndividualAnnouncement(
     subject="Further Generative AI Information",
     message="Hi everyone,\n\nAs the course gets started, I wanted to remind you of a UOP policy regarding generative AI (like ChatGPT, DeepSeek, and the like).  You might have noticed that I posted an announcement with the official UOP policy regarding generative AI, but I wanted to add my two cents worth.  If you simply use these tools to create your own posts, then this is a violation of the university's policies and you're cheating yourself out of knowledge by not thinking about the material, and you're cheating your classmates out of the opportunity to learn from you and your experiences.  In other words, I would like our discussions to be genuine and **I want to hear from you**!\n\nPlease do not get me wrong.  I think that there are some excellent uses of these generative AI tools.  In fact, I run research groups where we try to create our own tools for specific tasks.  In particular, I have created computer bots to play games like checkers, chess, mancala, and minesweeper, as well as recognizing handwriting and turning it into digital content.  [Feel free to ask me about any of this if you're interested.]  I am definitely a proponent of pushing these AI tools forward, but I am asking you to use them appropriately (and sparingly!) when it comes to classroom discussions.\n\nMy own policy is if you use AI tools inappropriately according to UOP's policies, I will write you a private message warning asking you to rewrite the post.  If I catch it a second time, then there will be loss of points involved with no chance of making those points back up.  So the easy solution is to use these tools in an appropriate manner (which includes direct citations and a limited use of the tool when writing your posts) because their use is easy to spot and there are other tools that help instructors determine a post's origins.\n\nIf you have any questions or concerns, please do not hesitate to ask me.  I look forward to fruitful classroom discussions!\n\nBest,\nDrew",
@@ -553,12 +558,12 @@ def PostAnnouncements():
     Offset = 7*(Week-1)
     Delta = datetime.timedelta(days=Offset)
     NewDate = FT + Delta
-    
+  
     PostIndividualAnnouncement(
       subject="Week {} Discussion Reminder".format(Week),
       message="Hi everyone!\n\nI hope Week {} is going well for you.  Don't forget that your initial response to this week's discussion is due by the end of the day today.  Don't hesitate to ask me if you have any questions!\n\nBest,\nDrew".format(Week),
       ScheduleDate=NewDate.strftime("%m/%d/%y"))
-    
+  
 
 
 
@@ -572,7 +577,7 @@ def PostAnnouncements():
       subject="End of Week {} Reminder".format(Week),
       message="Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates, and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew",
       ScheduleDate=NewDate.strftime("%m/%d/%y"))
-      
+    
 def ScoresPublishedAnnouncement():
   CourseNumber = int(CN.get())
   WeekNumber = WW.get()
@@ -582,7 +587,7 @@ def ScoresPublishedAnnouncement():
   else:
     Message = f"Hello class,\n\nThe week {WeekNumber} scores have been posted.\n\nPlease look over your scores and my comments and let me know if you have any questions or concerns.  In order to see my comments, there is a little box next to your score that you can click and see some information I have left for you.\n\nIf you complete any work (besides participation) between now and the end of the day Friday, I will update your score on Saturday with a 10% late penalty."
     Subject = f"Week {WeekNumber} Grades Posted"
-  print(Subject,Message)
+
   PostIndividualAnnouncement(Subject,Message)
 
 def UpdateWeeks(event):
@@ -629,6 +634,115 @@ tk.Button(left_frame, text="Create Announcements", command= lambda :(Clear(),Dis
 """end of Create Announcements"""
 
 ###########################
+
+
+"""testing page"""
+
+import nltk
+import re
+nltk.download('punkt_tab')
+from nltk.tokenize import sent_tokenize
+
+def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
+  sentence = sentence.lower()
+  if any(re.search(p, sentence) for p in substantive_clues):
+    return True
+  if all(re.search(p, sentence) for p in shallow_phrases if re.search(p, sentence)):
+    return False
+  # fallback: check length
+  return len(sentence.split()) >= 6
+
+def is_substantive_reply_advanced(reply):
+  # Common phrases that are non-substantive
+  shallow_phrases = [
+    r"\bthank(s| you)\b", r"\bgreat (job|post)\b", r"\bwell said\b",
+    r"\bi agree\b", r"\bnice work\b", r"\bgood point\b", r"\bloved your post\b",
+    r"\byou're right\b", r"\binspiring\b", r"\bhelpful\b"
+  ]
+
+  # Phrases that indicate substance
+  substantive_clues = [
+    r"\baccording to\b", r"\bin my experience\b", r"\bthis relates to\b",
+    r"\bone thing i'd add\b", r"\bi wonder if\b", r"\bthis connects to\b",
+    r"\bi also found\b", r"\bwhat do you think\b", r"\ba possible limitation\b",
+    r"\bthe reading (says|explains|shows)\b", r"\bfor example\b"
+  ]
+
+  sentences = sent_tokenize(reply)
+  substantive_count = sum(is_substantive_sentence(s, shallow_phrases, substantive_clues) for s in sentences)
+
+  return substantive_count > 0
+  
+  
+tk.Button(left_frame, text="Testing", command= lambda :(Clear(), Testing()), bg="#444", fg="white").pack(pady=10) 
+
+def Testing():
+  CurrentName = driver.find_element(By.CSS_SELECTOR,"li.slick-current")
+  Name = CurrentName.find_element(By.CSS_SELECTOR, "bdi[class^='makeStylesbaseText-0-2']")
+  print(Name.text)
+  
+  S = driver.find_element(By.CSS_SELECTOR, "div.engagement-detail")
+  for _ in range(10):
+    driver.execute_script("arguments[0].scrollTop += 300;", S)
+  time.sleep(3)
+  
+  
+  
+  # Weekday numbers: Monday=0, ..., Friday=4, Sunday=6
+  Now = datetime.datetime.now()
+  DaysSinceFriday = (Now.weekday() - 4) % 7 or 7
+  PreviousFridayAt5 = Now - datetime.timedelta(days=DaysSinceFriday)
+  
+  #set time to 5AM
+  PreviousFridayAt5.replace(hour=5, minute=0, second=0, microsecond=0)
+  
+  Messages = driver.find_elements(By.CSS_SELECTOR, "bb-message")
+  print(len(Messages))
+  for Message in Messages:   
+    try:
+      U = Message.find_element(By.CSS_SELECTOR, "bb-linked-username[analytics-id='discussion.message.user']")
+      User = U.text
+    except:
+      continue
+      
+    if User != Name.text:
+      continue
+      
+    try:
+      D = Message.find_element(By.CSS_SELECTOR, "span.date")
+      Date = D.text
+    except:
+      continue
+    
+    try:
+      T = Message.find_element(By.CSS_SELECTOR, "span.time")
+      Time = T.text
+    except:
+      continue
+    
+      
+    try:
+      C = Message.find_element(By.CSS_SELECTOR, "bb-rich-text-editor")
+      Content = C.text
+      WordCount = len(Content.split())
+    except:
+      continue
+      
+    DateTimeStr = Date + " " + Time
+    DT = datetime.datetime.strptime(DateTimeStr, "%b %d, %Y %I:%M %p")
+    
+    if DT < PreviousFridayAt5:
+      print("Before Friday")
+    else:
+      print("After Friday")
+      
+    print(User,Date,Time,WordCount)
+    print(is_substantive_reply_advanced(Content))
+ 
+  
+
+
+"""end of testing page"""
 
 
 
