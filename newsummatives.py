@@ -99,6 +99,11 @@ NewSummativeRubrics = {
         1: 20, 
         2: "You have some minor issues with sizes of your couches."
       },
+      4: {
+        0: "Shelf missing", 
+        1: 15, 
+        2: "You didn't draw the shelf in the Dining Room."
+      },
     },
     2: {
       0: {
@@ -135,6 +140,11 @@ NewSummativeRubrics = {
         1: 40, 
         2: "Your calculation for the shelf distance wasn't correct.  It should have been 1.86 feet."
       },
+      2: {
+        0: "No work on shelf distance", 
+        1: 100, 
+        2: "It looks like you forgot to complete part 2 of the assignment where you find the shelf distance from the wall."
+      },
     },
     5: {
       0: {
@@ -146,6 +156,11 @@ NewSummativeRubrics = {
         0: "Work for shelf distance not correct", 
         1: 40, 
         2: "Your work for calculating the shelf distance wasn't correct.  It should have been tan(74) = 6.5/X, and then solve for X."
+      },
+      2: {
+        0: "No work on shelf distance", 
+        1: 100, 
+        2: "It looks like you forgot to complete part 2 of the assignment where you find the shelf distance from the wall."
       },
     }, 
   },
@@ -406,6 +421,11 @@ NewSummativeRubrics = {
         1: 10, #point deduction
         2:"Your solution for convergence in 1(b) is missing work." #student feedback
       },
+      2: {
+        0:"1(b) -- incorrect work", #GUI display
+        1: 10, #point deduction
+        2:"Your solution for convergence in 1(b) has incorrect work." #student feedback
+      },
     },
     3: {
       0: {
@@ -461,19 +481,24 @@ NewSummativeRubrics = {
         2:"The left endpoint is x=+1 and should not be included." #student feedback
       },
       5: {
+        0:"1(d) -- blank", #GUI display
+        1: 50, #point deduction
+        2:"1(d) was left blank." #student feedback
+      },
+      6: {
         0:"1(e) -- correct value of 15/32, didn't specify x value or show work", #GUI display
         1: 20, #point deduction
         2:"In 1(e), how did you get the value of 15/32?  You didn't show your work.  " #student feedback
       },
-      6: {
+      7: {
         0:"1(e) -- incorrect value, tried something", #GUI display
         1: 10, #point deduction
         2:"In 1(e), you should plug in x=1/5, and you would get a value of 15/32." #student feedback
       },
-      7: {
+      8: {
         0:"1(e) -- blank", #GUI display
-        1: 25, #point deduction
-        2:"In 1(e), it is blank or all incorreect.  You should plug in x=1/5 to the series from (c), and you would get a value of 15/32." #student feedback
+        1: 50, #point deduction
+        2:"In 1(e), it is blank or all incorrect.  You should plug in x=1/5 to the series from (c), and you would get a value of 15/32." #student feedback
       },
     },
     5: {

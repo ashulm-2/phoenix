@@ -677,6 +677,44 @@ def PostAnnouncements():
       subject="End of Week {} Reminder".format(Week),
       message="Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates, and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew",
       ScheduleDate=NewDate.strftime("%m/%d/%y"))
+
+def PostIndividualAnnouncement(subject,message,ScheduleDate=None):
+  wait = WebDriverWait(driver,10)
+  try:
+    CA = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"button[aria-label='Create Announcement']")))
+    CA.click()
+  except:
+    print("Couldn't create an announcement")
+    #sys.exit()
+
+  Title = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[placeholder='Type an announcement title']")))
+  Title.send_keys(subject)
+
+  Ann = driver.find_element(By.CSS_SELECTOR,"[data-placeholder='Type an announcement message']")
+  Ann.send_keys(message)
+  
+  if ScheduleDate is not None:
+    SA = driver.find_element(By.CSS_SELECTOR,"[id='schedule-announcement-checkbox']")
+    driver.execute_script("arguments[0].scrollIntoView(true)",SA)
+    SA.click()
+    time.sleep(0.5)
+
+    Date = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='date-input']")))
+    Date.send_keys(Keys.CONTROL + "a")
+    Date.send_keys(Keys.DELETE)
+    Date.send_keys(ScheduleDate)
+
+    Time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[class='time-input']")))
+    Time.send_keys(Keys.CONTROL + "a")
+    Time.send_keys(Keys.DELETE)
+    Time.send_keys("2:30 AM")
+  else: #send email announcement
+    Btn = driver.find_element(By.CSS_SELECTOR,"[id='send-email-checkbox']")
+    Btn.click()
+    
+
+  Post = driver.find_element(By.CSS_SELECTOR,"button[data-analytics-id='course.announcements.detailPanel.post.button']")
+  Post.click()
     
 def ScoresPublishedAnnouncement():
   CourseNumber = int(CN.get())
@@ -701,8 +739,9 @@ def UpdateWeeks(event):
 
 CN = None
 WW = None
+FirstThursday = None
 def DisplayAnnouncements():
-  global CN, WW
+  global CN, WW, FirstThursday
   tk.Label(scrollable_frame, text="First, navigate to the announcements page of the course.  Next, choose which course the announcements are for.  Finally, type the date of the first Thursday for the course in the form MM/DD/YY.").pack(pady=10)
 
   CN = ttk.Combobox(scrollable_frame, values=CoursesList)

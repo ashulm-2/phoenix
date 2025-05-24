@@ -2,8 +2,8 @@
 
 AnnDict = {}
 AnnDict[210] = {}
-AnnDict[210][1] = "zyBook reading on geometry basics and triangles\nReviewQuiz"
-AnnDict[210][2] = "zyBook reading on polygons, perimeter, and area\nReviewQuiz"
+AnnDict[210][1] = "zyBook reading on geometry basics and triangles\nReview Quiz"
+AnnDict[210][2] = "zyBook reading on polygons, perimeter, and area\nReview Quiz"
 AnnDict[210][3] = "zyBook reading on geometry basics and triangles\nReview Quiz\nSummative Assessment: HOA Building Request"
 AnnDict[210][4] = "zyBook reading on analytic geometry and trigonometry\nReview Quiz\nSummativeAssessment: Arranging Furniture"
 AnnDict[210][5] = "zyBook reading on non-Euclidean geometries\nReview Quiz\nSummative Assessment: Non-Euclidean Geometries"
@@ -31,5 +31,12 @@ AnnDict[290][4] = "zyBook reading\nReview Quiz"
 AnnDict[290][5] = "zyBook reading\nReview Quiz"
 AnnDict[290][6] = "zyBook reading\nReview Quiz\nWk6 Summative Assessment"
 AnnDict[290][7] = "zyBook reading\nReview Quiz\nWk7 Summative Assessment"
+
+AnnDict[360] = {}
+AnnDict[360][1] = "zyBook reading"
+AnnDict[360][2] = "zyBook reading\nWk2 Summative Assessment"
+AnnDict[360][3] = "zyBook reading"
+AnnDict[360][4] = "zyBook reading\nWk4 Summative Assessment"
+AnnDict[360][5] = "zyBook reading\nWk5 Summative Assessment"
 
 CoursesList = list(AnnDict.keys())
