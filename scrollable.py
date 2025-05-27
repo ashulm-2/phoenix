@@ -368,10 +368,89 @@ def on_button_click(i):
   )
   Next.click()
   
+  time.sleep(2)
+  GetUserDiscussionInfo()
+  
+def clear_rows(parent, start=8, end=100):
+  """
+  this function will be used to delete all the message content from the previous user
+  """
+  for widget in parent.winfo_children():
+    info = widget.grid_info()
+    row = info.get("row")
+    if row is not None and start <= row <= end:
+      widget.config(text="")
+
+  
+  
+  
+def GetUserDiscussionInfo():
+  clear_rows(scrollable_frame)
+  CurrentName = driver.find_element(By.CSS_SELECTOR,"li.slick-current")
+  Name = CurrentName.find_element(By.CSS_SELECTOR, "bdi[class^='makeStylesbaseText-0-2']")
+  
+  S = driver.find_element(By.CSS_SELECTOR, "div.engagement-detail")
+  for _ in range(10):
+    driver.execute_script("arguments[0].scrollTop += 300;", S)
+    time.sleep(0.1)
+  time.sleep(2)
+  
+  
+  
+  # Weekday numbers: Monday=0, ..., Friday=4, Sunday=6
+  Now = datetime.datetime.now()
+  DaysSinceFriday = (Now.weekday() - 4) % 7 or 7
+  PreviousFridayAt5 = Now - datetime.timedelta(days=DaysSinceFriday)
+  
+  #set time to 5AM
+  PreviousFridayAt5.replace(hour=5, minute=0, second=0, microsecond=0)
+  
+  Messages = driver.find_elements(By.CSS_SELECTOR, "bb-message")
+  Row = 8
+  for Message in Messages:  
+    User = GetMessageInfo(Message,"bb-linked-username[analytics-id='discussion.message.user']")
+    
+    if User != Name.text:
+      continue
+    
+    Date = GetMessageInfo(Message,"span.date")
+    Time = GetMessageInfo(Message,"span.time")
+    Content = GetMessageInfo(Message,"bb-rich-text-editor")
+    
+    #I need to update this to grab dates/times when it says "5 hours ago, at 1:59 AM" Here's an example of the tag it is wrapped in:
+      
+    """<div ng-if="duration.needAgo()" class="js-duration-ago" bb-translate="components.directives.duration.agoText" translate-values="{durationDate: duration.date, durationTime: duration.time}"><bdi>5 hours</bdi> ago, at <bdi>1:59 AM</bdi></div>"""
+    
+    ###also look into the speed of the grade discussion stuff, because it is slow###
+
+    if Date == "" or Time == "" or Content == "":
+      continue
+
+    WordCount = len(Content.split())
+    
+    DateTimeStr = Date + " " + Time
+    DT = datetime.datetime.strptime(DateTimeStr, "%b %d, %Y %I:%M %p")
+    
+    BeforeDeadline = False
+    BDM = "not"
+    if DT < PreviousFridayAt5:
+      BeforeDeadline = True
+      BDM = ""
+
+    
+    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words is {BDM} substantive").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
+    Row += 1
+      
+    #print(User,Date,Time,WordCount)
+    #print(is_substantive_reply_advanced(Content))
+  
+  
+  
 DiscussionValue = None
 AllPostsToggle = None
+ToggleButton = None
 def DisplayDiscussion():
-  global DiscussionValue, AllPostsToggle
+  global DiscussionValue, AllPostsToggle, ToggleButton
   AllPostsToggle = tk.BooleanVar(value=False)
   tk.Label(scrollable_frame, text="Choose the point value associated with this discussion assignment", font=("Arial", 20)).grid(row=0, column=0, columnspan=10)
 
@@ -423,57 +502,7 @@ def DisplayDiscussion():
   ToggleButton.grid(row=7,column=1, pady=10)
   tk.Label(scrollable_frame, text="All Posts One Day?", font=Bold).grid(row=7, column=0)
 
-  CurrentName = driver.find_element(By.CSS_SELECTOR,"li.slick-current")
-  Name = CurrentName.find_element(By.CSS_SELECTOR, "bdi[class^='makeStylesbaseText-0-2']")
-  
-  S = driver.find_element(By.CSS_SELECTOR, "div.engagement-detail")
-  for _ in range(10):
-    driver.execute_script("arguments[0].scrollTop += 300;", S)
-    time.sleep(0.1)
-  #time.sleep(3)
-  
-  
-  
-  # Weekday numbers: Monday=0, ..., Friday=4, Sunday=6
-  Now = datetime.datetime.now()
-  DaysSinceFriday = (Now.weekday() - 4) % 7 or 7
-  PreviousFridayAt5 = Now - datetime.timedelta(days=DaysSinceFriday)
-  
-  #set time to 5AM
-  PreviousFridayAt5.replace(hour=5, minute=0, second=0, microsecond=0)
-  
-  Messages = driver.find_elements(By.CSS_SELECTOR, "bb-message")
-  Row = 8
-  for Message in Messages:  
-    User = GetMessageInfo(Message,"bb-linked-username[analytics-id='discussion.message.user']")
-    
-    if User != Name.text:
-      continue
-    
-    Date = GetMessageInfo(Message,"span.date")
-    Time = GetMessageInfo(Message,"span.time")
-    Content = GetMessageInfo(Message,"bb-rich-text-editor")
-
-    if Date == "" or Time == "" or Content == "":
-      continue
-
-    WordCount = len(Content.split())
-    
-    DateTimeStr = Date + " " + Time
-    DT = datetime.datetime.strptime(DateTimeStr, "%b %d, %Y %I:%M %p")
-    
-    BeforeDeadline = False
-    BDM = "not"
-    if DT < PreviousFridayAt5:
-      BeforeDeadline = True
-      BDM = ""
-
-    
-    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words is {BDM} substantive").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
-    Row += 1
-      
-    #print(User,Date,Time,WordCount)
-    #print(is_substantive_reply_advanced(Content))
+  GetUserDiscussionInfo()
 
   
   
