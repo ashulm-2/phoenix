@@ -602,4 +602,61 @@ NewSummativeRubrics = {
       },
     },
   },
+  "MTH290Week7": {
+    1: {
+      0: {
+        0:"1(a) -- couple pieces of data incorrect", #GUI display
+        1: 10, #point deduction
+        2:"In 1(a), your table is mostly correct, except for a couple of pieces of information."
+      },
+      1: {
+        0:"1(a) -- many pieces of data incorrect", #GUI display
+        1: 25, #point deduction
+        2:"In 1(a), your table is quite a few errors.  The x values should be increasing, and the y values should be decreasing."
+      },
+    },
+    2: {
+      0: {
+        0:"1(b) -- sketch incorrect based on 1(a)", #GUI display
+        1: 10, #point deduction
+        2:"In 1(b), based on your table of values in 1(a), your sketch is not quite correct."
+      },
+      1: {
+        0:"1(b) -- wrong orientation", #GUI display
+        1: 10, #point deduction
+        2:"In 1(b), your orientation is incorrect.  In the original table, as the t values increase, so do the x values, which means the orientation is from left to right."
+      },
+      1: {
+        0:"1(b) -- missing orientation", #GUI display
+        1: 20, #point deduction
+        2:"In 1(b), you're missing the orientation of the curve."
+      },
+    },
+    3: {
+      0: {
+        0:"2(a) -- couple pieces of data incorrect", #GUI display
+        1: 10, #point deduction
+        2:"In 2(a), your table is mostly correct, except for a couple of pieces of information."
+      },
+      1: {
+        0:"2(a) -- many pieces of data incorrect", #GUI display
+        1: 25, #point deduction
+        2:"In 2(a), your table is quite a few errors."
+      },
+    },
+    4: {
+      0: {
+        0:"2(b) -- sketch incorrect based on 2(a) (should look like a rolling curve in the first and second quadrants)", #GUI display
+        1: 10, #point deduction
+        2:"In 2(b), based on your table of values in 2(a), your sketch is not quite correct."
+      },
+    },
+    5: {
+      0: {
+        0:"3 -- sketch incorrect (should look like a four petal rose where the left and right petals are equal sized, and the top petal is bigger and the bottom is smaller)", #GUI display
+        1: 10, #point deduction
+        2:"In 3, your sketch is incorrect.  It should look like a four petal rose where the left and right petals are equal sized, and the top petal is bigger and the bottom is smaller than the right and left petals."
+      },
+    },
+  },    
 }
