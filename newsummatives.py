@@ -650,12 +650,22 @@ NewSummativeRubrics = {
         1: 10, #point deduction
         2:"In 2(b), based on your table of values in 2(a), your sketch is not quite correct."
       },
+      1: {
+        0:"2(b) -- sketch incorrect based on 2(a) (should look like a rolling curve in the first and second quadrants)", #GUI display
+        1: 25, #point deduction
+        2:"In 2(b), based on your table of values in 2(a), your sketch is not quite correct."
+      },
     },
     5: {
       0: {
-        0:"3 -- sketch incorrect (should look like a four petal rose where the left and right petals are equal sized, and the top petal is bigger and the bottom is smaller)", #GUI display
+        0:"3 -- sketch incorrect (should look like eyeglasses with a loopy nose)", #GUI display
         1: 10, #point deduction
-        2:"In 3, your sketch is incorrect.  It should look like a four petal rose where the left and right petals are equal sized, and the top petal is bigger and the bottom is smaller than the right and left petals."
+        2:"In 3, your sketch is not quite incorrect.  It should look like a pair of eyeglasses with a small loop near the nose."
+      },
+      1: {
+        0:"3 -- sketch incorrect (should look like eyeglasses with a loopy nose)", #GUI display
+        1: 25, #point deduction
+        2:"In 3, your sketch is not quite incorrect.  It should look like a pair of eyeglasses with a small loop near the nose."
       },
     },
   },    

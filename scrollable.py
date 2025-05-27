@@ -538,7 +538,42 @@ tk.Button(left_frame, text="Grade Summative Assessments", command=lambda :(Clear
 
 """Basic Grading of Summative Assessments"""
 
-NewSARubrics = ["MTH219Week2"]
+#NewSARubrics = ["MTH219Week2"]
+
+def SelectedRadio(Course):
+  """
+  this function is run when you are ready to submit the grade
+  """
+  Message = ""
+  Values = []
+  for i, var in enumerate(TKVars, start=1):
+    #first we loop through all the radio button variables (TKVars) and grab the messages and values associated to each of them
+    Message += SummativeRubrics[Course][i][var.get()][2] + "\n"
+    V = SummativeRubrics[Course][i][var.get()][1]
+    Values.append((4*(i-1) + WhichButton(V)+1, V)) #Values contains tuples where the first entry is which of the grading pills you are setting the value for (since we loop through all of them), and the second entry is the value to assign to that pill 
+
+  #this part sets the message for the student
+  FB = driver.find_element(By.CSS_SELECTOR, "div[data-placeholder='Enter your feedback']")
+  FB.send_keys(Message)
+  Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.page.body.overallFeedback.saveButton']")
+  Save.click()
+  
+  #now we loop through all the grade pills and set the ones we marked above
+  D = driver.find_elements(By.CSS_SELECTOR,"div[class^='makeStyleslabel-0-2-']")
+  print(Values)
+  for i,v in Values:
+    D[i-1].click()
+    time.sleep(0.25)
+    Input = driver.find_elements(By.CSS_SELECTOR, "input[aria-label^='Add a value']")
+    for i in Input:
+      i.send_keys(str(v))
+      i.send_keys(Keys.ENTER)
+    
+  #the next line resets radio buttons for the next student 
+  NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
+  NextStudent.click()
+
+  DisplaySA(Course)
 
 TKVars = []
 def DisplaySA(Course):   
@@ -582,8 +617,8 @@ def NewDisplaySA(Course):
     tk.Label(scrollable_frame, text=40*"=").pack(pady=5, anchor="w")
   
   tk.Button(scrollable_frame,
-  text="Submit Grade",
-  command=lambda: SelectedCheckButtons(Course)
+    text="Submit Grade",
+    command=lambda: SelectedCheckButtons(Course)
   ).pack(pady=10, anchor="w")
   
 def WhichButton(value):
@@ -637,6 +672,13 @@ def SelectedCheckButtons(Course):
   
   #the next line resets radio buttons for the next student 
   Clear()
+
+  #there's button to move to the next student.  It looks like this
+  NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
+  NextStudent.click()
+  """<a class="MuiTypographyroot-0-2-2313 MuiLinkroot-0-2-2477 MuiLinkunderlineAlways-0-2-2480 makeStylesnavLink-0-2-2471 makeStylesroot-0-2-2473 MuiTypographycolorPrimary-0-2-2336" href="#" aria-disabled="false" aria-hidden="false" aria-label="Next Student" tabindex="0" data-analytics-id="attemptGrading.studentNavigation.nextStudent"><div class="MuiTypographyroot-0-2-2313 makeStylesnavLinkContent-0-2-2472 MuiTypographysubtitle2-0-2-2325"><svg class="MuiSvgIconroot-0-2-2432 makeStylesdirectionalIcon-0-2-2431 makeStylesstrokeIcon-0-2-2430 MuiSvgIconfontSizeSmall-0-2-2439" focusable="false" viewBox="0 0 16 16" aria-hidden="true" role="presentation"><g><path fill="currentColor" stroke="transparent" fill-rule="evenodd" d="M4.2929.2929c-.3905.3905-.3905 1.0237 0 1.4142L10.5858 8l-6.293 6.2929c-.3904.3905-.3904 1.0237 0 1.4142.3906.3905 1.0238.3905 1.4143 0l7-7c.3905-.3905.3905-1.0237 0-1.4142l-7-7c-.3905-.3905-1.0237-.3905-1.4142 0z" clip-rule="evenodd"></path></g><defs></defs></svg></div></a>"""
+
+
   NewDisplaySA(Course)
 
 """end of Basic Grading of Summative Assessments"""
