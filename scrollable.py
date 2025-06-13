@@ -320,6 +320,30 @@ def GetMessageInfo(Message,cls = "span.date"):
     return D.text
   except:
     return ""
+    
+def GetAgoTime(Message,date=1):
+  """
+  if the user posted within 24 hours, the system doesn't list the date, but rather how long ago the message was posted.  We need to grab that data.  It is listed within the tag:
+  <div ng-if="duration.needAgo()" class="js-duration-ago" bb-translate="components.directives.duration.agoText" translate-values="{durationDate: duration.date, durationTime: duration.time}"><bdi>14 hours</bdi> ago, at <bdi>4:56 PM</bdi></div>
+  
+  if date=1, then return just the date which is the first bdi; otherwise return the time which is the second
+  """
+  try:
+    D = Message.find_element(By.CSS_SELECTOR, "div.js-duration-ago")
+    DT = D.find_elements(By.TAG_NAME,"bdi")
+    if date == 1:
+      HA = DT[0].text
+      match = re.match(r"(\d+)",HA)
+      if match:
+        number = int(match.group(1))
+        now = datetime.datetime.now()
+        PastDate = now - datetime.timedelta(hours=number)
+        print(PastDate.strftime("%b %d, %Y"))
+        return PastDate.strftime("%b %d, %Y")
+    else:
+      return DT[1].text
+  except:
+    return ""
 
 def on_button_click(i):
   global AllPostsToggle
@@ -414,7 +438,12 @@ def GetUserDiscussionInfo():
       continue
     
     Date = GetMessageInfo(Message,"span.date")
+    if Date == "":
+      Date = GetAgoTime(Message,date=1)
+      
     Time = GetMessageInfo(Message,"span.time")
+    if Time == "":
+      Time = GetAgoTime(Message,date=0)
     Content = GetMessageInfo(Message,"bb-rich-text-editor")
     
     #I need to update this to grab dates/times when it says "5 hours ago, at 1:59 AM" Here's an example of the tag it is wrapped in:
@@ -573,6 +602,7 @@ def SelectedRadio(Course):
   NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
   NextStudent.click()
 
+  Clear()
   DisplaySA(Course)
 
 TKVars = []
@@ -595,8 +625,8 @@ def DisplaySA(Course):
     tk.Label(scrollable_frame, text="=================================").pack(pady=5)
 
   tk.Button(scrollable_frame,
-  text="Submit Grade",
-  command=lambda: SelectedRadio(Course)
+    text="Submit Grade",
+    command=lambda: SelectedRadio(Course)
   ).pack(pady=10, anchor="w")
 
 def NewDisplaySA(Course):
