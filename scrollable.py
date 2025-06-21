@@ -414,10 +414,10 @@ def GetUserDiscussionInfo():
   Name = CurrentName.find_element(By.CSS_SELECTOR, "bdi[class^='makeStylesbaseText-0-2']")
   
   S = driver.find_element(By.CSS_SELECTOR, "div.engagement-detail")
-  for _ in range(10):
+  for _ in range(20):
     driver.execute_script("arguments[0].scrollTop += 300;", S)
     time.sleep(0.1)
-  time.sleep(2)
+  time.sleep(1)
   
   
   
@@ -430,7 +430,7 @@ def GetUserDiscussionInfo():
   PreviousFridayAt5.replace(hour=5, minute=0, second=0, microsecond=0)
   
   Messages = driver.find_elements(By.CSS_SELECTOR, "bb-message")
-  Row = 8
+  Row = 9
   for Message in Messages:  
     User = GetMessageInfo(Message,"bb-linked-username[analytics-id='discussion.message.user']")
     
@@ -512,24 +512,37 @@ def DisplayDiscussion():
     for col_index, cell_data in enumerate(row_data):
       # Create a button for each cell
       button = tk.Button(
-      scrollable_frame,
-      text=cell_data[0],
-      command=lambda cd = cell_data[1]:on_button_click(cd),
-      width=30,  # Adjust button width
-      height=2   # Adjust button height
+        scrollable_frame,
+        text=cell_data[0],
+        command=lambda cd = cell_data[1]:on_button_click(cd),
+        width=30,  # Adjust button width
+        height=2   # Adjust button height
       )
       button.grid(row=row_index+2, column=col_index+1, padx=5, pady=5)
-  
+
   
   ToggleButton = ttk.Checkbutton(
-  scrollable_frame,
-  text="False",
-  variable=AllPostsToggle,
-  command=lambda: ToggleButton.config(text=f"{AllPostsToggle.get()}"),
-  style="Toggle.TButton"
+    scrollable_frame,
+    text="False",
+    variable=AllPostsToggle,
+    command=lambda: ToggleButton.config(text=f"{AllPostsToggle.get()}"),
+    style="Toggle.TButton"
   )
   ToggleButton.grid(row=7,column=1, pady=10)
   tk.Label(scrollable_frame, text="All Posts One Day?", font=Bold).grid(row=7, column=0)
+  #tk.Label(scrollable_frame, text="testing").grid(row=7,column=2)
+
+  PostsButton = tk.Button(
+    scrollable_frame,
+    text="Get User Posts Info",
+    command=GetUserDiscussionInfo,
+    width=30,  # Adjust button width
+    height=2,   # Adjust button height
+  )
+  PostsButton.grid(row=7,column=2)
+  
+
+
 
   GetUserDiscussionInfo()
 
@@ -555,6 +568,8 @@ def DisplayListofSAs():
   tk.Label(scrollable_frame, text="Old Version:").pack(pady=5)
   for count,A in enumerate(sorted(SummativeRubrics)):
     tk.Button(scrollable_frame, text=A, command=lambda x=A: (Clear(),DisplaySA(x))).pack(pady=5)
+
+
   
 
               
@@ -867,6 +882,7 @@ def DisplayAnnouncements():
   WW.set("1")
 
   tk.Button(scrollable_frame, text="Enter", command=ScoresPublishedAnnouncement,width=20, bg="#444", fg="white").pack(pady=20)
+
 
 tk.Button(left_frame, text="Create Announcements", command= lambda :(Clear(),DisplayAnnouncements()), bg="#444", fg="white").pack(pady=10)
 
