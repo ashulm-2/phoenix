@@ -252,7 +252,7 @@ def DisplayIO():
 
   tk.Button(scrollable_frame, text="Enter", command=GradeIO,width=20).pack(pady=20)
 
-  IOMessage = """I am just following up on your "Interactive Overview" response from this where you weren't able to say that you were confident with the material. That is totally fine, and I appreciate your honesty. I just wanted to reach out and ask if there's anything I can help with to increase that confidence level.\n\nI hope all is well.\n\nBest,\nDrew  """
+  IOMessage = """I am just following up on your "Interactive Overview" response from this week where you weren't able to say that you were confident with the material. That is totally fine, and I appreciate your honesty. I just wanted to reach out and ask if there's anything I can help with to increase that confidence level.\n\nI hope all is well.\n\nBest,\nDrew  """
 
   IOText = tk.Text(scrollable_frame, wrap="word")
   IOText.insert("1.0", IOMessage)
@@ -365,9 +365,7 @@ def on_button_click(i):
     except Exception as e:
       pass
   
-  if AllPostsToggle.get(): 
-    AllPostsToggle.set(False)
-  ToggleButton.config(text=f"{AllPostsToggle.get()}")
+
 
   Feedback = driver.find_element(By.CSS_SELECTOR, "bb-svg-icon[icon='add-feedback']")
   Feedback.click()
@@ -376,8 +374,11 @@ def on_button_click(i):
   )
 
   Message = R[i][1] #this is the message explaining the grade
+
   if AllPostsToggle.get(): #this is if all their posts were done on the same day
     Message += "\n\nAlso, all of your posts were on the same day, so there is a 12.5% deduction.  Make sure you spread your posts out over two separate days, per UOP policy."
+    AllPostsToggle.set(False)
+  ToggleButton.config(text=f"{AllPostsToggle.get()}")
   FB.send_keys(Message)
 
   Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='engagement.feedbackAuthoring.components.feedbackBody.content.primaryFeedback.graderFeedback.feedbackEditor.save']")
