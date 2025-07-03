@@ -4,6 +4,7 @@ import sys
 import os
 import psutil
 import time
+import ollama
 #first we make sure we're ready to close all browser windows
 
 """
@@ -321,6 +322,9 @@ def GetMessageInfo(Message,cls = "span.date"):
   except:
     return ""
     
+
+    
+    
 def GetAgoTime(Message,date=1):
   """
   if the user posted within 24 hours, the system doesn't list the date, but rather how long ago the message was posted.  We need to grab that data.  It is listed within the tag:
@@ -437,7 +441,7 @@ def GetUserDiscussionInfo():
     
     if User != Name.text:
       continue
-    
+        
     Date = GetMessageInfo(Message,"span.date")
     if Date == "":
       Date = GetAgoTime(Message,date=1)
@@ -469,7 +473,8 @@ def GetUserDiscussionInfo():
 
     
     tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words is {BDM} substantive").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
-    Row += 1
+    tk.Label(scrollable_frame, text=Content, wraplength=1000, justify="left", bg="lightgray").grid(row=Row+1,column=0,columnspan=5,pady=5,sticky="w")
+    Row += 3
       
     #print(User,Date,Time,WordCount)
     #print(is_substantive_reply_advanced(Content))
@@ -889,6 +894,51 @@ tk.Button(left_frame, text="Create Announcements", command= lambda :(Clear(),Dis
 
 
 """end of Create Announcements"""
+
+###########################
+
+
+"""Discussion Responses"""
+
+
+  
+  
+tk.Button(left_frame, text="Discussion Responses", command= lambda :(Clear(), DiscussionResponses()), bg="#444", fg="white").pack(pady=10) 
+
+
+Text = None
+ResponseText = None
+def DiscussionResponses():
+  global Text, ResponseText
+  tk.Label(scrollable_frame, text="Paste the response below, then hit the button!").pack(pady=10)
+  
+  Text = tk.Text(scrollable_frame, wrap="word")
+  #Text.insert("1.0", IOMessage)
+  Text.pack(pady=20)
+  
+  tk.Button(scrollable_frame, text="Create Response", command=LLM,width=20, bg="#444", fg="white").pack(pady=20)
+  
+  ResponseText = tk.Text(scrollable_frame, wrap="word")
+  #ResponseText.insert("1.0", IOMessage)
+  ResponseText.pack(pady=20)
+  
+  
+def LLM():
+  global ResponseText
+  ResponseText.delete("1.0", tk.END) #clear contents of second box
+  Content = Text.get("1.0", tk.END)
+  
+  response = ollama.chat(
+    model="gemma3",
+    messages=[{"role": "user", "content": "Create a roughly 75 word reply to this post that asks two questions:" + Content}]
+  )
+  ResponseContent = response['message']['content']
+  ResponseText.insert("1.0",ResponseContent)
+ 
+  
+
+
+"""end of Discussion Responses page"""
 
 ###########################
 
