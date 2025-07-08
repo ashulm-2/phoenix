@@ -342,7 +342,7 @@ def GetAgoTime(Message,date=1):
         number = int(match.group(1))
         now = datetime.datetime.now()
         PastDate = now - datetime.timedelta(hours=number)
-        print(PastDate.strftime("%b %d, %Y"))
+        #print(PastDate.strftime("%b %d, %Y"))
         return PastDate.strftime("%b %d, %Y")
     else:
       return DT[1].text
@@ -350,7 +350,7 @@ def GetAgoTime(Message,date=1):
     return ""
 
 def on_button_click(i):
-  global AllPostsToggle
+  global AllPostsToggle, DiscussionIntro
 
   #P is the amount of points discussion is worth; most times it is worth 30 points, but other times it is worth 4 points
   P = float(DiscussionValue.get("1.0", "end-1c"))
@@ -377,7 +377,7 @@ def on_button_click(i):
   EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-placeholder='Students see your feedback when you post grades']"))
   )
 
-  Message = R[i][1] #this is the message explaining the grade
+  Message = DiscussionIntro + "\n\n" + R[i][1] #this is the message explaining the grade
 
   if AllPostsToggle.get(): #this is if all their posts were done on the same day
     Message += "\n\nAlso, all of your posts were on the same day, so there is a 12.5% deduction.  Make sure you spread your posts out over two separate days, per UOP policy."
@@ -412,8 +412,9 @@ def clear_rows(parent, start=8, end=100):
 
   
   
-  
+DiscussionIntro = None
 def GetUserDiscussionInfo():
+  global DiscussionIntro
   clear_rows(scrollable_frame)
   CurrentName = driver.find_element(By.CSS_SELECTOR,"li.slick-current")
   Name = CurrentName.find_element(By.CSS_SELECTOR, "bdi[class^='makeStylesbaseText-0-2']")
@@ -433,9 +434,17 @@ def GetUserDiscussionInfo():
   
   #set time to 5AM
   PreviousFridayAt5.replace(hour=5, minute=0, second=0, microsecond=0)
+
+  #count distinct days and before Thursday (i.e. Friday at 5)
+  DistinctDays = set()
+  BeforeThursdayCount = 0
+
+  CountLabel = tk.Label(scrollable_frame,text="")
+  CountLabel.grid(row=9,column=0,columnspan=5,pady=5,sticky="w")
   
   Messages = driver.find_elements(By.CSS_SELECTOR, "bb-message")
-  Row = 9
+  Row = 10
+  AllContent = ""
   for Message in Messages:  
     User = GetMessageInfo(Message,"bb-linked-username[analytics-id='discussion.message.user']")
     
@@ -450,12 +459,9 @@ def GetUserDiscussionInfo():
     if Time == "":
       Time = GetAgoTime(Message,date=0)
     Content = GetMessageInfo(Message,"bb-rich-text-editor")
-    
-    #I need to update this to grab dates/times when it says "5 hours ago, at 1:59 AM" Here's an example of the tag it is wrapped in:
-      
-    """<div ng-if="duration.needAgo()" class="js-duration-ago" bb-translate="components.directives.duration.agoText" translate-values="{durationDate: duration.date, durationTime: duration.time}"><bdi>5 hours</bdi> ago, at <bdi>1:59 AM</bdi></div>"""
-    
-    ###also look into the speed of the grade discussion stuff, because it is slow###
+    AllContent += Content
+     
+    ###look into the speed of the grade discussion stuff, because it is slow###
 
     if Date == "" or Time == "" or Content == "":
       continue
@@ -464,12 +470,14 @@ def GetUserDiscussionInfo():
     
     DateTimeStr = Date + " " + Time
     DT = datetime.datetime.strptime(DateTimeStr, "%b %d, %Y %I:%M %p")
+    DistinctDays.add(DT.date())  
     
     BeforeDeadline = False
     BDM = "not"
     if DT < PreviousFridayAt5:
       BeforeDeadline = True
       BDM = ""
+      BeforeThursdayCount += 1
 
     
     tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words is {BDM} substantive").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
@@ -478,6 +486,18 @@ def GetUserDiscussionInfo():
       
     #print(User,Date,Time,WordCount)
     #print(is_substantive_reply_advanced(Content))
+    #print(AllContent,484)
+
+  CountLabel.config(text = f"Distinct days: {len(DistinctDays)} and Before Thursday Count: {BeforeThursdayCount}")
+
+  response = ollama.chat(
+    model="gemma3",
+    messages=[{"role": "user", "content": "Here are posts by one person.  Summarize their posts by writing a short thank you, of about 30 words, for their content.  Your response should just be the thank you and not inclue any names:" + AllContent}]
+  )
+  ResponseContent = response['message']['content']
+  NameText = Name.text
+  FirstName = NameText.split(" ")[0]
+  DiscussionIntro = f"Hi {FirstName},\n\n" + ResponseContent
   
   
   
@@ -610,7 +630,7 @@ def SelectedRadio(Course):
   
   #now we loop through all the grade pills and set the ones we marked above
   D = driver.find_elements(By.CSS_SELECTOR,"div[class^='makeStyleslabel-0-2-']")
-  print(Values)
+  #print(Values)
   for i,v in Values:
     D[i-1].click()
     time.sleep(0.25)
