@@ -684,9 +684,12 @@ def DisplaySA(Course):
     text="Submit Grade",
     command=lambda: SelectedRadio(Course)
   ).pack(pady=10, anchor="w")
-
+  
+Length = None
+Width = None
+Volume = None
 def NewDisplaySA(Course):
-  global TKVars
+  global TKVars, Length, Width, Volume
 
   tk.Label(scrollable_frame, text="Grading for " + Course).pack(pady=5)
   tk.Label(scrollable_frame, text="If the student made a mistake and we should deduct points, check the button.  So an unchecked button means they did that part correctly.").pack(pady=10)
@@ -707,6 +710,45 @@ def NewDisplaySA(Course):
     command=lambda: SelectedCheckButtons(Course)
   ).pack(pady=10, anchor="w")
   
+  if Course == "MTH210Week3":
+    tk.Label(scrollable_frame,text="Length: ").pack(pady=2,anchor='w')
+    Length = tk.Text(scrollable_frame, height=1, width=10)
+    Length.pack(pady=10,anchor='w')
+    Length.insert("1.0", "10")
+
+    tk.Label(scrollable_frame,text="Width: ").pack(pady=10,anchor='w')
+    Width = tk.Text(scrollable_frame, height=1, width=10)
+    Width.pack(pady=2,anchor='w')
+    Width.insert("1.0", "10")
+
+    Volume = tk.Label(scrollable_frame, text="Volume: 900")
+    Volume.pack(pady=10,anchor='w')
+
+    Length.bind("<<Modified>>",on_text_change)
+    Width.bind("<<Modified>>",on_text_change)
+
+    #set tab order
+    Length.bind("<Tab>", lambda e: focus_next(e, Width))
+    Width.bind("<Tab>", lambda e: focus_next(e, Length))
+
+def focus_next(event, next_widget):
+  next_widget.focus_set()
+  return "break"  # Prevent default tab behavior
+  
+def on_text_change(event):
+  #this will update the volume calculation each time the length and width from MTH210Week3 are changed
+  try:
+    L = float(Length.get("1.0", "end-1c"))
+    W = float(Width.get("1.0", "end-1c"))
+    V = (7*W+W*W/4)*L
+    Volume.config(text=f"Volume: {V}")
+    Length.edit_modified(False) #resets the modified flag
+    Width.edit_modified(False)
+  except:
+    Length.edit_modified(False) #resets the modified flag
+    Width.edit_modified(False)
+
+    
 def WhichButton(value):
   #this function helps us determine which grade pill to set, based on the value; the four different value intervals are 90-100 70-89, 50-69, 0-0
   if value >= 90:
