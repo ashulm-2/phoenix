@@ -274,10 +274,10 @@ tk.Button(left_frame, text="Grade Interactive Overviews", command= lambda :(Clea
 
 """Grading Discussion"""
 
-import nltk
+#import nltk
 import re
-nltk.download('punkt_tab')
-from nltk.tokenize import sent_tokenize
+#nltk.download('punkt_tab')
+#from nltk.tokenize import sent_tokenize
 
 def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
   sentence = sentence.lower()
@@ -288,7 +288,19 @@ def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
   # fallback: check length
   return len(sentence.split()) >= 6
 
+def SubstantiveBool(reply):
+
+  response = ollama.chat(
+    model="gemma3",
+    messages=[{"role": "user", "content": "Answer YES or NO.  Does the following post contain some substance or does it simply thank their classmate:" + reply}]
+  )
+  
+  return response['message']['content']
+
 def is_substantive_reply_advanced(reply):
+
+
+  
   # Common phrases that are non-substantive
   shallow_phrases = [
     r"\bthank(s| you)\b", r"\bgreat (job|post)\b", r"\bwell said\b",
@@ -473,14 +485,17 @@ def GetUserDiscussionInfo():
     DistinctDays.add(DT.date())  
     
     BeforeDeadline = False
-    BDM = "not"
+    #BDM = "not"
     if DT < PreviousFridayAt5:
       BeforeDeadline = True
-      BDM = ""
+      #BDM = ""
       BeforeThursdayCount += 1
 
+    Substantive = SubstantiveBool(Content)
+    Substantive1 = is_substantive_reply_advanced(Content)
+
     
-    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words is {BDM} substantive").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
+    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words and substantive response: {Substantive} and {Substantive1}").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
     tk.Label(scrollable_frame, text=Content, wraplength=1000, justify="left", bg="lightgray").grid(row=Row+1,column=0,columnspan=5,pady=5,sticky="w")
     Row += 3
       
@@ -492,7 +507,7 @@ def GetUserDiscussionInfo():
 
   response = ollama.chat(
     model="gemma3",
-    messages=[{"role": "user", "content": "Here are posts by one person.  Summarize their posts by writing a short thank you, of about 30 words, for their content.  Your response should just be the thank you and not inclue any names:" + AllContent}]
+    messages=[{"role": "user", "content": "Here are posts by one person.  Summarize their posts by writing a short thank you, of about 30 words, for their content.  Your response should just be the thank you and not include any names:" + AllContent}]
   )
   ResponseContent = response['message']['content']
   NameText = Name.text
