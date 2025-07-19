@@ -5,6 +5,7 @@ import os
 import psutil
 import time
 import ollama
+import random
 #first we make sure we're ready to close all browser windows
 
 """
@@ -804,7 +805,6 @@ def SelectedCheckButtons(Course):
   #there's button to move to the next student.  It looks like this
   NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
   NextStudent.click()
-  """<a class="MuiTypographyroot-0-2-2313 MuiLinkroot-0-2-2477 MuiLinkunderlineAlways-0-2-2480 makeStylesnavLink-0-2-2471 makeStylesroot-0-2-2473 MuiTypographycolorPrimary-0-2-2336" href="#" aria-disabled="false" aria-hidden="false" aria-label="Next Student" tabindex="0" data-analytics-id="attemptGrading.studentNavigation.nextStudent"><div class="MuiTypographyroot-0-2-2313 makeStylesnavLinkContent-0-2-2472 MuiTypographysubtitle2-0-2-2325"><svg class="MuiSvgIconroot-0-2-2432 makeStylesdirectionalIcon-0-2-2431 makeStylesstrokeIcon-0-2-2430 MuiSvgIconfontSizeSmall-0-2-2439" focusable="false" viewBox="0 0 16 16" aria-hidden="true" role="presentation"><g><path fill="currentColor" stroke="transparent" fill-rule="evenodd" d="M4.2929.2929c-.3905.3905-.3905 1.0237 0 1.4142L10.5858 8l-6.293 6.2929c-.3904.3905-.3904 1.0237 0 1.4142.3906.3905 1.0238.3905 1.4143 0l7-7c.3905-.3905.3905-1.0237 0-1.4142l-7-7c-.3905-.3905-1.0237-.3905-1.4142 0z" clip-rule="evenodd"></path></g><defs></defs></svg></div></a>"""
 
 
   NewDisplaySA(Course)
@@ -1025,12 +1025,113 @@ def LLM():
 
   
   
-tk.Button(left_frame, text="Testing", command= lambda :(Clear(), Testing()), bg="#444", fg="white").pack(pady=10) 
+tk.Button(left_frame, text="Testing", command= lambda :(Clear(), SetTestingPage()), bg="#444", fg="white").pack(pady=10) 
 
 
 
-def Testing():
-  pass
+def SetTestingPage():
+  #tk.Button(scrollable_frame,text="Run Test", command = Testing).pack(pady=10)
+  
+  global IOValue
+  tk.Label(scrollable_frame, text="Navigate to the Interactive Overview page", font=("Arial", 20)).pack(pady=20)
+  tk.Label(scrollable_frame, text="Pick the point value of the assignment, and then hit enter.", font=("Arial", 15)).pack(pady=20)
+  IOValue = ttk.Combobox(scrollable_frame, values=["4", "5","10"])
+  IOValue["state"] = "readonly"
+  IOValue.pack(pady=10)
+  IOValue.set("4")
+
+  tk.Button(scrollable_frame, text="Enter", command=Testing,width=20).pack(pady=20)
+
+  IOMessage = """I am just following up on your "Interactive Overview" response from this week where you weren't able to say that you were confident with the material. That is totally fine, and I appreciate your honesty. I just wanted to reach out and ask if there's anything I can help with to increase that confidence level.\n\nI hope all is well.\n\nBest,\nDrew  """
+
+  IOText = tk.Text(scrollable_frame, wrap="word")
+  IOText.insert("1.0", IOMessage)
+  IOText.config(state="disabled")
+  IOText.pack(pady=20)
+  
+def Testing():  
+  global IOValue
+  Responses = driver.find_elements(By.CSS_SELECTOR,"div.bb-editor")
+  All = ""
+  for i,R in enumerate(Responses):
+    if i == 0: #this skips the text of the directions
+      continue
+    All += R.text + "\n"
+  #print(All + "\n\n")
+  
+  PositiveMessages = [
+    "Thanks for sharing your emotions!  I'm glad to hear things are going well.",
+    "Thanks for opening up about how you're feeling!",
+    "I'm happy to hear things are going smoothly for you.",
+    "It's great that you’re in a good place right now.",
+    "Appreciate you sharing your thoughts with me!",
+    "I'm really glad things are working out for you.",
+    "Thanks for expressing how you're doing!",
+    "That’s wonderful to hear—thanks for letting me know.",
+    "It’s always nice to hear good news from you.",
+    "Glad to hear you're feeling positive!",
+    "Thanks for the update—I’m really happy for you."
+  ]
+  
+  SupportiveMessages = [
+    "It’s okay to feel unsure—what matters is that you keep going. Don't be afraid to ask for help.",
+    "You’re stronger than you think—don’t give up! Don't be afraid to ask for help.",
+    "Every step forward counts, even the small ones. Don't be afraid to ask for help.",
+    "You’ve got potential—believe in your progress. Don't be afraid to ask for help.",
+    "Everyone struggles sometimes—keep trying, you're growing. Don't be afraid to ask for help.",
+    "It’s brave to keep going when it feels tough.  Don't be afraid to ask for help.",
+    "You’re learning more than you realize—keep at it! Don't be afraid to ask for help.",
+    "Confidence comes with time—stay patient with yourself. Don't be afraid to ask for help.",
+    "You’re doing better than you think—keep pushing forward! Don't be afraid to ask for help."
+  ]
+  
+  response = ollama.chat(
+    model="gemma3",
+    messages=[{"role": "user", "content": "If you had to classify the following content as Very Confident, Confident, I'm not sure, Not confident, or Really worried, which one do you think it is?  Limit your answer to just stating the classification:" + All}]
+  )
+  ResponseContent = response['message']['content']
+  ResponseContent = ResponseContent.strip().lower()
+  #print(ResponseContent.strip())
+  if ResponseContent == "confident" or ResponseContent == "very confident":
+    Message = random.choice(PositiveMessages)
+  else:
+    Message = random.choice(SupportiveMessages)
+  
+  
+  FB = driver.find_element(By.CSS_SELECTOR, "div[data-placeholder='Enter your feedback']")
+  FB.send_keys(Message)
+  Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.page.body.overallFeedback.saveButton']")
+  Save.click()
+  
+  
+  
+  AllInputs = driver.find_elements(By.CSS_SELECTOR,"input[placeholder='--']")
+  V = IOValue.get()
+  
+  try: #it seems like the [9]th input is the one we need to use....no idea why
+    a = AllInputs[9]
+    a.click()
+    a.send_keys(V)
+    a.send_keys(Keys.ENTER)
+    time.sleep(2) #give me time to record if they need the message
+  except: #if it didn't work, try them all then
+    for i,a in enumerate(AllInputs):       
+      print(i)
+      try: #try to add scores to all the elements  
+        a.click()
+        a.send_keys(V)
+        a.send_keys(Keys.ENTER)
+        break
+      except Exception as e:
+        pass
+  #the next line resets radio buttons for the next student 
+  #NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
+  #NextStudent.click()
+
+  
+  
+
+  
  
   
 
