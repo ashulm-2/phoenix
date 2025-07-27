@@ -33,10 +33,15 @@ NewSummativeRubrics = {
         1: 35, 
         2: "You only identified one distinct two-dimensional shapes, but you needed four of them."
       }, 
-      2: {
+      3: {
         0: "Missing all 2D shapes", 
         1: 100, 
         2: "You did not identify any two-dimensional shapes."
+      },
+      4: {
+        0: "Missing locations of 2D shapes on shed", 
+        1: 25, 
+        2: "You found the two-dimensional figures, but you never stated where you can find each one of them on the shed."
       },
     },
     3: {

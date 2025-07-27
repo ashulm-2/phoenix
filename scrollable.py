@@ -275,10 +275,10 @@ tk.Button(left_frame, text="Grade Interactive Overviews", command= lambda :(Clea
 
 """Grading Discussion"""
 
-#import nltk
+import nltk
 import re
-#nltk.download('punkt_tab')
-#from nltk.tokenize import sent_tokenize
+nltk.download('punkt_tab')
+from nltk.tokenize import sent_tokenize
 
 def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
   sentence = sentence.lower()
@@ -404,11 +404,13 @@ def on_button_click(i):
   #time.sleep(1)
 
   
-
-  Next = WebDriverWait(driver, 3).until(
-  EC.element_to_be_clickable((By.CSS_SELECTOR, "a[analytics-id='course.engagement.nextSubmission.link']"))
-  )
-  Next.click()
+  try:
+    Next = WebDriverWait(driver, 3).until(
+    EC.element_to_be_clickable((By.CSS_SELECTOR, "a[analytics-id='course.engagement.nextSubmission.link']"))
+    )
+    Next.click()
+  except:
+    print("Couldn't find the next button!")
   
   time.sleep(2)
   GetUserDiscussionInfo()
@@ -492,7 +494,7 @@ def GetUserDiscussionInfo():
       #BDM = ""
       BeforeThursdayCount += 1
 
-    Substantive = SubstantiveBool(Content)
+    Substantive = SubstantiveBool(Content).strip()
     Substantive1 = is_substantive_reply_advanced(Content)
 
     
@@ -689,8 +691,9 @@ def DisplaySA(Course):
 Length = None
 Width = None
 Volume = None
+UserVolume = None
 def NewDisplaySA(Course):
-  global TKVars, Length, Width, Volume
+  global TKVars, Length, Width, Volume, UserVolume
 
   tk.Label(scrollable_frame, text="Grading for " + Course).pack(pady=5)
   tk.Label(scrollable_frame, text="If the student made a mistake and we should deduct points, check the button.  So an unchecked button means they did that part correctly.").pack(pady=10)
@@ -712,25 +715,33 @@ def NewDisplaySA(Course):
   ).pack(pady=10, anchor="w")
   
   if Course == "MTH210Week3":
-    tk.Label(scrollable_frame,text="Length: ").pack(pady=2,anchor='w')
+    tk.Label(scrollable_frame, text="The base should fit within 15 x 15 and the volume should be between 600-1100 cubic feet.").pack(pady=10, anchor="w")
+    
+    tk.Label(scrollable_frame,text="Length: ").pack(padx=2,anchor='w', side="left")
     Length = tk.Text(scrollable_frame, height=1, width=10)
-    Length.pack(pady=10,anchor='w')
+    Length.pack(pady=10,padx=10,anchor='w', side="left")
     Length.insert("1.0", "10")
 
-    tk.Label(scrollable_frame,text="Width: ").pack(pady=10,anchor='w')
+    tk.Label(scrollable_frame,text="Width: ").pack(pady=10,anchor='w', side="left")
     Width = tk.Text(scrollable_frame, height=1, width=10)
-    Width.pack(pady=2,anchor='w')
+    Width.pack(padx=2,anchor='w', side="left")
     Width.insert("1.0", "10")
+    
+    tk.Label(scrollable_frame,text="User Volume: ").pack(pady=10,anchor='w', side="left")
+    UserVolume = tk.Text(scrollable_frame, height=1, width=10)
+    UserVolume.pack(padx=2,anchor='w', side="left")
+    UserVolume.insert("1.0", "950")
 
     Volume = tk.Label(scrollable_frame, text="Volume: 900")
-    Volume.pack(pady=10,anchor='w')
+    Volume.pack(pady=10, padx=2,anchor='w')
 
     Length.bind("<<Modified>>",on_text_change)
     Width.bind("<<Modified>>",on_text_change)
 
     #set tab order
     Length.bind("<Tab>", lambda e: focus_next(e, Width))
-    Width.bind("<Tab>", lambda e: focus_next(e, Length))
+    Width.bind("<Tab>", lambda e: focus_next(e, UserVolume))
+    UserVolume.bind("<Tab>", lambda e: focus_next(e, Length))
 
 def focus_next(event, next_widget):
   next_widget.focus_set()
@@ -765,7 +776,8 @@ def SelectedCheckButtons(Course):
   """
   this function is run when you are ready to submit the grade
   """
-
+  global Length, Width, Volume, UserVolume
+  
   Parts = len(NewSummativeRubrics[Course])
   Message = ""
   Scores = {i:100 for i in range(1,Parts+1)}
@@ -776,6 +788,15 @@ def SelectedCheckButtons(Course):
       #print(part,var,var.get())
       Message += NewSummativeRubrics[Course][part][count][2] + "\n"
       Scores[part] -= NewSummativeRubrics[Course][part][count][1]
+      
+  if Course == "MTH210Week3":
+    L = float(Length.get("1.0", "end-1c"))
+    W = float(Width.get("1.0", "end-1c"))
+    V = (7*W+W*W/4)*L
+    UV = float(UserVolume.get("1.0", "end-1c"))
+    if V != UV:
+      Message += f"Your volume is incorrect.  The actual volume with length {L} feet and width {W} feet should be {V} cubic feet.  Let me know if you have questions about how to get this volume.\n"
+
   
   if Message == "":
     Message = "Fantastic job with this assignment!  You did everything perfectly!"
@@ -802,9 +823,12 @@ def SelectedCheckButtons(Course):
   #the next line resets radio buttons for the next student 
   Clear()
 
-  #there's button to move to the next student.  It looks like this
-  NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
-  NextStudent.click()
+  #there's button to move to the next student. 
+  try:
+    NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
+    NextStudent.click()
+  except:
+    print("Finished grading!")
 
 
   NewDisplaySA(Course)
@@ -1040,7 +1064,7 @@ def SetTestingPage():
   IOValue.pack(pady=10)
   IOValue.set("4")
 
-  tk.Button(scrollable_frame, text="Enter", command=Testing,width=20).pack(pady=20)
+  tk.Button(scrollable_frame, text="Enter -- Testing", command=Testing,width=20).pack(pady=20)
 
   IOMessage = """I am just following up on your "Interactive Overview" response from this week where you weren't able to say that you were confident with the material. That is totally fine, and I appreciate your honesty. I just wanted to reach out and ask if there's anything I can help with to increase that confidence level.\n\nI hope all is well.\n\nBest,\nDrew  """
 
@@ -1058,6 +1082,8 @@ def Testing():
       continue
     All += R.text + "\n"
   #print(All + "\n\n")
+  
+  
   
   PositiveMessages = [
     "Thanks for sharing your emotions!  I'm glad to hear things are going well.",
@@ -1091,7 +1117,7 @@ def Testing():
   )
   ResponseContent = response['message']['content']
   ResponseContent = ResponseContent.strip().lower()
-  #print(ResponseContent.strip())
+  print(ResponseContent.strip())
   if ResponseContent == "confident" or ResponseContent == "very confident":
     Message = random.choice(PositiveMessages)
   else:
@@ -1113,7 +1139,7 @@ def Testing():
     a.click()
     a.send_keys(V)
     a.send_keys(Keys.ENTER)
-    time.sleep(2) #give me time to record if they need the message
+    time.sleep(3) #give me time to record if they need the message
   except: #if it didn't work, try them all then
     for i,a in enumerate(AllInputs):       
       print(i)
@@ -1124,9 +1150,13 @@ def Testing():
         break
       except Exception as e:
         pass
-  #the next line resets radio buttons for the next student 
-  #NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
-  #NextStudent.click()
+  
+  try:
+    NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
+    NextStudent.click()
+    #Testing()
+  except:
+    print("Couldn't find next student button")
 
   
   
