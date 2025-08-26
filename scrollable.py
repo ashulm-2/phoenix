@@ -276,10 +276,10 @@ tk.Button(left_frame, text="Grade Interactive Overviews", command= lambda :(Clea
 
 """Grading Discussion"""
 
-import nltk
+#import nltk
 import re
-nltk.download('punkt_tab')
-from nltk.tokenize import sent_tokenize
+#nltk.download('punkt_tab')
+#from nltk.tokenize import sent_tokenize
 
 def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
   sentence = sentence.lower()
@@ -364,6 +364,7 @@ def GetAgoTime(Message,date=1):
     return ""
 
 def on_button_click(i):
+  T1 = time.perf_counter()
   global AllPostsToggle, DiscussionIntro
 
   #P is the amount of points discussion is worth; most times it is worth 30 points, but other times it is worth 4 points
@@ -371,7 +372,12 @@ def on_button_click(i):
 
   Score = driver.find_elements(By.CSS_SELECTOR, "input[type='text'][placeholder='--']")
 
-  for s in Score:
+  T2 = time.perf_counter()
+  #print(f"{T2-T1} seconds to get the score")
+  """this for loop below is what is slowing things down"""
+  #print(f"There are {len(Score)} placeholders to loop through")
+  for c,s in enumerate(reversed(Score)):
+    Start = time.perf_counter()
     try:
       TP = R[i][3]*P
       if AllPostsToggle.get(): #this means we need to deduct for all posts being on the same day
@@ -379,10 +385,15 @@ def on_button_click(i):
       s.click()
       s.send_keys(str(TP))
       s.send_keys(Keys.ENTER)
+      print(f"Element {c} was clicked to enter the score")
       break
     except Exception as e:
       pass
+    End = time.perf_counter()
+    print(End - Start,c)
   
+  T3 = time.perf_counter()
+  #print(f"{T3-T2} seconds to enter the score")
 
 
   Feedback = driver.find_element(By.CSS_SELECTOR, "bb-svg-icon[icon='add-feedback']")
@@ -390,6 +401,7 @@ def on_button_click(i):
   FB = WebDriverWait(driver, 10).until(
   EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-placeholder='Students see your feedback when you post grades']"))
   )
+  
 
   Message = DiscussionIntro + "\n\n" + R[i][1] #this is the message explaining the grade
 
@@ -401,6 +413,9 @@ def on_button_click(i):
 
   Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='engagement.feedbackAuthoring.components.feedbackBody.content.primaryFeedback.graderFeedback.feedbackEditor.save']")
   Save.click()
+  
+  T4 = time.perf_counter()
+  #print(f"{T4-T3} seconds to enter feedback")
 
   #time.sleep(1)
 
@@ -412,6 +427,9 @@ def on_button_click(i):
     Next.click()
   except:
     print("Couldn't find the next button!")
+    
+  T5 = time.perf_counter()
+  print(f"{T5-T4} seconds to go to the next student")
   
   time.sleep(2)
   GetUserDiscussionInfo()
@@ -496,10 +514,10 @@ def GetUserDiscussionInfo():
       BeforeThursdayCount += 1
 
     Substantive = SubstantiveBool(Content).strip()
-    Substantive1 = is_substantive_reply_advanced(Content)
+    #Substantive1 = is_substantive_reply_advanced(Content)
 
     
-    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words and substantive response: {Substantive} and {Substantive1}").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
+    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words and substantive response: {Substantive}").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
     tk.Label(scrollable_frame, text=Content, wraplength=1000, justify="left", bg="lightgray").grid(row=Row+1,column=0,columnspan=5,pady=5,sticky="w")
     Row += 3
       
@@ -507,7 +525,8 @@ def GetUserDiscussionInfo():
     #print(is_substantive_reply_advanced(Content))
     #print(AllContent,484)
 
-  CountLabel.config(text = f"Distinct days: {len(DistinctDays)} and Before Thursday Count: {BeforeThursdayCount}")
+  #CountLabel.config(text = f"Distinct days: {len(DistinctDays)} and Before Thursday Count: {BeforeThursdayCount}")
+  CountLabel.config(text = f"At least two distinct days: {"YES" if len(DistinctDays) > 1 else "NO"} and at least one post on time: {"YES" if BeforeThursdayCount > 0 else "NO"}")
 
   response = ollama.chat(
     model="gemma3",
