@@ -9,11 +9,19 @@ AnnDict[210][4] = "zyBook reading on analytic geometry and trigonometry\nReview 
 AnnDict[210][5] = "zyBook reading on non-Euclidean geometries\nReview Quiz\nSummative Assessment: Non-Euclidean Geometries"
 
 AnnDict[217] = {}
-AnnDict[217][1] = "zyBook reading on introductions to statistical investigations and significance\nReviewQuiz"
-AnnDict[217][2] = "zyBook reading on generalization\nReviewQuiz\nSummative Assessment: Sampling Research Article"
+AnnDict[217][1] = "zyBook reading on introductions to statistical investigations and significance\nReview Quiz"
+AnnDict[217][2] = "zyBook reading on generalization\nReview Quiz\nSummative Assessment: Sampling Research Article"
 AnnDict[217][3] = "zyBook reading on estimation and causation\nReview Quiz\nSummative Assessment: Confidence Intervals"
 AnnDict[217][4] = "zyBook reading on comparing two proportions\nReview Quiz"
 AnnDict[217][5] = "zyBook reading on comparing two means\nReview Quiz\nSummative Assessment: Statistical Methods Research Article"
+
+
+AnnDict[218] = {}
+AnnDict[218][1] = "zyBook reading\nReview Quiz"
+AnnDict[218][2] = "zyBook reading\nReview Quiz\nSummative Assessment: Chi-squared Tests Debrief Memo"
+AnnDict[218][3] = "zyBook reading\nReview Quiz"
+AnnDict[218][4] = "zyBook reading\nReview Quiz\nSummative Assessment: Analysis of Variance (ANOVA) Debrief Memo"
+AnnDict[218][5] = "Review Quiz\nSummative Assessment: Probability and Statistics Debrief Memo"
 
 
 AnnDict[221] = {}

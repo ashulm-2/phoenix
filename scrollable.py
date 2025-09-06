@@ -207,7 +207,7 @@ def SwitchTab():
   PrintTitle()
   
 
-tk.Button(left_frame, text="Switch Tab", command=SwitchTab, width=20, bg="#444", fg="white").pack(pady=10)
+tk.Button(left_frame, text="Switch Tab", command=SwitchTab, width=30, bg="#444", fg="white").pack(pady=10)
 
 TitleLabel = tk.Label(left_frame, text="", wraplength=200)
 TitleLabel.pack(pady=10)
@@ -218,40 +218,23 @@ PrintTitle()
 ######################################################
 
 """Grading Interactive Overviews"""
+
 IOValue = None
 IOWeek = None
-def GradeIO():
-  global IOValue
-  """
-  this function runs and sets all the grades for the interactive overviews
-  """
-  #scroll to the bottom of the page so it shows all the students
-  bottom = driver.find_element(By.CSS_SELECTOR,"div[class='page-size-component']")
-  driver.execute_script("arguments[0].scrollIntoView(true)",bottom)
-  time.sleep(1)
-  AllInputs = driver.find_elements(By.CSS_SELECTOR,"input[type='text'][placeholder='--']")
-  V = IOValue.get()
-
-  for a in AllInputs:
-    time.sleep(0.5)
-    try: #try to add scores to all the elements  
-      a.send_keys(V)
-      a.send_keys(Keys.ENTER)
-    except:
-      print(a) 
-    
-
 def DisplayIO():
-  """ 
-  Content for Interactive Over Screen
-  """
-  global IOValue
+ 
+  global IOValue, IOWeek
   tk.Label(scrollable_frame, text="Navigate to the Interactive Overview page", font=("Arial", 20)).pack(pady=20)
   tk.Label(scrollable_frame, text="Pick the point value of the assignment, and then hit enter.", font=("Arial", 15)).pack(pady=20)
   IOValue = ttk.Combobox(scrollable_frame, values=["4", "5","10"])
   IOValue["state"] = "readonly"
   IOValue.pack(pady=10)
   IOValue.set("4")
+  
+  IOWeek = ttk.Combobox(scrollable_frame, values=["Weeks 1-4", "Week 5",])
+  IOWeek["state"] = "readonly"
+  IOWeek.pack(padx=10)
+  IOWeek.set("Weeks 1-4")
 
   tk.Button(scrollable_frame, text="Enter", command=GradeIO,width=20).pack(pady=20)
 
@@ -261,13 +244,98 @@ def DisplayIO():
   IOText.insert("1.0", IOMessage)
   IOText.config(state="disabled")
   IOText.pack(pady=20)
+  
+def GradeIO():  
+  global IOValue, IOWeek
+  IOW = IOWeek.get()
+  if IOW != "Week 5":
+    Responses = driver.find_elements(By.CSS_SELECTOR,"div.bb-editor")
+    All = ""
+    for i,R in enumerate(Responses):
+      if i == 0: #this skips the text of the directions
+        continue
+      All += R.text + "\n"
+    #print(All + "\n\n")
+    
+    
+    
+    PositiveMessages = [
+      "Thanks for sharing your emotions!  I'm glad to hear things are going well.",
+      "Thanks for opening up about how you're feeling!",
+      "I'm happy to hear things are going smoothly for you.",
+      "It's great that you’re in a good place right now with the course.",
+      "I appreciate you sharing your thoughts with me!",
+      "I'm really glad things are working out for you.",
+      "Thanks for expressing how you're doing!",
+      "That’s wonderful to hear!",
+      "It’s always nice to hear good news from you.",
+      "Glad to hear you're feeling positive!"
+    ]
+    
+    SupportiveMessages = [
+      "It’s okay to feel unsure—what matters is that you keep going. Don't be afraid to ask for help.",
+      "You’re stronger than you think—don’t give up! Don't be afraid to ask for help.",
+      "Every step forward counts, even the small ones. Don't be afraid to ask for help.",
+      "You’ve got potential—believe in your progress. Don't be afraid to ask for help.",
+      "Everyone struggles sometimes—keep trying, you're growing. Don't be afraid to ask for help.",
+      "It’s brave to keep going when it feels tough.  Don't be afraid to ask for help.",
+      "You’re learning more than you realize—keep at it! Don't be afraid to ask for help.",
+      "Confidence comes with time—stay patient with yourself. Don't be afraid to ask for help.",
+      "You’re doing better than you think—keep pushing forward! Don't be afraid to ask for help."
+    ]
+    
+    response = ollama.chat(
+      model="gemma3",
+      messages=[{"role": "user", "content": "If you had to classify the following content as Very Confident, Confident, I'm not sure, Not confident, or Really worried, which one do you think it is?  Limit your answer to just stating the classification:" + All}]
+    )
+    ResponseContent = response['message']['content']
+    ResponseContent = ResponseContent.strip().lower()
+    print(ResponseContent.strip())
+    if ResponseContent == "confident" or ResponseContent == "very confident":
+      Message = random.choice(PositiveMessages)
+    else:
+      Message = random.choice(SupportiveMessages)
+    
+    
+    FB = driver.find_element(By.CSS_SELECTOR, "div[data-placeholder='Enter your feedback']")
+    FB.send_keys(Message)
+    Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.page.body.overallFeedback.saveButton']")
+    Save.click()
+  
+  
+  
+  AllInputs = driver.find_elements(By.CSS_SELECTOR,"input[placeholder='--']")
+  V = IOValue.get()
+  
+  try: #it seems like the [9]th input is the one we need to use....no idea why
+    a = AllInputs[9]
+    a.click()
+    a.send_keys(V)
+    a.send_keys(Keys.ENTER)
+    if IOW != "Week 5":
+      time.sleep(3) #give me time to record if they need the message
+  except: #if it didn't work, try them all then
+    for i,a in enumerate(AllInputs):       
+      print(i)
+      try: #try to add scores to all the elements  
+        a.click()
+        a.send_keys(V)
+        a.send_keys(Keys.ENTER)
+        break
+      except Exception as e:
+        pass
+  
+  try:
+    NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
+    NextStudent.click()
+    #Testing()
+  except:
+    print("Couldn't find next student button")
 
 
 
 
-
-
-tk.Button(left_frame, text="Grade Interactive Overviews", command= lambda :(Clear(), DisplayIO()), bg="#444", fg="white").pack(pady=10) #this lambda function allows us to run Clear and then run Display afterwards
+tk.Button(left_frame, text="Grade Interactive Overviews", command= lambda :(Clear(), DisplayIO()), width=30, bg="#444", fg="white").pack(pady=10) #this lambda function allows us to run Clear and then run Display afterwards
 
 
 """end of Grading Interactive Overviews"""
@@ -613,7 +681,7 @@ def DisplayDiscussion():
   
   
 
-tk.Button(left_frame, text="Grade Discussion", command=lambda :(Clear(),DisplayDiscussion()), bg="#444", fg="white").pack(pady=10)
+tk.Button(left_frame, text="Grade Discussion", command=lambda :(Clear(),DisplayDiscussion()), bg="#444", width=30, fg="white").pack(pady=10)
               
               
               
@@ -637,7 +705,7 @@ def DisplayListofSAs():
   
 
               
-tk.Button(left_frame, text="Grade Summative Assessments", command=lambda :(Clear(),DisplayListofSAs()), bg="#444", fg="white").pack(pady=10)
+tk.Button(left_frame, text="Grade Summative Assessments", command=lambda :(Clear(),DisplayListofSAs()), bg="#444", width=30, fg="white").pack(pady=10)
 
 """end of List of Summative Assessments"""
 
@@ -1011,7 +1079,7 @@ def DisplayAnnouncements():
   tk.Button(scrollable_frame, text="Enter", command=ScoresPublishedAnnouncement,width=20, bg="#444", fg="white").pack(pady=20)
 
 
-tk.Button(left_frame, text="Create Announcements", command= lambda :(Clear(),DisplayAnnouncements()), bg="#444", fg="white").pack(pady=10)
+tk.Button(left_frame, text="Create Announcements", command= lambda :(Clear(),DisplayAnnouncements()), bg="#444", width=30, fg="white").pack(pady=10)
 
 
 """end of Create Announcements"""
@@ -1024,7 +1092,7 @@ tk.Button(left_frame, text="Create Announcements", command= lambda :(Clear(),Dis
 
   
   
-tk.Button(left_frame, text="Discussion Responses", command= lambda :(Clear(), DiscussionResponses()), bg="#444", fg="white").pack(pady=10) 
+tk.Button(left_frame, text="Create Discussion Replies", command= lambda :(Clear(), DiscussionResponses()), bg="#444", width=30, fg="white").pack(pady=10) 
 
 
 Text = None
@@ -1069,125 +1137,12 @@ def LLM():
 
   
   
-tk.Button(left_frame, text="Testing", command= lambda :(Clear(), SetTestingPage()), bg="#444", fg="white").pack(pady=10) 
+tk.Button(left_frame, text="Testing", command= lambda :(Clear(), SetTestingPage()), bg="#444", width=30, fg="white").pack(pady=10) 
 
 
-IOValue = None
-IOWeek = None
+
 def SetTestingPage():
-  #tk.Button(scrollable_frame,text="Run Test", command = Testing).pack(pady=10)
-  
-  global IOValue, IOWeek
-  tk.Label(scrollable_frame, text="Navigate to the Interactive Overview page", font=("Arial", 20)).pack(pady=20)
-  tk.Label(scrollable_frame, text="Pick the point value of the assignment, and then hit enter.", font=("Arial", 15)).pack(pady=20)
-  IOValue = ttk.Combobox(scrollable_frame, values=["4", "5","10"])
-  IOValue["state"] = "readonly"
-  IOValue.pack(pady=10)
-  IOValue.set("4")
-  
-  IOWeek = ttk.Combobox(scrollable_frame, values=["Weeks 1-4", "Week 5",])
-  IOWeek["state"] = "readonly"
-  IOWeek.pack(padx=10)
-  IOWeek.set("Weeks 1-4")
-
-  tk.Button(scrollable_frame, text="Enter -- Testing", command=Testing,width=20).pack(pady=20)
-
-  IOMessage = """I am just following up on your "Interactive Overview" response from this week where you weren't able to say that you were confident with the material. That is totally fine, and I appreciate your honesty. I just wanted to reach out and ask if there's anything I can help with to increase that confidence level.\n\nI hope all is well.\n\nBest,\nDrew  """
-
-  IOText = tk.Text(scrollable_frame, wrap="word")
-  IOText.insert("1.0", IOMessage)
-  IOText.config(state="disabled")
-  IOText.pack(pady=20)
-  
-def Testing():  
-  global IOValue, IOWeek
-  IOW = IOWeek.get()
-  if IOW != "Week 5":
-    Responses = driver.find_elements(By.CSS_SELECTOR,"div.bb-editor")
-    All = ""
-    for i,R in enumerate(Responses):
-      if i == 0: #this skips the text of the directions
-        continue
-      All += R.text + "\n"
-    #print(All + "\n\n")
-    
-    
-    
-    PositiveMessages = [
-      "Thanks for sharing your emotions!  I'm glad to hear things are going well.",
-      "Thanks for opening up about how you're feeling!",
-      "I'm happy to hear things are going smoothly for you.",
-      "It's great that you’re in a good place right now.",
-      "Appreciate you sharing your thoughts with me!",
-      "I'm really glad things are working out for you.",
-      "Thanks for expressing how you're doing!",
-      "That’s wonderful to hear—thanks for letting me know.",
-      "It’s always nice to hear good news from you.",
-      "Glad to hear you're feeling positive!",
-      "Thanks for the update—I’m really happy for you."
-    ]
-    
-    SupportiveMessages = [
-      "It’s okay to feel unsure—what matters is that you keep going. Don't be afraid to ask for help.",
-      "You’re stronger than you think—don’t give up! Don't be afraid to ask for help.",
-      "Every step forward counts, even the small ones. Don't be afraid to ask for help.",
-      "You’ve got potential—believe in your progress. Don't be afraid to ask for help.",
-      "Everyone struggles sometimes—keep trying, you're growing. Don't be afraid to ask for help.",
-      "It’s brave to keep going when it feels tough.  Don't be afraid to ask for help.",
-      "You’re learning more than you realize—keep at it! Don't be afraid to ask for help.",
-      "Confidence comes with time—stay patient with yourself. Don't be afraid to ask for help.",
-      "You’re doing better than you think—keep pushing forward! Don't be afraid to ask for help."
-    ]
-    
-    response = ollama.chat(
-      model="gemma3",
-      messages=[{"role": "user", "content": "If you had to classify the following content as Very Confident, Confident, I'm not sure, Not confident, or Really worried, which one do you think it is?  Limit your answer to just stating the classification:" + All}]
-    )
-    ResponseContent = response['message']['content']
-    ResponseContent = ResponseContent.strip().lower()
-    print(ResponseContent.strip())
-    if ResponseContent == "confident" or ResponseContent == "very confident":
-      Message = random.choice(PositiveMessages)
-    else:
-      Message = random.choice(SupportiveMessages)
-    
-    
-    FB = driver.find_element(By.CSS_SELECTOR, "div[data-placeholder='Enter your feedback']")
-    FB.send_keys(Message)
-    Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.page.body.overallFeedback.saveButton']")
-    Save.click()
-  
-  
-  
-  AllInputs = driver.find_elements(By.CSS_SELECTOR,"input[placeholder='--']")
-  V = IOValue.get()
-  
-  try: #it seems like the [9]th input is the one we need to use....no idea why
-    a = AllInputs[9]
-    a.click()
-    a.send_keys(V)
-    a.send_keys(Keys.ENTER)
-    if IOW != "Week 5":
-      time.sleep(3) #give me time to record if they need the message
-  except: #if it didn't work, try them all then
-    for i,a in enumerate(AllInputs):       
-      print(i)
-      try: #try to add scores to all the elements  
-        a.click()
-        a.send_keys(V)
-        a.send_keys(Keys.ENTER)
-        break
-      except Exception as e:
-        pass
-  
-  try:
-    NextStudent = driver.find_element(By.CSS_SELECTOR, "a[aria-label='Next Student']")
-    NextStudent.click()
-    #Testing()
-  except:
-    print("Couldn't find next student button")
-
-  
+  pass
   
 
   
