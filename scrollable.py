@@ -260,16 +260,14 @@ def GradeIO():
     
     
     PositiveMessages = [
-      "Thanks for sharing your emotions!  I'm glad to hear things are going well.",
-      "Thanks for opening up about how you're feeling!",
-      "I'm happy to hear things are going smoothly for you.",
-      "It's great that you’re in a good place right now with the course.",
-      "I appreciate you sharing your thoughts with me!",
-      "I'm really glad things are working out for you.",
-      "Thanks for expressing how you're doing!",
-      "That’s wonderful to hear!",
-      "It’s always nice to hear good news from you.",
-      "Glad to hear you're feeling positive!"
+      "Thanks for sharing your emotions this week!  I'm glad to hear things are going well.",
+      "I'm happy to hear things are going smoothly for you this week.",
+      "It's great that you’re in a good place right now with the course this week.",
+      "I appreciate you sharing your thoughts with me this week!",
+      "I'm really glad your thoughts are positive this week.",
+      "That’s wonderful to hear this week!",
+      "It’s always nice to hear good news from you this week.",
+      "Glad to hear you're feeling positive this week!"
     ]
     
     SupportiveMessages = [
@@ -285,7 +283,8 @@ def GradeIO():
     ]
     
     response = ollama.chat(
-      model="gemma3",
+      #model="gemma3",
+      model="llama3.1",
       messages=[{"role": "user", "content": "If you had to classify the following content as Very Confident, Confident, I'm not sure, Not confident, or Really worried, which one do you think it is?  Limit your answer to just stating the classification:" + All}]
     )
     ResponseContent = response['message']['content']
@@ -361,7 +360,8 @@ def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
 def SubstantiveBool(reply):
 
   response = ollama.chat(
-    model="gemma3",
+    #model="gemma3",
+    model="llama3.1",
     messages=[{"role": "user", "content": "Answer YES or NO.  Does the following post contain some substance or does it simply thank their classmate:" + reply}]
   )
   
@@ -597,7 +597,8 @@ def GetUserDiscussionInfo():
   CountLabel.config(text = f"At least two distinct days: {"YES" if len(DistinctDays) > 1 else "NO"} and at least one post on time: {"YES" if BeforeThursdayCount > 0 else "NO"}")
 
   response = ollama.chat(
-    model="gemma3",
+    #model="gemma3",
+    model="llama3.1",
     messages=[{"role": "user", "content": "Here are posts by one person.  Summarize their posts by writing a short thank you, of about 30 words, for their content.  Your response should just be the thank you and not include any names:" + AllContent}]
   )
   ResponseContent = response['message']['content']
@@ -1118,7 +1119,8 @@ def LLM():
   Content = Text.get("1.0", tk.END)
   
   response = ollama.chat(
-    model="gemma3",
+    #model="gemma3",
+    model="llama3.1",
     messages=[{"role": "user", "content": "Create a roughly 75 word reply to this post that asks two questions:" + Content}]
   )
   ResponseContent = response['message']['content']
@@ -1142,7 +1144,30 @@ tk.Button(left_frame, text="Testing", command= lambda :(Clear(), SetTestingPage(
 
 
 def SetTestingPage():
-  pass
+  tk.Button(scrollable_frame, text="Testing", command=RunTest, bg="#444", width=30, fg="white").pack(pady=10) 
+  
+  
+  
+def RunTest():
+  wait = WebDriverWait(driver,10)
+  try:
+    SettingsButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[id='discussion-settings-button']")))
+    SettingsButton.click()
+  except:
+    print("Couldn't find the settings button")
+    
+  try:
+    CB = driver.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+    print(len(CB))
+    for cb in CB:
+      print(cb.text)
+    PostFirst = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[id='post-first']")))
+    PostFirst.click()
+  except:
+    print("Couldn't find the post first button")
+
+
+  
   
 
   
