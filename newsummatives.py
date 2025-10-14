@@ -109,6 +109,11 @@ NewSummativeRubrics = {
         1: 15, 
         2: "You didn't draw the shelf in the Dining Room."
       },
+      5: {
+        0: "Furniture on threshold",
+        1: 15,
+        2: "You are not allowed to have any furniture on the threshold between the living room and dining room."
+      }
     },
     2: {
       0: {

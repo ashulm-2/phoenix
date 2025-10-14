@@ -285,12 +285,12 @@ def GradeIO():
     response = ollama.chat(
       #model="gemma3",
       model="llama3.1",
-      messages=[{"role": "user", "content": "If you had to classify the following content as Very Confident, Confident, I'm not sure, Not confident, or Really worried, which one do you think it is?  Limit your answer to just stating the classification:" + All}]
+      messages=[{"role": "user", "content": "The user is going to respond to a prompt by classifying their emotions.  Their response will be one of the five categories:  Very Confident, Confident, I'm not sure, Not confident, or Really worried.  Based on their response, if it is confident or very confident, say 'good'.  Otherwise, say 'bad'.  Your response should be one of those two words and nothing else.  Here is the user's response:" + All}]
     )
     ResponseContent = response['message']['content']
     ResponseContent = ResponseContent.strip().lower()
     print(ResponseContent.strip())
-    if ResponseContent == "confident" or ResponseContent == "very confident":
+    if "good" in ResponseContent:
       Message = random.choice(PositiveMessages)
     else:
       Message = random.choice(SupportiveMessages)
@@ -597,8 +597,8 @@ def GetUserDiscussionInfo():
   CountLabel.config(text = f"At least two distinct days: {"YES" if len(DistinctDays) > 1 else "NO"} and at least one post on time: {"YES" if BeforeThursdayCount > 0 else "NO"}")
 
   response = ollama.chat(
-    #model="gemma3",
-    model="llama3.1",
+    model="gemma3",
+    #model="llama3.1",
     messages=[{"role": "user", "content": "Here are posts by one person.  Summarize their posts by writing a short thank you, of about 30 words, for their content.  Your response should just be the thank you and not include any names:" + AllContent}]
   )
   ResponseContent = response['message']['content']

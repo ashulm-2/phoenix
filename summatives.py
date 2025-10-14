@@ -275,4 +275,66 @@ SummativeRubrics = {
       1: {0: "Grammar, mechanics issues", 1: 80, 2: "There were some slight issues with your grammar, spelling, mechanics, etc."},
     }
   },
+  "MTH218Week4": {
+    1: {
+      0: {0: "Completed top part: name, title, subject, etc.", 1: 100, 2: "Nice job completing the top section."},
+      1: {0: "Missing some of top part", 1: 80, 2: "You're missing some of the top section."},
+      2: {0: "Top part missing completely", 1: 0, 2: "You didn't fill in the top part."},
+    },
+    2: {
+      0: {0: "Completed the purpose part, including course outcome", 1: 100, 2: "Well done with the purpose of the article!"},
+      1: {0: "Incomplete purpose part", 1: 80, 2: "You're missing some of the purpose section section."},
+      2: {0: "Purpose part missing completely", 1: 0, 2: "You didn't complete the purpose portion of the assignment."},
+    },
+    3: {
+      0: {0: "Completed article part: author, DOI, date, journal title, etc.", 1: 100, 2: "Thank you for completing the article information section."},
+      1: {0: "Missing article info", 1: 80, 2: "You're missing some of the article information."},
+      2: {0: "Article info missing completely", 1: 0, 2: "You didn't fill in the article information section."},
+    },
+    4: {
+      0: {0: "Completed research section: research question, groups studied, variables, results, discussion", 1: 100, 2: "Completed research section!"},
+      1: {0: "Missing some of research part", 1: 80, 2: "You're missing information from the research section."},
+      2: {0: "Research part missing completely", 1: 0, 2: "You're missing all of the research information section: research question, groups studied, etc."},
+    },
+    5: {
+      0: {0: "Completed background section: listing and defining all quantitavtive measures", 1: 100, 2: "Completed background section!"},
+      1: {0: "Missing some of background part", 1: 80, 2: "You're missing information from the background section."},
+      2: {0: "Background part missing completely", 1: 0, 2: "You're missing all of the background information section."},
+    },
+    6: {
+      0: {0: "Grammar good!", 1: 100, 2: "Grammar and mechanics were well done!"},
+      1: {0: "Grammar, mechanics issues", 1: 80, 2: "There were some slight issues with your grammar, spelling, mechanics, etc."},
+    }
+  },
+  "MTH218Week5": {
+    1: {
+      0: {0: "Completed top part: name, title, subject, etc.", 1: 100, 2: "Nice job completing the top section."},
+      1: {0: "Missing some of top part", 1: 80, 2: "You're missing some of the top section."},
+      2: {0: "Top part missing completely", 1: 0, 2: "You didn't fill in the top part."},
+    },
+    2: {
+      0: {0: "Completed the purpose part, including course outcome", 1: 100, 2: "Well done with the purpose of the article!"},
+      1: {0: "Incomplete purpose part", 1: 80, 2: "You're missing some of the purpose section section."},
+      2: {0: "Purpose part missing completely", 1: 0, 2: "You didn't complete the purpose portion of the assignment."},
+    },
+    3: {
+      0: {0: "Completed article part: author, DOI, date, journal title, etc.", 1: 100, 2: "Thank you for completing the article information section."},
+      1: {0: "Missing article info", 1: 80, 2: "You're missing some of the article information."},
+      2: {0: "Article info missing completely", 1: 0, 2: "You didn't fill in the article information section."},
+    },
+    4: {
+      0: {0: "Completed research section: research question, sampling technique, variables, and groups, results", 1: 100, 2: "Completed research section!"},
+      1: {0: "Missing some of research part", 1: 80, 2: "You're missing information from the research section."},
+      2: {0: "Research part missing completely", 1: 0, 2: "You're missing all of the research information section: research question, sampling technique, etc."},
+    },
+    5: {
+      0: {0: "Completed background section: sampling, distribution, and probability", 1: 100, 2: "Completed background section!"},
+      1: {0: "Missing some of background part", 1: 80, 2: "You're missing information from the background section."},
+      2: {0: "Background part missing completely", 1: 0, 2: "You're missing all of the background information section."},
+    },
+    6: {
+      0: {0: "Grammar good!", 1: 100, 2: "Grammar and mechanics were well done!"},
+      1: {0: "Grammar, mechanics issues", 1: 80, 2: "There were some slight issues with your grammar, spelling, mechanics, etc."},
+    }
+  },
 }
