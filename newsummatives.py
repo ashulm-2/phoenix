@@ -129,11 +129,26 @@ NewSummativeRubrics = {
     },
     3: {
       0: {
-        0: "Not great explanation of sliding/rotating", 
+        0: "Not great explanation of sliding", 
         1: 15, 
-        2: "You talked about sliding or rotating the furniture, but your explanation wasn't exactly correct."
+        2: "You talked about sliding the furniture, but your explanation wasn't exactly correct."
       },
       1: {
+        0: "No explanation of sliding", 
+        1: 35, 
+        2: "You didn't talk about whether you could slide your configuation."
+      },
+      2: {
+        0: "Not great explanation of rotating", 
+        1: 15, 
+        2: "You talked about rotating the furniture, but your explanation wasn't correct."
+      },
+      3: {
+        0: "No explanation of rotating", 
+        1: 35, 
+        2: "You didn't talk about whether you could rotate your configuation."
+      },
+      4: {
         0: "No explanation of sliding/rotating", 
         1: 100, 
         2: "You did not give an explanation of whether you could slide or rotate the furniture." 

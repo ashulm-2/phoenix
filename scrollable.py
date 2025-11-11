@@ -238,6 +238,8 @@ def DisplayIO():
 
   tk.Button(scrollable_frame, text="Enter", command=GradeIO,width=20).pack(pady=20)
 
+  
+
   IOMessage = """I am just following up on your "Interactive Overview" response from this week where you weren't able to say that you were confident with the material. That is totally fine, and I appreciate your honesty. I just wanted to reach out and ask if there's anything I can help with to increase that confidence level.\n\nI hope all is well.\n\nBest,\nDrew  """
 
   IOText = tk.Text(scrollable_frame, wrap="word")
@@ -311,8 +313,8 @@ def GradeIO():
     a.click()
     a.send_keys(V)
     a.send_keys(Keys.ENTER)
-    if IOW != "Week 5":
-      time.sleep(3) #give me time to record if they need the message
+    if IOW != "Week 5" and "good" not in ResponseContent:
+      time.sleep(2) #give me time to record if they need the message
   except: #if it didn't work, try them all then
     for i,a in enumerate(AllInputs):       
       print(i)
@@ -363,6 +365,16 @@ def SubstantiveBool(reply):
     #model="gemma3",
     model="llama3.1",
     messages=[{"role": "user", "content": "Answer YES or NO.  Does the following post contain some substance or does it simply thank their classmate:" + reply}]
+  )
+  
+  return response['message']['content']
+  
+  
+def GenerativeAIPercentage(Content):
+  response = ollama.chat(
+    #model="gemma3",
+    model="llama3.1",
+    messages=[{"role": "user", "content": "The following content was written by a student in an online forum.  Give me a percentage likelihood that it was written by AI and not by the student and a brief explanation of at most 100 words why you gave that percentage.  Here is their post: " + Content}]
   )
   
   return response['message']['content']
@@ -583,11 +595,14 @@ def GetUserDiscussionInfo():
 
     Substantive = SubstantiveBool(Content).strip()
     #Substantive1 = is_substantive_reply_advanced(Content)
+    
+    GenAI = GenerativeAIPercentage(Content).strip()
 
     
-    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words and substantive response: {Substantive}").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
-    tk.Label(scrollable_frame, text=Content, wraplength=1000, justify="left", bg="lightgray").grid(row=Row+1,column=0,columnspan=5,pady=5,sticky="w")
-    Row += 3
+    tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
+    tk.Label(scrollable_frame,text=GenAI, wraplength=1000, justify="left", bg="yellow").grid(row=Row+1,column=0,columnspan=5,pady=5,sticky="w")
+    tk.Label(scrollable_frame, text=Content, wraplength=1000, justify="left", bg="lightgray").grid(row=Row+2,column=0,columnspan=5,pady=5,sticky="w")
+    Row += 4
       
     #print(User,Date,Time,WordCount)
     #print(is_substantive_reply_advanced(Content))
