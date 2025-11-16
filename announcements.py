@@ -31,6 +31,15 @@ AnnDict[221][3] = "zyBook reading on integer properties and counting\nWk3 Summat
 AnnDict[221][4] = "zyBook reading on computation and induction with recursion"
 AnnDict[221][5] = "zyBook reading on discrete probability, graphs, and trees\nWk5 Summative Assessment"
 
+AnnDict[280] = {}
+AnnDict[280][1] = "zyBook reading\nReview Quiz"
+AnnDict[280][2] = "zyBook reading\nReview Quiz\nWk2 Summative Assessment"
+AnnDict[280][3] = "zyBook reading\nReview Quiz"
+AnnDict[280][4] = "zyBook reading\nReview Quiz"
+AnnDict[280][5] = "zyBook reading\nReview Quiz\nWk5 Summative Assessment"
+AnnDict[280][6] = "zyBook reading\nReview Quiz\nWk6 Summative Assessment"
+AnnDict[280][7] = "zyBook reading\nReview Quiz\nWk7 Summative Assessment"
+
 AnnDict[290] = {}
 AnnDict[290][1] = "zyBook reading\nReview Quiz"
 AnnDict[290][2] = "zyBook reading\nReview Quiz\nWk2 Summative Assessment"
