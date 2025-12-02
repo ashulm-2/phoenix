@@ -189,6 +189,149 @@ NewSummativeRubrics = {
       },
     }, 
   },
+  "MTH280Week2": {
+    1: {
+      0: {
+        0:"#1(a) -- (iii) is one-to-one", #GUI display
+        1: 5, #point deduction
+        2:"In #1(a), (iii) is one-to-one because it is the only that passes the horizontal line test." #student feedback
+      },
+      1: {
+        0:"#1(a) -- explanation of why the others aren't one-to-one", #GUI display
+        1: 10, #point deduction
+        2:"In #1(a), you should say how each of the other graphs (i), (ii), (iv) can have horizontal lines drawn through them that cross more than once, which means when we flip them over the line y=x, they won't pass the vertical line test and hence will not be a function." #student feedback
+      },
+      2: {
+        0:"#1(a) -- missing explanation of why the others aren't one-to-one", #GUI display
+        1: 20, #point deduction
+        2:"In #1(a), you should say how each of the other graphs (i), (ii), (iv) can have horizontal lines drawn through them that cross more than once, which means when we flip them over the line y=x, they won't pass the vertical line test and hence will not be a function." #student feedback
+      },
+      3: {
+        0:"#1(b) -- graph of inverse not correct", #GUI display
+        1: 5, #point deduction
+        2:"In #1(b), the graph you drawn is not the reflection of your chosen graph over the line y=x."  
+      },
+      4: {
+        0:"#1(b) -- graph of inverse not correct", #GUI display
+        1: 10, #point deduction
+        2:"In #1(b), the graph you drawn is not the reflection of your chosen graph over the line y=x."  
+      },
+      5: {
+        0:"#1(c) -- explanation of one-to-one implies inverse", #GUI display
+        1: 5, #point deduction
+        2:"In #1(c), you should say something to the effect of if it doesn't pass the horizontal line test (i.e. is one-to-one), then when reflecting over y=x to find the inverse the new graph will not pass the vertical line test (i.e. won't be a function)."  
+      },
+      6: {
+        0:"#1(c) -- explanation of one-to-one implies inverse", #GUI display
+        1: 10, #point deduction
+        2:"In #1(c), you should say something to the effect of if it doesn't pass the horizontal line test (i.e. is one-to-one), then when reflecting over y=x to find the inverse the new graph will not pass the vertical line test (i.e. won't be a function)."  
+      },
+    },
+    2: {
+      0: {
+        0:"#2(a) -- graph wrong", #GUI display
+        1: 5, #point deduction
+        2:"In #2(a), adding 2 should produce a vertical shift by two units."  
+      },
+      1: {
+        0:"#2(a) -- explanation wrong", #GUI display
+        1: 5, #point deduction
+        2:"In #2(a), for the explanation it should talk about how f(x)+a moves a graph up a units and f(x)-a moves a graph down a units (assuming a is a positive value)."  
+      },
+      2: {
+        0:"#2(a) -- explanation missing", #GUI display
+        1: 10, #point deduction
+        2:"In #2(a), you didn't provide an explanation.  Ffor the explanation it should talk about how f(x)+a moves a graph up a units and f(x)-a moves a graph down a units (assuming a is a positive value)."  
+      },
+      3: {
+        0:"#2(b) -- graph wrong", #GUI display
+        1: 5, #point deduction
+        2:"In #2(b), adding 2 inside the argument will produce a horizontal shift 2 units to the left."  
+      },
+      4: {
+        0:"#2(b) -- explanation wrong", #GUI display
+        1: 5, #point deduction
+        2:"In #2(b), for the explanation it should talk about how f(x+a) moves a graph left a units and f(x-a) moves a graph right a units (assuming a is a positive value)."  
+      },
+      5: {
+        0:"#2(b) -- explanation missing", #GUI display
+        1: 10, #point deduction
+        2:"In #2(b), you didn't provide an explanation.  For the explanation it should talk about how f(x+a) moves a graph left a units and f(x-a) moves a graph right a units (assuming a is a positive value)."  
+      },
+      6: {
+        0:"#2(c) -- graph wrong", #GUI display
+        1: 5, #point deduction
+        2:"In #2(c), the absolute value will make all negative parts of the graph positive, and leave all positive parts (and 0 parts) as is."  
+      },
+      7: {
+        0:"#2(c) -- explanation wrong", #GUI display
+        1: 5, #point deduction
+        2:"In #2(c), for the explanation it should talk about how the absolute value makes a function positive."  
+      },
+      8: {
+        0:"#2(c) -- explanation missing", #GUI display
+        1: 10, #point deduction
+        2:"In #2(c), you're missing the explanation.  For the explanation it should talk about how the absolute value makes a function positive."
+      },
+    },
+    3: {
+      0: {
+        0:"#3(a) -- should get 0/0", #GUI display
+        1: 5, #point deduction
+        2:"In #3(a), when plugging in a=0, you should get 0 on the numerator and 0 in the denominator, so the fraction simplifies to the indeterminant form 0/0."  
+      },
+      1: {
+        0:"#3(b) -- minor mistake solving for x", #GUI display
+        1: 5, #point deduction
+        2:"In #3(b), when solving for x, you should get x = (t^n-1)/a.  Start by raising both sides to the n-th power, subtract 1, and then divide everything by a."  
+      },
+      2: {
+        0:"#3(b) -- multiple minor mistakes solving for x", #GUI display
+        1: 10, #point deduction
+        2:"In #3(b), when solving for x, you should get x = (t^n-1)/a.  Start by raising both sides to the n-th power, subtract 1, and then divide everything by a."  
+      },
+      3: {
+        0:"#3(b) -- major mistake solving for x", #GUI display
+        1: 15, #point deduction
+        2:"In #3(b), when solving for x, you should get x = (t^n-1)/a.  Start by raising both sides to the n-th power, subtract 1, and then divide everything by a."  
+      },
+      4: {
+        0:"#3(c) -- wrong value, t approaches 1", #GUI display
+        1: 5, #point deduction
+        2:"In #3(c), if x approaches 0, then t approaches 1."  
+      },
+      5: {
+        0:"#3(c) -- wrong explanation", #GUI display
+        1: 5, #point deduction
+        2:"In #3(c), your explanation doesn't explain why t approaches the value you said."  
+      },
+      6: {
+        0:"#3(c) -- missing explanation", #GUI display
+        1: 10, #point deduction
+        2:"In #3(c), you didn't explain why t approaches the value you said."  
+      },
+      7: {
+        0:"#3(d) -- incorrect setup", #GUI display
+        1: 5, #point deduction
+        2:"In #3(e), it should be the limit as t approaches 1 of (t-1) / [(t^n-1)/a].  Feel free to ask me for more details."  
+      },
+      8: {
+        0:"#3(d) -- missing setup", #GUI display
+        1: 10, #point deduction
+        2:"In #3(e), it should be the limit as t approaches 1 of (t-1) / [(t^n-1)/a].  Feel free to ask me for more details."  
+      },
+      9: {
+        0:"#3(e) -- incorrect limit (should be a/n)", #GUI display
+        1: 2, #point deduction
+        2:"In #3(e), using the hint, you can cancel the (t-1)'s and you'll have just a on the top and (t^{n-1} + t^{n-2} + ... + t+1) on the bottom, so when you plug in t=1, the top is a and the bottom is (1 + 1 + ... + 1 + 1) = n, so the limit is a/n."  
+      },
+      10: {
+        0:"#3(d) -- missing limit", #GUI display
+        1: 10, #point deduction
+        2:"In #3(e), using the hint, you can cancel the (t-1)'s and you'll have just a on the top and (t^{n-1} + t^{n-2} + ... + t+1) on the bottom, so when you plug in t=1, the top is a and the bottom is (1 + 1 + ... + 1 + 1) = n, so the limit is a/n."  
+      },
+    },
+  },
   "MTH290Week2": {
     1: {
       0: {
