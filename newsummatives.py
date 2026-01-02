@@ -332,6 +332,52 @@ NewSummativeRubrics = {
       },
     },
   },
+  "MTH280Week2": {
+    1: {
+      0: {
+        0:"#1 -- should be 5 - 3(0.45) = 3.65 (close)", #GUI display
+        1: 5, #point deduction
+        2:"In #1, since the derivative is -0.45, this means for each day past the current day, we expect the price to go down by 0.45 (since it is negative).  Sincew we're looking for three days past, that means it will go down 3(0.45) = 1.35.  This means the new price will be 5 - 1.35 = 3.65."
+      },
+      1: {
+        0:"#1 -- multiple errors", #GUI display
+        1: 15, #point deduction
+        2:"In #1, since the derivative is -0.45, this means for each day past the current day, we expect the price to go down by 0.45 (since it is negative).  Sincew we're looking for three days past, that means it will go down 3(0.45) = 1.35.  This means the new price will be 5 - 1.35 = 3.65."
+      },
+      2: {
+        0:"#1 -- garbage, but something", #GUI display
+        1: 40, #point deduction
+        2:"In #1, since the derivative is -0.45, this means for each day past the current day, we expect the price to go down by 0.45 (since it is negative).  Sincew we're looking for three days past, that means it will go down 3(0.45) = 1.35.  This means the new price will be 5 - 1.35 = 3.65."
+      },
+    },
+    2: {
+      0: {
+        0:"#2(a) -- derivative of 1/(1+e^{-t}) -- minor error", #GUI display
+        1: 5, #point deduction
+        2:"In #2(a) you should use the quotient rule.  You had a minor error in your derivative.  The correct answer should be [(1+e^{-t})(0)-(1)(-e^{-t})]/(1+e^{-t})^2 = e^{-t}/(1+e^{-t})^2."
+      },
+      1: {
+        0:"#2(a) -- major error", #GUI display
+        1: 15, #point deduction
+        2:"In #2(a) you should use the quotient rule.  The correct answer should be [(1+e^{-t})(0)-(1)(-e^{-t})]/(1+e^{-t})^2 = e^{-t}/(1+e^{-t})^2."
+      },
+      2: {
+        0:"#2(b) -- wrong choice (should be (3) S'(t) = S(t)(1-S(t))", #GUI display
+        1: 5, #point deduction
+        2:"In #2(b), the correct answer is that S'(t) = S(t)(1-S(t))."
+      },
+      3: {
+        0:"#2(b) -- wrong explanation (should be (3) S'(t) = S(t)(1-S(t))", #GUI display
+        1: 10, #point deduction
+        2:"In #2(b), your explanation for your choice has errors."
+      },
+      4: {
+        0:"#2(b) -- no explanation (should be (3) S'(t) = S(t)(1-S(t))", #GUI display
+        1: 20, #point deduction
+        2:"In #2(b), you did not explain why you made the choice you made."
+      },
+    },
+  },
   "MTH290Week2": {
     1: {
       0: {
