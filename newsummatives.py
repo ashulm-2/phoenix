@@ -332,12 +332,12 @@ NewSummativeRubrics = {
       },
     },
   },
-  "MTH280Week2": {
+  "MTH280Week5": {
     1: {
       0: {
         0:"#1 -- should be 5 - 3(0.45) = 3.65 (close)", #GUI display
         1: 5, #point deduction
-        2:"In #1, since the derivative is -0.45, this means for each day past the current day, we expect the price to go down by 0.45 (since it is negative).  Sincew we're looking for three days past, that means it will go down 3(0.45) = 1.35.  This means the new price will be 5 - 1.35 = 3.65."
+        2:"In #1, since the derivative is -0.45, this means for each day past the current day, we expect the price to go down by 0.45 (since it is negative).  Since we're looking for three days past, that means it will go down 3(0.45) = 1.35.  This means the new price will be 5 - 1.35 = 3.65."
       },
       1: {
         0:"#1 -- multiple errors", #GUI display
@@ -375,6 +375,38 @@ NewSummativeRubrics = {
         0:"#2(b) -- no explanation (should be (3) S'(t) = S(t)(1-S(t))", #GUI display
         1: 20, #point deduction
         2:"In #2(b), you did not explain why you made the choice you made."
+      },
+    },
+    3: {
+      0: {
+        0:"Did not set up objective function D = (3-m)^2+(4-4m)^2", #GUI display
+        1: 10, #point deduction
+        2:"In #3, you need to start with an objective function, which is the sum of the squares of the distances.  The squares of the distance between (1,3) and the point (1,1*m) on the line y=mx is: (3-m)^2.  The square of the distance betewen (4,4) and the point(4,4*m) on the line y=mx is: (4-4m)^2.  Therefore the objective function should be D = (3-m)^2 + (4-4m)^2."
+      },
+      1: {
+        0:"Did not differentiate the objective function", #GUI display
+        1: 10, #point deduction
+        2:"In #3, you should then differentiate the objective function."
+      },
+      2: {
+        0:"Did not set derivative equal to 0 and solve for m: m = 38/34 = 19/17", #GUI display
+        1: 10, #point deduction
+        2:"In #3, after you differentiate the objective function, you should set it equal to 0 and solve for m.  The derivative of the objective function is D' = (2)(3-m)(-1) + (2)(4-4m)(-4), and when you set this equal to 0 and solve, you get m = 38/34."
+      },
+      3: {
+        0:"Did not go through origin -- found b too (decent work)", #GUI display
+        1: 25, #point deduction
+        2:"In #3, you are solving a different problem.  The line of best was forced through the origin, so you only need to find the slope of the line of best fit.  "
+      },
+      4: {
+        0:"Did not go through origin -- found b too (little work)", #GUI display
+        1: 45, #point deduction
+        2:"In #3, you are solving a different problem.  The line of best was forced through the origin, so you only need to find the slope of the line of best fit.  "
+      },
+      5: {
+        0:"Hand write your solutions",
+        1: 0,
+        2:"The only other comment I have is you should hand write your solutions to the remaining summative assessments, instead of typing them.  Just submit pictures of your handwritten work then."
       },
     },
   },
