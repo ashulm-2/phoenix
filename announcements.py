@@ -1,6 +1,12 @@
 """this will be for the initial announcements"""
 
 AnnDict = {}
+
+AnnDict[110] = {}
+
+
+
+
 AnnDict[210] = {}
 AnnDict[210][1] = "zyBook reading on geometry basics and triangles\nReview Quiz"
 AnnDict[210][2] = "zyBook reading on polygons, perimeter, and area\nReview Quiz"

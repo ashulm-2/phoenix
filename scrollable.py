@@ -27,7 +27,7 @@ import datetime
 import subprocess
 import socket
 from prompt import R
-from welcome import WM
+from welcome import WM, WMGeneral
 from summatives import SummativeRubrics
 from newsummatives import NewSummativeRubrics
 
@@ -961,7 +961,12 @@ def PostAnnouncements():
   #post the welcome message
   PostIndividualAnnouncement(
     subject="Welcome and Instructor Information",
-    message=WM[CourseNumber],
+    message=WM[CourseNumber] + WMGeneral,
+    ScheduleDate = FirstTuesday.strftime("%m/%d/%y"))
+    
+  PostIndividualAnnouncement(
+    subject="My Policy on Participation",
+    message="Hi everyone,\n\nPart of your grade in this course is based on your discussion posts, and I wanted to highlight some of my policies on participation. Initial discussion posts must meet the specified word count (which is listed in the directions for each discussion thread), and all replies should be at least 75 words long. Every post should include meaningful mathematical substance.  Indeed, your goal is for a reader to learn something from your contribution. Simply agreeing with a classmate or stating that you liked their idea is not considered substantive. Throughout the week, I will post follow-up questions to various students, and you are welcome and encouraged to respond to those questions even if they are not direct replies to your own post.\n\nIn terms of your grade, you get 25% for each of your three posts for the week and another 25% for posting your initial reply before Thursday.\n\nAs always, if you have any questions, please let me know.\n\nBest,\nDrew",
     ScheduleDate = FirstTuesday.strftime("%m/%d/%y"))
   
 
