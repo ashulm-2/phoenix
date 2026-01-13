@@ -493,6 +493,11 @@ NewSummativeRubrics = {
         1: 10,
         2: "You didn't shade the area calculated by the definite integral.  The shading should be the quarter circle in quadrant 1."
       },
+      4: {
+        0: "graphed full circle in quadrants 3 and 4",
+        1: 10,
+        2: "The graph should only exist in quadrants 1 and 2 since y equals a square root and square roots can only be non-negative (i.e. above the x-axis)."
+      },
     },
     5: {
       0: {
