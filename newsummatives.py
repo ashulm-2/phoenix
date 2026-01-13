@@ -410,6 +410,115 @@ NewSummativeRubrics = {
       },
     },
   },
+  "MTH280Week6": {
+    1: {
+      0: {
+        0: "error finding derivative of arcsin part",
+        1: 5,
+        2: "You have a minor error when finding the derivative of the arcsin piece."
+      },
+      1: {
+        0: "missing work when finding deriavtive of first part",
+        1: 5,
+        2: "You didn't show all the work when finding the derivative of the arcsin piece."
+      },
+      2: {
+        0: "error finding derivative of sqrt part",
+        1: 5,
+        2: "You have a minor error when finding the derivative of the square root piece."
+      },
+      3: {
+        0: "missing work when finding deriavtive of second part",
+        1: 5,
+        2: "You didn't show all the work when finding the derivative of the square root piece."
+      },
+      4: {
+        0: "Didn't show simplification work",
+        1: 5,
+        2: "You didn't show all of the details when simplifying the derivatives of both pieces."
+      },
+      5: {
+        0: "Incorrect simplification/final answer",
+        1: 10,
+        2: "Your simplification of the two derivatives is incorrect or your final answer is incorrect."
+      },
+    },
+    2: {
+      0: {
+        0: "forgot +C",
+        1: 2,
+        2: "As an indefinite integral, you should have a '+C'."
+      },
+      1: {
+        0: "should have used part 1",
+        1: 0,
+        2: "You did all the hard part in part 1, so you can just quote that part when finding the antiderivative in part 2."
+      },
+    },
+    3: {
+      0: {
+        0: "correct domain but insufficient work",
+        1: 10,
+        2: "You have the correct domain, but didn't properly explain why."
+      },
+      1: {
+        0: "correct domain, but no explanation",
+        1: 15,
+        2: "You have the correct domain, but you don't have an explanation where it came from."
+      },
+      2: {
+        0: "wrong domain",
+        1: 25,
+        2: "The domain should be [-R, R], and it comes from the fact that under the square root should be non-negative, so R^2 - x^2 >= 0 which simplifies to -R <= x <= R."
+      },
+    },
+    4: {
+      0: {
+        0: "explanation where semi-circle came from",
+        1: 0,
+        2: "The graph should be a semi-circle.  You can see this since y = sqrt(R^2 - x^2) and if you square both sides, you get y^2 = R^2 - x^2 and then rewrite it as x^2 + y^2 = R^2 which is the equation of a circle centered at the origin of radius R.  Then since y is equal to a square root, this means y can only be non-negative which happens above the x-axis (the top half of the circle)."
+      },
+      1: {
+        0: "graph should be a semicircle",
+        1: 15,
+        2: "The graph should be a semi-circle.  You can see this since y = sqrt(R^2 - x^2) and if you square both sides, you get y^2 = R^2 - x^2 and then rewrite it as x^2 + y^2 = R^2 which is the equation of a circle centered at the origin of radius R.  Then since y is equal to a square root, this means y can only be non-negative which happens above the x-axis (the top half of the circle)."
+      },
+      2: {
+        0: "shaded quadrant 2, but only quad 1 should be shaded",
+        1: 5,
+        2: "The integral is only from 0 to R, so the shading should be only in quadrant 1."
+      },
+      3: {
+        0: "no shading",
+        1: 10,
+        2: "You didn't shade the area calculated by the definite integral.  The shading should be the quarter circle in quadrant 1."
+      },
+    },
+    5: {
+      0: {
+        0: "missing work",
+        1: 10,
+        2: "You're missing work when calculating the definite integral."
+      },
+      1: {
+        0: "missing a lot of work",
+        1: 20,
+        2: "You're missing a lot of work when calculating the definite integral."
+      },
+    },
+    6: {
+      0: {
+        0: "sort of a conclusion",
+        1: 10,
+        2: "Your conclusion is on the right track.  You have just shown where the area of a circle formula (pi*r^2) came from.  Isn't that amazing? :)"
+      },
+      1: {
+        0: "no conclusion",
+        1: 50,
+        2: "You are missing the conclusion."
+      },
+    },
+  },
   "MTH290Week2": {
     1: {
       0: {
