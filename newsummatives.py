@@ -1,4 +1,204 @@
 NewSummativeRubrics = {
+  "MTH110Week2": {
+    1: {
+      0: {
+        0:"#1 Missing place of birth", #GUI display
+        1: 20, #point deduction
+        2:"For your first mathematician, you're missing their place of birth" #student feedback
+      },
+      1: {
+        0:"#1 Missing date of birth", #GUI display
+        1: 20, #point deduction
+        2:"For your first mathematician, you're missing their date of birth" #student feedback
+      },
+    },
+    2: {
+      0: {
+        0:"#1 missing 1 education entry", #GUI display
+        1: 10, #point deduction
+        2:"You're missing a second education entry for the first mathematician" #student feedback
+      },
+      1: {
+        0:"#1 missing 2 education entries", #GUI display
+        1: 20, #point deduction
+        2:"You didn't give two education entries for the first mathematician" #student feedback
+      },
+      2: {
+        0:"#1 missing 1 experience", #GUI display
+        1: 10, #point deduction
+        2:"You're missing a second experience for the first mathematician" #student feedback
+      },
+      3: {
+        0:"#1 missing 2 experiences", #GUI display
+        1: 20, #point deduction
+        2:"You didn't give two experiences for the first mathematician" #student feedback
+      },
+    },
+    3: {
+      0: {
+        0:"#1 missing 1 accolade, award, publication", #GUI display
+        1: 10, #point deduction
+        2:"You're missing a second item from the accolade/award/publication category" #student feedback
+      },
+      1: {
+        0:"#1 missing 2 accolade, award, publication", #GUI display
+        1: 20, #point deduction
+        2:"You didn't give two items in the accolade/award/publication category" #student feedback
+      },
+      2: {
+        0:"#1 missing 1 achievement/discovery (they need three)", #GUI display
+        1: 10, #point deduction
+        2:"You're missing a third item from the achievement/discovery category" #student feedback
+      },
+      3: {
+        0:"#1 missing 2 achivement/discovery entries", #GUI display
+        1: 15, #point deduction
+        2:"You're missing two items from the achievement/discovery category" #student feedback
+      },
+      4: {
+        0:"#1 missing all achivement/discovery entries", #GUI display
+        1: 20, #point deduction
+        2:"You didn't provide any achievements/discoveries for the mathematician" #student feedback
+      },
+      5: {
+        0:"#1 only had 3 decent skills", #GUI display
+        1: 10, #point deduction
+        2:"The skills you provided for the first mathematician were lacking some substance.  I can give you credit for three of them" #student feedback
+      },
+      6: {
+        0:"#1 only had 1 decent skill", #GUI display
+        1: 15, #point deduction
+        2:"The skills you provided for the first mathematician were lacking some substance.  I can give you credit for one of them" #student feedback
+      },
+      7: {
+        0:"#1 missing skills", #GUI display
+        1: 20, #point deduction
+        2:"I couldn't credit the skills you provided for the first mathematician" #student feedback
+      },
+    },
+    4: {
+      0: {
+        0:"#1 references light on content", #GUI display
+        1: 10, #point deduction
+        2:"Your references were quite light on content relating the two individuals.  They don't quite explain the relationship between the two and how the reviewer feels about the mathemaician's work" #student feedback
+      },
+      1: {
+        0:"#1 references light on content", #GUI display
+        1: 25, #point deduction
+        2:"You didn't provide a second reference writer's thoughts.  There should have been two references." #student feedback
+      },
+      2: {
+        0:"#1 missing references", #GUI display
+        1: 100, #point deduction
+        2:"You're missing references for the first mathematician" #student feedback
+      },    
+    },
+    5: {
+      0: {
+        0:"#2 Missing place of birth", #GUI display
+        1: 20, #point deduction
+        2:"For mathematician 2, you're missing their place of birth" #student feedback
+      },
+      1: {
+        0:"#2 Missing date of birth", #GUI display
+        1: 20, #point deduction
+        2:"For your second mathematician, you're missing their date of birth" #student feedback
+      },
+    },
+    6: {
+      0: {
+        0:"#2 missing 1 education entry", #GUI display
+        1: 10, #point deduction
+        2:"You're missing a second education entry for the second mathematician" #student feedback
+      },
+      1: {
+        0:"#2 missing 2 education entries", #GUI display
+        1: 20, #point deduction
+        2:"You didn't give two education entries for the second mathematician" #student feedback
+      },
+      2: {
+        0:"#2 missing 1 experience", #GUI display
+        1: 10, #point deduction
+        2:"You're missing a second experience for the second resume" #student feedback
+      },
+      3: {
+        0:"#2 missing 2 experiences", #GUI display
+        1: 20, #point deduction
+        2:"You didn't give two experiences for the second resume" #student feedback
+      },
+    },
+    7: {
+      0: {
+        0:"#2 missing 1 accolade, award, publication", #GUI display
+        1: 10, #point deduction
+        2:"You're missing a second item from the accolade/award/publication category" #student feedback
+      },
+      1: {
+        0:"#2 missing 2 accolade, award, publication", #GUI display
+        1: 20, #point deduction
+        2:"You didn't give two items in the accolade/award/publication category" #student feedback
+      },
+      2: {
+        0:"#2 missing 1 achievement/discovery (they need three)", #GUI display
+        1: 10, #point deduction
+        2:"You're missing a third item from the achievement/discovery category" #student feedback
+      },
+      3: {
+        0:"#2 missing 2 achivement/discovery entries", #GUI display
+        1: 15, #point deduction
+        2:"You're missing two items from the achievement/discovery category" #student feedback
+      },
+      4: {
+        0:"#2 missing all achivement/discovery entries", #GUI display
+        1: 20, #point deduction
+        2:"You didn't provide any achievements/discoveries for mathematician 2" #student feedback
+      },
+      5: {
+        0:"#2 only had 3 decent skills", #GUI display
+        1: 10, #point deduction
+        2:"The skills you provided for the second mathematician were lacking some substance.  I can give you credit for three of them" #student feedback
+      },
+      6: {
+        0:"#2 only had 1 decent skill", #GUI display
+        1: 15, #point deduction
+        2:"The skills you provided for the second mathematician were lacking some substance.  I can give you credit for one of them" #student feedback
+      },
+      7: {
+        0:"#2 missing skills", #GUI display
+        1: 20, #point deduction
+        2:"I couldn't credit the skills you provided for the first mathematician" #student feedback
+      },
+    },
+    8: {
+      0: {
+        0:"#2 references light on content", #GUI display
+        1: 10, #point deduction
+        2:"Your references for the second resume were quite light on content relating the two individuals.  They don't quite explain the relationship between the two and how the reviewer feels about the mathemaician's work" #student feedback
+      },
+      1: {
+        0:"#2 references light on content", #GUI display
+        1: 25, #point deduction
+        2:"You didn't provide a second reference writer's thoughts for the second resume.  There should have been two references." #student feedback
+      },
+      2: {
+        0:"#2 missing references", #GUI display
+        1: 100, #point deduction
+        2:"You're missing references for the second mathematician" #student feedback
+      },    
+    },
+    9: {
+      0: {
+        0: "Bad grammar",
+        1: 20,
+        2: "There were some slight issues with your grammar, spelling, mechanics, etc."
+      },
+      0: {
+        0: "Talked about him/her instead of I/me",
+        1: 10,
+        2: "There wewre some slight issues with your grammar.  Indeed, as the resume writer, you are the mathematicians, so instead of saying him/her you should use I/me/my"
+      }  
+    }
+  },
   "MTH210Week3": {
     1: {
       0: {
@@ -522,6 +722,170 @@ NewSummativeRubrics = {
         1: 50,
         2: "You are missing the conclusion."
       },
+    },
+  },
+  "MTH280Week7": {
+    1: {
+      0: {
+        0: "1(a) decent explanation of what went wrong, but not perfect",
+        1: 10,
+        2: "The mistake made in 1(a) is that the student is using the given rule when it is not allowed--the rule does not work for x^2 but only for x inside the logarithm."
+      },
+      1: {
+        0: "1(a) poor explanation of what went wrong",
+        1: 15,
+        2: "The mistake made in 1(a) is that the student is using the given rule when it is not allowed--the rule does not work for x^2 but only for x inside the logarithm."
+      },
+      2: {
+        0: "1(a) no explanation of what went wrong",
+        1: 25,
+        2: "You didn't explain what mistake was made in 1(a).  The mistake is that the student is using the given rule when it is not allowed--the rule does not work for x^2 but only for x inside the logarithm."
+      },
+      3: {
+        0: "1(a) correction minor error",
+        1: 5,
+        2: "The correct way to calculate the integral in 1(a) is to use the power rule after you have rewritten the integrand as x^{-2}.  Then the power rule says the antiderivative is -x^{-1} = -1/x, so the correct antiderivative is -1/x + C."
+      },
+      4: {
+        0: "1(a) correction major error",
+        1: 15,
+        2: "The correct way to calculate the integral in 1(a) is to use the power rule after you have rewritten the integrand as x^{-2}.  Then the power rule says the antiderivative is -x^{-1} = -1/x, so the correct antiderivative is -1/x + C."
+      },
+      5: {
+        0: "1(a) correction not done",
+        1: 25,
+        2: "The correct way to calculate the integral in 1(a) is to use the power rule after you have rewritten the integrand as x^{-2}.  Then the power rule says the antiderivative is -x^{-1} = -1/x, so the correct antiderivative is -1/x + C."
+      },    
+    },
+    2: {
+      0: {
+        0: "1(b) decent explanation of what went wrong, but not perfect",
+        1: 10,
+        2: "The mistake made in 1(b) is that the student used the x-variable limits in the u-integral.  It should be x limits with x variable, or u limits with u variable."
+      },
+      1: {
+        0: "1(b) poor explanation of what went wrong",
+        1: 15,
+        2: "The mistake made in 1(b) is that the student used the x-variable limits in the u-integral.  It should be x limits with x variable, or u limits with u variable."
+      },
+      2: {
+        0: "1(b) no explanation of what went wrong",
+        1: 25,
+        2: "You didn't explain what mistake was made in 1(b).  The mistake made in 1(b) is that the student used the x-variable limits in the u-integral.  It should be x limits with x variable, or u limits with u variable."
+      },
+      3: {
+        0: "1(b) correction minor error (correct answer is 26/3)",
+        1: 5,
+        2: "The correct way to calculate the integral in 1(b) is to change the limits to u = (0)^2+1 = 1 to u = (sqrt(8))^2+1 = 9, so the limits of integration on the u-integrals should be 1 to 9.  This would give the final answer of 1/3*(9)^{3/2} - 1/3*(1)^{3/2} = 26/3."
+      },
+      4: {
+        0: "1(b) correction major error",
+        1: 15,
+        2: "The correct way to calculate the integral in 1(b) is to change the limits to u = (0)^2+1 = 1 to u = (sqrt(8))^2+1 = 9, so the limits of integration on the u-integrals should be 1 to 9.  This would give the final answer of 1/3*(9)^{3/2} - 1/3*(1)^{3/2} = 26/3."
+      },
+      5: {
+        0: "1(b) correction not done",
+        1: 25,
+        2: "The correct way to calculate the integral in 1(b) is to change the limits to u = (0)^2+1 = 1 to u = (sqrt(8))^2+1 = 9, so the limits of integration on the u-integrals should be 1 to 9.  This would give the final answer of 1/3*(9)^{3/2} - 1/3*(1)^{3/2} = 26/3."
+      },   
+    },
+    3: {
+      0: {
+        0: "1(c) decent explanation of what went wrong, but not perfect",
+        1: 10,
+        2: "The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you haved the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
+      },
+      1: {
+        0: "1(c) poor explanation of what went wrong",
+        1: 15,
+        2: "The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you haved the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
+      },
+      2: {
+        0: "1(c) no explanation of what went wrong",
+        1: 25,
+        2: "You didn't explain what mistake was made in 1(c).  The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you haved the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
+      },
+      3: {
+        0: "1(c) correction minor error",
+        1: 5,
+        2: "One correct way to calculate the integral in 1(c) is to FOIL out the integrand to 4x^2 + 4x + 1 and use the power rule on each part.  This would give the correct answer of 4/3*x^3 + 2x^2 + x + C.  Another way is to use a u-substitution with u = 2x+1 which would yield the same answer, but in the form 1/6*(2x+1)^3 + C."
+      },
+      4: {
+        0: "1(c) correction major error",
+        1: 15,
+        2: "One correct way to calculate the integral in 1(c) is to FOIL out the integrand to 4x^2 + 4x + 1 and use the power rule on each part.  This would give the correct answer of 4/3*x^3 + 2x^2 + x + C.  Another way is to use a u-substitution with u = 2x+1 which would yield the same answer, but in the form 1/6*(2x+1)^3 + C."
+      },
+      5: {
+        0: "1(c) correction not done",
+        1: 25,
+        2: "One correct way to calculate the integral in 1(c) is to FOIL out the integrand to 4x^2 + 4x + 1 and use the power rule on each part.  This would give the correct answer of 4/3*x^3 + 2x^2 + x + C.  Another way is to use a u-substitution with u = 2x+1 which would yield the same answer, but in the form 1/6*(2x+1)^3 + C."
+      },   
+    },
+    4: {
+      0: {
+        0: "1(d) decent explanation of what went wrong, but not perfect",
+        1: 10,
+        2: "The mistake made in 1(d) is that the student didn't draw a picture which would hel pthem recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
+      },
+      1: {
+        0: "1(d) poor explanation of what went wrong",
+        1: 15,
+        2: "The mistake made in 1(d) is that the student didn't draw a picture which would hel pthem recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
+      },
+      2: {
+        0: "1(d) no explanation of what went wrong",
+        1: 25,
+        2: "You didn't explain what mistake was made in 1(d).  The mistake made in 1(d) is that the student didn't draw a picture which would hel pthem recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
+      },
+      3: {
+        0: "1(d) correction minor error",
+        1: 5,
+        2: "With the integrand changed to x-x^2, this would change the final answer to +1/6."
+      },
+      4: {
+        0: "1(d) correction major error",
+        1: 15,
+        2: "With the integrand changed to x-x^2, this would change the final answer to +1/6."
+      },
+      5: {
+        0: "1(d) correction not done",
+        1: 25,
+        2: "The correct way to calculate the integral in 1(d) is ith the integrand changed to x-x^2, this would change the final answer to +1/6."
+      },   
+    },
+    5: {
+      0: {
+        0: "2(a) minor error -- correct answer is c=3/16",
+        1: 10,
+        2: "You had a minor error in 2(a).  You should set the integral of c*sqrt(x) from 0 to 4 equal to 1, and then solve for c, which should yield c=3/16."
+      },
+      1: {
+        0: "2(a) multiple minor errors -- correct answer is c=3/16",
+        1: 20,
+        2: "You had multiple minor errors in 2(a).  You should set the integral of c*sqrt(x) from 0 to 4 equal to 1, and then solve for c, which should yield c=3/16."
+      },
+      2: {
+        0: "2(a) major error -- correct answer is c=3/16",
+        1: 40,
+        2: "You had a major error in 2(a).  You should set the integral of c*sqrt(x) from 0 to 4 equal to 1, and then solve for c, which should yield c=3/16."
+      },    
+    },
+    6: {
+      0: {
+        0: "2(b) minor error -- correct answer is b=pi",
+        1: 10,
+        2: "You had a minor error in 2(b).  You should set the integral of 1/2*sin(x) from 0 to b equal to 1.  The integral is -1/2*cos(x) and using the FTC we get -1/2*cos(b) + 1/2*cos(0) = 1, and when you solve for b, the smallest such positive value is b = pi."
+      },
+      1: {
+        0: "2(b) multiple minor errors -- correct answer is b=pi",
+        1: 20,
+        2: "You had multiple minor errors in 2(b).  You should set the integral of 1/2*sin(x) from 0 to b equal to 1.  The integral is -1/2*cos(x) and using the FTC we get -1/2*cos(b) + 1/2*cos(0) = 1, and when you solve for b, the smallest such positive value is b = pi."
+      },
+      2: {
+        0: "2(b) major error -- correct answer is b=pi",
+        1: 40,
+        2: "You had a minor error in 2(b).  You should set the integral of 1/2*sin(x) from 0 to b equal to 1.  The integral is -1/2*cos(x) and using the FTC we get -1/2*cos(b) + 1/2*cos(0) = 1, and when you solve for b, the smallest such positive value is b = pi."
+      },    
     },
   },
   "MTH290Week2": {
