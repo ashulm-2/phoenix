@@ -1007,7 +1007,7 @@ def PostAnnouncements():
     
     PostIndividualAnnouncement(
       subject="End of Week {} Reminder".format(Week),
-      message="Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates, and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew",
+      message="Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates (which should be at least 75 words and push the conversation forward), and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew",
       ScheduleDate=NewDate.strftime("%m/%d/%y"))
 
 def PostIndividualAnnouncement(subject,message,ScheduleDate=None):

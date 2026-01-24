@@ -80,7 +80,7 @@ NewSummativeRubrics = {
       0: {
         0:"#1 references light on content", #GUI display
         1: 10, #point deduction
-        2:"Your references were quite light on content relating the two individuals.  They don't quite explain the relationship between the two and how the reviewer feels about the mathemaician's work" #student feedback
+        2:"Your references were quite light on content relating the two individuals.  They don't quite explain the relationship between the two and how the reviewer feels about the mathematician's work" #student feedback
       },
       1: {
         0:"#1 references light on content", #GUI display
@@ -173,7 +173,7 @@ NewSummativeRubrics = {
       0: {
         0:"#2 references light on content", #GUI display
         1: 10, #point deduction
-        2:"Your references for the second resume were quite light on content relating the two individuals.  They don't quite explain the relationship between the two and how the reviewer feels about the mathemaician's work" #student feedback
+        2:"Your references for the second resume were quite light on content relating the two individuals.  They don't quite explain the relationship between the two and how the reviewer feels about the mathematician's work" #student feedback
       },
       1: {
         0:"#2 references light on content", #GUI display
@@ -793,17 +793,17 @@ NewSummativeRubrics = {
       0: {
         0: "1(c) decent explanation of what went wrong, but not perfect",
         1: 10,
-        2: "The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you haved the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
+        2: "The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you have the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
       },
       1: {
         0: "1(c) poor explanation of what went wrong",
         1: 15,
-        2: "The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you haved the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
+        2: "The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you have the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
       },
       2: {
         0: "1(c) no explanation of what went wrong",
         1: 25,
-        2: "You didn't explain what mistake was made in 1(c).  The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you haved the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
+        2: "You didn't explain what mistake was made in 1(c).  The mistake made in 1(c) is that the student integrated the product as the product of the two integrals, which is not allowed.  When you have the integral of f*g, you cannot calculate the integral of f and the integral of g and multiply them."
       },
       3: {
         0: "1(c) correction minor error",
