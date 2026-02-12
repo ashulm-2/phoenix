@@ -900,17 +900,309 @@ NewSummativeRubrics = {
         1: 10, #point deduction
         2:"#2 should be trigonometric substitution" #student feedback
       },
+      2: {
+        0:"#3 should be trig integral", #GUI display
+        1: 10, #point deduction
+        2:"#3 is a trigonometric integral" #student feedback
+      },
+      3: {
+        0:"#4 should be partial frac", #GUI display
+        1: 10, #point deduction
+        2:"#4 is partial fraction decomposition" #student feedback
+      },
+      4: {
+        0:"#5 should be improper integral", #GUI display
+        1: 10, #point deduction
+        2:"#5 is an improper integral" #student feedback
+      },
+      5: {
+        0:"#6 should be substitution", #GUI display
+        1: 10, #point deduction
+        2:"#6 is a substitution" #student feedback
+      },
     },
     2: {
       0: {
-        0:"#1 should be IBP", #GUI display
+        0:"#1 poor explanation", #GUI display
         1: 10, #point deduction
-        2:"#1 should be integration by parts" #student feedback
+        2:"In #1's explanation, you should say something about how it is the product of a polynomial and a logarithm which is where integration by parts is useful." #student feedback
       },
       1: {
-        0:"#2 should be trig sub", #GUI display
+        0:"#2 poor explanation", #GUI display
         1: 10, #point deduction
-        2:"#2 should be trigonometric substitution" #student feedback
+        2:"In #2's explanation, you should say how there is a binomial under a radical." #student feedback
+      },
+      2: {
+        0:"#3 poor explanation", #GUI display
+        1: 10, #point deduction
+        2:"In #3's explanation, you should say how the integrand is a product of sines and cosines, which is a trig integral." #student feedback
+      },
+      3: {
+        0:"#4 poor explanation", #GUI display
+        1: 10, #point deduction
+        2:"In #4's explanation, you should say the integrand is a rational function, which is what partial fraction helps to simplify." #student feedback
+      },
+      4: {
+        0:"#5 poor explanation", #GUI display
+        1: 10, #point deduction
+        2:"In #5's explanation, you should say how the lower limit is inegative infinity, which is an improper integral." #student feedback
+      },
+      5: {
+        0:"#6 poor explanation", #GUI display
+        1: 10, #point deduction
+        2:"In #6's explanation, you should say something about how the natural log is inside a funcion and its derivative (1/x) is part of the integrand, making a perfect substitution attempt." #student feedback
+      },
+    },
+    3: {
+      0: {
+        0:"#1 minor error (correct answer is (2e^3+1)/3)", #GUI display
+        1: 5, #point deduction
+        2:"You have a minor error in integral #1." #student feedback
+      },
+      1: {
+        0:"#1 minor errors", #GUI display
+        1: 15, #point deduction
+        2:"You have multiple minor errors in integral #1." #student feedback
+      },
+      2: {
+        0:"#1 major error", #GUI display
+        1: 20, #point deduction
+        2:"You have a major error in integral #1." #student feedback
+      },
+      3: {
+        0:"#1 major error", #GUI display
+        1: 35, #point deduction
+        2:"You have multiple major errors in integral #1." #student feedback
+      },
+      4: {
+        0:"#1 not done/all wrong", #GUI display
+        1: 100, #point deduction
+        2:"I cannot award credit for your solution to #1." #student feedback
+      },
+      5: {
+        0: "give correct answer in feedback",
+        1: 0,
+        2: "In #1, the correct answer should be (2e^3+1)/3.  Please let me know if you'd like any help understanding where this answer came from."
+      },
+      6: {
+        0: "missing minor work",
+        1: 5,
+        2: "In #1, you're missing some work in your solution."
+      },
+      7: {
+        0: "missing major work",
+        1: 15,
+        2: "In #1, you're missing some major amount of the work in your solution."
+      },
+    },
+    4: {
+      0: {
+        0:"#2 minor error (correct answer is 1/2xsqrt(4-x^2) + 2arcsin(x/2)+C)", #GUI display
+        1: 5, #point deduction
+        2:"You have a minor error in integral #2." #student feedback
+      },
+      1: {
+        0:"#2 minor errors", #GUI display
+        1: 15, #point deduction
+        2:"You have multiple minor errors in integral #2." #student feedback
+      },
+      2: {
+        0:"#2 major error", #GUI display
+        1: 20, #point deduction
+        2:"You have a major error in integral #2." #student feedback
+      },
+      3: {
+        0:"#2 major error", #GUI display
+        1: 35, #point deduction
+        2:"You have multiple major errors in integral #2." #student feedback
+      },
+      4: {
+        0:"#2 not done/all wrong", #GUI display
+        1: 100, #point deduction
+        2:"I cannot award credit for your solution to #2." #student feedback
+      },
+      5: {
+        0: "give correct answer in feedback",
+        1: 0,
+        2: "In #2, the correct answer should be 1/2xsqrt(4-x^2) + 2arcsin(x/2)+C).  Please let me know if you'd like any help understanding where this answer came from."
+      },
+      6: {
+        0: "missing minor work",
+        1: 5,
+        2: "In #2, you're missing some work in your solution."
+      },
+      7: {
+        0: "missing major work",
+        1: 15,
+        2: "In #2, you're missing some major amount of the work in your solution."
+      },
+    },
+    5: {
+      0: {
+        0:"#3 minor error (correct answer is 1/5sin^5(x) - 1/7sin^7(x) + C)", #GUI display
+        1: 5, #point deduction
+        2:"You have a minor error in integral #3." #student feedback
+      },
+      1: {
+        0:"#3 minor errors", #GUI display
+        1: 15, #point deduction
+        2:"You have multiple minor errors in integral #3." #student feedback
+      },
+      2: {
+        0:"#3 major error", #GUI display
+        1: 20, #point deduction
+        2:"You have a major error in integral #3." #student feedback
+      },
+      3: {
+        0:"#3 major error", #GUI display
+        1: 35, #point deduction
+        2:"You have multiple major errors in integral #3." #student feedback
+      },
+      4: {
+        0:"#3 not done/all wrong", #GUI display
+        1: 100, #point deduction
+        2:"I cannot award credit for your solution to #3." #student feedback
+      },
+      5: {
+        0: "give correct answer in feedback",
+        1: 0,
+        2: "In #3, the correct answer should be 1/5sin^5(x) - 1/7sin^7(x) + C.  Please let me know if you'd like any help understanding where this answer came from."
+      },
+      6: {
+        0: "missing minor work",
+        1: 5,
+        2: "In #3, you're missing some work in your solution."
+      },
+      7: {
+        0: "missing major work",
+        1: 15,
+        2: "In #3, you're missing some major amount of the work in your solution."
+      },
+    },
+    6: {
+      0: {
+        0:"#4 minor error (correct answer is 5ln(x+1) - 3ln(x+2) + C)", #GUI display
+        1: 5, #point deduction
+        2:"You have a minor error in integral #4." #student feedback
+      },
+      1: {
+        0:"#4 minor errors", #GUI display
+        1: 15, #point deduction
+        2:"You have multiple minor errors in integral #4." #student feedback
+      },
+      2: {
+        0:"#4 major error", #GUI display
+        1: 20, #point deduction
+        2:"You have a major error in integral #4." #student feedback
+      },
+      3: {
+        0:"#4 major error", #GUI display
+        1: 35, #point deduction
+        2:"You have multiple major errors in integral #4." #student feedback
+      },
+      4: {
+        0:"#4 not done/all wrong", #GUI display
+        1: 100, #point deduction
+        2:"I cannot award credit for your solution to #4." #student feedback
+      },
+      5: {
+        0: "give correct answer in feedback",
+        1: 0,
+        2: "In #4, the correct answer should be 5ln(x+1) - 3ln(x+2) + C.  Please let me know if you'd like any help understanding where this answer came from."
+      },
+      6: {
+        0: "missing minor work",
+        1: 5,
+        2: "In #4, you're missing some work in your solution."
+      },
+      7: {
+        0: "missing major work",
+        1: 15,
+        2: "In #4, you're missing some major amount of the work in your solution."
+      },
+    },
+    7: {
+      0: {
+        0:"#5 minor error (correct answer is diverges)", #GUI display
+        1: 5, #point deduction
+        2:"You have a minor error in integral #5." #student feedback
+      },
+      1: {
+        0:"#5 minor errors", #GUI display
+        1: 15, #point deduction
+        2:"You have multiple minor errors in integral #5." #student feedback
+      },
+      2: {
+        0:"#5 major error", #GUI display
+        1: 20, #point deduction
+        2:"You have a major error in integral #5." #student feedback
+      },
+      3: {
+        0:"#5 major error", #GUI display
+        1: 35, #point deduction
+        2:"You have multiple major errors in integral #5." #student feedback
+      },
+      4: {
+        0:"#5 not done/all wrong", #GUI display
+        1: 100, #point deduction
+        2:"I cannot award credit for your solution to #5." #student feedback
+      },
+      5: {
+        0: "give correct answer in feedback",
+        1: 0,
+        2: "In #5, the correct answer should be that the improper integral diverges.  Please let me know if you'd like any help understanding where this answer came from."
+      },
+      6: {
+        0: "missing minor work",
+        1: 5,
+        2: "In #5, you're missing some work in your solution."
+      },
+      7: {
+        0: "missing major work",
+        1: 15,
+        2: "In #5, you're missing some major amount of the work in your solution."
+      },
+    },
+    8: {
+      0: {
+        0:"#6 minor error (correct answer is 3sin(ln(x)))", #GUI display
+        1: 5, #point deduction
+        2:"You have a minor error in integral #6." #student feedback
+      },
+      1: {
+        0:"#6 minor errors", #GUI display
+        1: 15, #point deduction
+        2:"You have multiple minor errors in integral #6." #student feedback
+      },
+      2: {
+        0:"#6 major error", #GUI display
+        1: 20, #point deduction
+        2:"You have a major error in integral #6." #student feedback
+      },
+      3: {
+        0:"#6 major error", #GUI display
+        1: 35, #point deduction
+        2:"You have multiple major errors in integral #6." #student feedback
+      },
+      4: {
+        0:"#6 not done/all wrong", #GUI display
+        1: 100, #point deduction
+        2:"I cannot award credit for your solution to #6." #student feedback
+      },
+      5: {
+        0: "give correct answer in feedback",
+        1: 0,
+        2: "In #6, the correct answer should be 3sin(ln(x)) + C.  Please let me know if you'd like any help understanding where this answer came from."
+      },
+      6: {
+        0: "missing minor work",
+        1: 5,
+        2: "In #6, you're missing some work in your solution."
+      },
+      7: {
+        0: "missing major work",
+        1: 15,
+        2: "In #6, you're missing some major amount of the work in your solution."
       },
     },
   },

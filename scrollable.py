@@ -769,8 +769,9 @@ def SelectedRadio(Course):
   DisplaySA(Course)
 
 TKVars = []
+TKVarsText = []
 def DisplaySA(Course):   
-  global TKVars
+  global TKVars, TKVarsText
 
   tk.Label(scrollable_frame, text="Grading for " + Course).pack(pady=10)
   TKVars = [] #this holds the information from all the radio buttons
@@ -785,6 +786,9 @@ def DisplaySA(Course):
       variable=var,
       #command=lambda: SelectedRadio(Course)
       ).pack(pady=2, anchor="w")
+    ExtraText = tk.Text(scrollable_frame, height=1, width=30)
+    ExtraText.pack(pady=5)
+    TKVarsText.append(ExtraText)   
     tk.Label(scrollable_frame, text="=================================").pack(pady=5)
 
   tk.Button(scrollable_frame,
@@ -797,7 +801,7 @@ Width = None
 Volume = None
 UserVolume = None
 def NewDisplaySA(Course):
-  global TKVars, Length, Width, Volume, UserVolume
+  global TKVars, TKVarsText, Length, Width, Volume, UserVolume
 
   tk.Label(scrollable_frame, text="Grading for " + Course).pack(pady=5)
   tk.Label(scrollable_frame, text="If the student made a mistake and we should deduct points, check the button.  So an unchecked button means they did that part correctly.").pack(pady=10)
@@ -811,7 +815,12 @@ def NewDisplaySA(Course):
       text=f"{NewSummativeRubrics[Course][part][count][0]} (-{NewSummativeRubrics[Course][part][count][1]} points)", 
       variable=var,
       ).pack(pady=2, anchor="w")
+    ExtraText = tk.Text(scrollable_frame, height=3, width=80)
+    ExtraText.pack(pady=5, anchor=tk.W)
+    TKVarsText.append(ExtraText)  
     tk.Label(scrollable_frame, text=40*"=").pack(pady=5, anchor="w")
+    
+    
   
   tk.Button(scrollable_frame,
     text="Submit Grade",
@@ -886,12 +895,24 @@ def SelectedCheckButtons(Course):
   Message = ""
   Scores = {i:100 for i in range(1,Parts+1)}
   
+    
+  
+  
+  PreviousPart = 1 #this variable will help us keep track of which part we're on so when we switch parts, we add the user inputted text, if it exists
   for i, (part,count,var) in enumerate(TKVars, start=1):
     #first we loop through all the Checkbutton variables (TKVars) and grab the messages and values associated to each of them
     if (var.get() == 1): #that means the button was selected
       #print(part,var,var.get())
       Message += NewSummativeRubrics[Course][part][count][2] + "\n"
       Scores[part] -= NewSummativeRubrics[Course][part][count][1]
+    if (PreviousPart != part): #means we've moved on
+      UserText = TKVarsText[PreviousPart-1].get("1.0", tk.END)
+      if (UserText.strip() != ""):
+        Message += UserText.strip() + "\n"
+        
+      PreviousPart = part
+      
+
       
   if Course == "MTH210Week3":
     L = float(Length.get("1.0", "end-1c"))
