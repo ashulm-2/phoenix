@@ -1469,6 +1469,11 @@ NewSummativeRubrics = {
         1: 10, #point deduction
         2:"In 1(c), your final step should be to multiply the power series by x." #student feedback
       },
+      5: {
+        0:"1(c) -- missing work for derivatives", #GUI display
+        1: 20, #point deduction
+        2:"In 1(c), you took derivatives, but you didn't show that work.  That work should require the use of the quotient rule which is not possible to do in your head." #student feedback
+      },
     },
     4: {
       1: {
@@ -1564,6 +1569,11 @@ NewSummativeRubrics = {
         0:"2(c) -- bad guess for series convergence", #GUI display
         1: 10, #point deduction
         2:"In 2(c), based on your sequence of partial sums, your guess does not match.  The guess should be what the terms in the sequence of partial sums are approaching." #student feedback
+      },
+      5: {
+        0:"2(c) -- correct terms but no work", #GUI display
+        1: 20, #point deduction
+        2:"In 2(c), you have the correct values of the sequence of partial sums, but you didn't show any work where those numbers came from." #student feedback
       },
     },
     7: {

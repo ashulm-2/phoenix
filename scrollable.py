@@ -775,6 +775,7 @@ def DisplaySA(Course):
 
   tk.Label(scrollable_frame, text="Grading for " + Course).pack(pady=10)
   TKVars = [] #this holds the information from all the radio buttons
+  TKVarsText = []
   for part in SummativeRubrics[Course]:
     var = tk.IntVar(value=0)
     TKVars.append(var)
@@ -806,6 +807,7 @@ def NewDisplaySA(Course):
   tk.Label(scrollable_frame, text="Grading for " + Course).pack(pady=5)
   tk.Label(scrollable_frame, text="If the student made a mistake and we should deduct points, check the button.  So an unchecked button means they did that part correctly.").pack(pady=10)
   TKVars = [] #this holds the information from all the check buttons
+  TKVarsText = []
   for part in NewSummativeRubrics[Course]:
     tk.Label(scrollable_frame, text = f"Part {part}:").pack(pady=2, anchor="w")
     for count in NewSummativeRubrics[Course][part]:
@@ -910,7 +912,7 @@ def SelectedCheckButtons(Course):
       if (UserText.strip() != ""):
         Message += UserText.strip() + "\n"
         
-      PreviousPart = part
+    PreviousPart = part
       
 
       
