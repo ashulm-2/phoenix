@@ -989,7 +989,7 @@ def PostAnnouncements():
     
   PostIndividualAnnouncement(
     subject="My Policy on Participation",
-    message="Hi everyone,\n\nPart of your grade in this course is based on your discussion posts, and I wanted to highlight some of my policies on participation. Initial discussion posts must meet the specified word count (which is listed in the directions for each discussion thread), and all replies should be at least 75 words long. Every post should include meaningful mathematical substance.  Indeed, your goal is for a reader to learn something from your contribution. Simply agreeing with a classmate or stating that you liked their idea is not considered substantive. Throughout the week, I will post follow-up questions to various students, and you are welcome and encouraged to respond to those questions even if they are not direct replies to your own post.\n\nIn terms of your grade, you get 25% for each of your three posts for the week and another 25% for posting your initial reply before Thursday.\n\nAs always, if you have any questions, please let me know.\n\nBest,\nDrew",
+    message="Hi everyone,\n\nPart of your grade in this course is based on your discussion posts, and I wanted to highlight some of my policies on participation. Initial discussion posts must meet the specified word count (which is listed in the directions for each discussion thread), and all replies should be at least 75 words long. Every post should include meaningful mathematical substance.  **Indeed, your goal is for a reader to learn something from your contribution.**  When I grade discussion, I will read the post and ask myself whether a classmate or I can learn something from your post, and if so, that is considered substantive. Simply agreeing with a classmate or stating that you liked their idea is not considered substantive. Throughout the week, I will post follow-up questions to various students, and you are welcome and encouraged to respond to those questions even if they are not direct replies to your own post.\n\nIn terms of your grade, you get 25% for each of your three posts for the week and another 25% for posting your initial reply before Thursday.\n\nAs always, if you have any questions, please let me know.\n\nBest,\nDrew",
     ScheduleDate = FirstTuesday.strftime("%m/%d/%y"))
   
 
@@ -1016,7 +1016,7 @@ def PostAnnouncements():
   
     PostIndividualAnnouncement(
       subject="Week {} Discussion Reminder".format(Week),
-      message="Hi everyone!\n\nI hope Week {} is going well for you.  Don't forget that your initial response to this week's discussion is due by the end of the day today.  Don't hesitate to ask me if you have any questions!\n\nBest,\nDrew".format(Week),
+      message="Hi everyone!\n\nI hope Week {} is going well for you.  Don't forget that your initial response to this week's discussion is due by the end of the day today.  Don't hesitate to ask me if you have any questions!\n\nBest,\nDrew\n\nP.S. When I grade discussion replies, I will read the post and ask myself whether a classmate or I can learn something from your post, and if so, that is considered substantive.".format(Week),
       ScheduleDate=NewDate.strftime("%m/%d/%y"))
   
 

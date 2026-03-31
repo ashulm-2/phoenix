@@ -1698,95 +1698,95 @@ NewSummativeRubrics = {
   "MTH218Week4": {
     1: {
       0: {
-        0: "Missing to, from, subject, date (enter what's missing)"
+        0: "Missing to, from, subject, date (enter what's missing)",
         1: 10, 
         2: "You're missing parts from the memo section."
       },
       1: {
-        0: "Missing to, from, subject, date (enter what's missing)"
+        0: "Missing to, from, subject, date (enter what's missing)",
         1: 20, 
         2: "You're missing parts from the memo section."
       },
       2: {
-        0: "Missing to, from, subject, date (enter what's missing)"
+        0: "Missing to, from, subject, date (enter what's missing)",
         1: 40, 
         2: "You're missing parts from the memo section."
       },
     },
     2: {
       0: {
-        0: "Missing purpose part (should discuss comparing two quant variables, including ANOVA)--add conmments"
+        0: "Missing purpose part (should discuss comparing two quant variables, including ANOVA)--add conmments",
         1: 10, 
         2: "You're purpose description is missing parts."
       },
       1: {
-        0: "Missing purpose part (should discuss comparing two quant variables, including ANOVA)--add conmments"
+        0: "Missing purpose part (should discuss comparing two quant variables, including ANOVA)--add conmments",
         1: 20, 
         2: "You're purpose description is missing parts."
       },
       2: {
-        0: "Missing purpose part (should discuss comparing two quant variables, including ANOVA)--add conmments"
+        0: "Missing purpose part (should discuss comparing two quant variables, including ANOVA)--add conmments",
         1: 40, 
         2: "You're purpose description is missing parts."
       },
     },
     3: {
       0: {
-        0: "Missing article info (enter what's missing)"
+        0: "Missing article info (enter what's missing)",
         1: 10, 
         2: "You're missing info about the article."
       },
       1: {
-        0: "Missing article info (enter what's missing)"
+        0: "Missing article info (enter what's missing)",
         1: 20, 
         2: "You're missing info about the article."
       },
       2: {
-        0: "Missing article info (enter what's missing)"
+        0: "Missing article info (enter what's missing)",
         1: 40, 
         2: "You're missing info about the article."
       },
     },
     4: {
       0: {
-        0: "Research question explanation (1-2 sentences)"
+        0: "Research question explanation (1-2 sentences)",
         1: 10, 
         2: "You didn't properly describe the research question."
       },
       1: {
-        0: "Groups studied explanation (2-4 sentences)"
+        0: "Groups studied explanation (2-4 sentences)",
         1: 10, 
         2: "You didn't properly describe the groups studied."
       },
       2: {
-        0: "Variables (2-4 sentences)"
+        0: "Variables (2-4 sentences)",
         1: 10, 
         2: "You didn't properly describe the variables and variables of the study."
       },
       3: {
-        0: "Results including stats (2-4 sentences)"
+        0: "Results including stats (2-4 sentences)",
         1: 10, 
         2: "You didn't properly describe the results and statistics of the study."
       },
       4: {
-        0: "Discussion (3-5 sentences)"
+        0: "Discussion (3-5 sentences)",
         1: 15, 
         2: "You didn't describe the meaning of the results and how they answered the research question."
       },
     },
     5: {
       0: {
-        0: "Background info about stats (sample size, # of groups/treatments, stdev, error, mean, intercept, slope, F stat, deg of freedom, R^2 value, p-value) in study (1-2 sentences per measure/stat)"
+        0: "Background info about stats (sample size, # of groups/treatments, stdev, error, mean, intercept, slope, F stat, deg of freedom, R^2 value, p-value) in study (1-2 sentences per measure/stat)",
         1: 10, 
         2: "What were some more of the background statisitics used in the study?  You can discuss the sample size, number of groups or treatments, standard deviation, standard error, mean, intercept, slope, F statistic, degrees of freedom, R^2 value, or p-value."
       },
       1: {
-        0: "Background info about stats (sample size, # of groups/treatments, stdev, error, mean, intercept, slope, F stat, deg of freedom, R^2 value, p-value) in study (1-2 sentences per measure/stat)"
+        0: "Background info about stats (sample size, # of groups/treatments, stdev, error, mean, intercept, slope, F stat, deg of freedom, R^2 value, p-value) in study (1-2 sentences per measure/stat)",
         1: 20, 
         2: "What were some more of the background statisitics used in the study?  You can discuss the sample size, number of groups or treatments, standard deviation, standard error, mean, intercept, slope, F statistic, degrees of freedom, R^2 value, or p-value."
       },
       2: {
-        0: "Background info about stats (sample size, # of groups/treatments, stdev, error, mean, intercept, slope, F stat, deg of freedom, R^2 value, p-value) in study (1-2 sentences per measure/stat)"
+        0: "Background info about stats (sample size, # of groups/treatments, stdev, error, mean, intercept, slope, F stat, deg of freedom, R^2 value, p-value) in study (1-2 sentences per measure/stat)",
         1: 40, 
         2: "What were some more of the background statisitics used in the study?  You can discuss the sample size, number of groups or treatments, standard deviation, standard error, mean, intercept, slope, F statistic, degrees of freedom, R^2 value, or p-value."
       },
