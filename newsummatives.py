@@ -1804,4 +1804,133 @@ NewSummativeRubrics = {
       }, 
     },
   },
+  "MTH218Week5": {
+    1: {
+      0: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 10, 
+        2: "You're missing parts from the memo section."
+      },
+      1: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 20, 
+        2: "You're missing parts from the memo section."
+      },
+      2: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 40, 
+        2: "You're missing parts from the memo section."
+      },
+      3: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 100, 
+        2: "You're missing the memo section."
+      },
+    },
+    2: {
+      0: {
+        0: "Missing purpose part (should interpret concepts of probability in context of distribution and sampling)--add comments",
+        1: 10, 
+        2: "You're purpose description is missing parts."
+      },
+      1: {
+        0: "Missing purpose part--add comments",
+        1: 20, 
+        2: "You're purpose description is missing parts."
+      },
+      2: {
+        0: "Missing purpose part--add comments",
+        1: 40, 
+        2: "You're purpose description is missing parts."
+      },
+      3: {
+        0: "Missing purpose part--add comments",
+        1: 100, 
+        2: "You're purpose description is missing."
+      },
+    },
+    3: {
+      0: {
+        0: "Missing article info (enter what's missing)",
+        1: 10, 
+        2: "You're missing info about the article."
+      },
+      1: {
+        0: "Missing article info (enter what's missing)",
+        1: 20, 
+        2: "You're missing info about the article."
+      },
+      2: {
+        0: "Missing article info (enter what's missing)",
+        1: 40, 
+        2: "You're missing info about the article."
+      },
+      3: {
+        0: "Missing article info (enter what's missing)",
+        1: 100, 
+        2: "You're missing info about the article."
+      },
+    },
+    4: {
+      0: {
+        0: "Research question explanation (1-2 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the research question."
+      },
+      1: {
+        0: "Sampling technique explanation (4-7 sentences)",
+        1: 10, 
+        2: "You didn't explain what sampling technique was used in the study."
+      },
+      2: {
+        0: "Variables and groups (3-6 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the variables and groups of the study."
+      },
+      3: {
+        0: "Results including quantitative results and final test stat (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the results and final test statistic of the study."
+      },
+      4: {
+        0: "Discussion (3-5 sentences)",
+        1: 10, 
+        2: "You didn't discuss the meaning of the results, interpret the p-value and the probability of the sample result being applied to the population at large."
+      },
+    },
+    5: {
+      0: {
+        0: "Background info about stats (sampling, distribution, probability) in study (1-2 sentences per measure/stat)",
+        1: 10, 
+        2: "What sampling was used in the study, or the distribution, or probability calculations involved?"
+      },
+      1: {
+        0: "Background info about stats (sampling, distribution, probability) in study (1-2 sentences per measure/stat)",
+        1: 20, 
+        2: "What sampling was used in the study, or the distribution, or probability calculations involved?"
+      },
+      2: {
+        0: "Background info about stats (sampling, distribution, probability) in study (1-2 sentences per measure/stat)",
+        1: 40, 
+        2: "What sampling was used in the study, or the distribution, or probability calculations involved?"
+      },
+      3: {
+        0: "Background info about stats (sampling, distribution, probability) in study (1-2 sentences per measure/stat)",
+        1: 100, 
+        2: "What sampling was used in the study, or the distribution, or probability calculations involved?"
+      },
+    },
+    6: {
+      0: {
+        0: "Bad grammar",
+        1: 10,
+        2: "There were some slight issues with your grammar, spelling, mechanics, etc."
+      },
+      1: {
+        0: "Bad grammar",
+        1: 25,
+        2: "There were some issues with your grammar, spelling, mechanics, etc."
+      }, 
+    },
+  },
 }

@@ -116,11 +116,17 @@ from tkinter import ttk, font
 #scrolling functions
 def start_scroll(event):
   root.last_y = event.y
+  root.last_x = event.x
 
 def do_scroll(event):
   delta_y = root.last_y - event.y
+  delta_x = root.last_x - event.x
+
   root.canvas.yview_scroll(int(delta_y), "units")
+  root.canvas.xview_scroll(int(delta_x), "units")
+
   root.last_y = event.y
+  root.last_x = event.x
 
 def bind_mouse_scroll(widget):
   widget.bind_all("<MouseWheel>", on_mousewheel_windows)
@@ -139,7 +145,7 @@ def Clear(): #clear the current frame of all elements
 
 root = tk.Tk()
 root.title("Phoenix Grader")
-root.state("zoomed")
+#root.state("zoomed")
 
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=10)
@@ -166,6 +172,11 @@ scrollable_frame.bind(
 canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
 canvas.configure(yscrollcommand=scrollbar.set)
 
+h_scrollbar = ttk.Scrollbar(right_frame, orient="horizontal", command=canvas.xview)
+canvas.configure(xscrollcommand=h_scrollbar.set)
+
+h_scrollbar.pack(side="bottom", fill="x")
+
 canvas.pack(side="left", fill="both", expand=True)
 scrollbar.pack(side="right", fill="y")
 
@@ -180,6 +191,7 @@ canvas.bind("<ButtonPress-1>", start_scroll)
 canvas.bind("<B1-Motion>", do_scroll)
 root.canvas = canvas
 root.last_y = 0
+root.last_x = 0
 
 
 
@@ -1030,7 +1042,7 @@ def PostAnnouncements():
     
     PostIndividualAnnouncement(
       subject="End of Week {} Reminder".format(Week),
-      message="Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates (which should be at least 75 words and push the conversation forward), and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew",
+      message="Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates (which should be at least 75 words and push the conversation forward), and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew\n\nP.S. When I grade discussion replies, I will read the post and ask myself whether a classmate or I can learn something from your post, and if so, that is considered substantive.",
       ScheduleDate=NewDate.strftime("%m/%d/%y"))
 
 def PostIndividualAnnouncement(subject,message,ScheduleDate=None):
