@@ -145,7 +145,7 @@ def Clear(): #clear the current frame of all elements
 
 root = tk.Tk()
 root.title("Phoenix Grader")
-#root.state("zoomed")
+root.state("zoomed")
 
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=10)
@@ -727,7 +727,8 @@ def DisplayListofSAs():
   tk.Label(scrollable_frame, text="====================").pack(pady=5)
   tk.Label(scrollable_frame, text="Old Version:").pack(pady=5)
   for count,A in enumerate(sorted(SummativeRubrics)):
-    tk.Button(scrollable_frame, text=A, command=lambda x=A: (Clear(),DisplaySA(x))).pack(pady=5)
+    if A not in NewSummativeRubrics:
+      tk.Button(scrollable_frame, text=A, command=lambda x=A: (Clear(),DisplaySA(x))).pack(pady=5)
 
 
   
@@ -956,7 +957,12 @@ def SelectedCheckButtons(Course):
     time.sleep(0.5)
     Input = driver.find_elements(By.CSS_SELECTOR, "input[aria-label^='Add a value']")
     for i in Input:
-      i.send_keys(str(v))
+      if v >= 50:
+        i.send_keys(str(v))
+      elif v >= 40: #this is needed since you cannot enter scores below 50, except 0, so if the score is 40, we'll give them 50 and anything lower will be a 0
+        i.send_keys("50")
+      else:
+        i.send_keys("0")
       i.send_keys(Keys.ENTER)
   
   #the next line resets radio buttons for the next student 
@@ -1028,7 +1034,7 @@ def PostAnnouncements():
   
     PostIndividualAnnouncement(
       subject="Week {} Discussion Reminder".format(Week),
-      message="Hi everyone!\n\nI hope Week {} is going well for you.  Don't forget that your initial response to this week's discussion is due by the end of the day today.  Don't hesitate to ask me if you have any questions!\n\nBest,\nDrew\n\nP.S. When I grade discussion replies, I will read the post and ask myself whether a classmate or I can learn something from your post, and if so, that is considered substantive.".format(Week),
+      message="Hi everyone!\n\nI hope Week {} is going well for you.  Don't forget that your initial response to this week's discussion is due by the end of the day today.  Don't hesitate to ask me if you have any questions!\n\nBest,\nDrew".format(Week),
       ScheduleDate=NewDate.strftime("%m/%d/%y"))
   
 

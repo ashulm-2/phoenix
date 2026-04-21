@@ -40,21 +40,21 @@ AnnDict[221][5] = "zyBook reading on discrete probability, graphs, and trees\nWk
 
 AnnDict[280] = {}
 AnnDict[280][1] = "zyBook reading\nReview Quiz"
-AnnDict[280][2] = "zyBook reading\nReview Quiz\nWk2 Summative Assessment"
+AnnDict[280][2] = "zyBook reading\nReview Quiz\nWk2 Summative Assessment (solutions must be hand-written)"
 AnnDict[280][3] = "zyBook reading\nReview Quiz"
 AnnDict[280][4] = "zyBook reading\nReview Quiz"
-AnnDict[280][5] = "zyBook reading\nReview Quiz\nWk5 Summative Assessment"
-AnnDict[280][6] = "zyBook reading\nReview Quiz\nWk6 Summative Assessment"
-AnnDict[280][7] = "zyBook reading\nReview Quiz\nWk7 Summative Assessment"
+AnnDict[280][5] = "zyBook reading\nReview Quiz\nWk5 Summative Assessment (solutions must be hand-written)"
+AnnDict[280][6] = "zyBook reading\nReview Quiz\nWk6 Summative Assessment (solutions must be hand-written)"
+AnnDict[280][7] = "zyBook reading\nReview Quiz\nWk7 Summative Assessment (solutions must be hand-written)"
 
 AnnDict[290] = {}
 AnnDict[290][1] = "zyBook reading\nReview Quiz"
-AnnDict[290][2] = "zyBook reading\nReview Quiz\nWk2 Summative Assessment"
-AnnDict[290][3] = "zyBook reading\nReview Quiz\nWk3 Summative Assessment"
+AnnDict[290][2] = "zyBook reading\nReview Quiz\nWk2 Summative Assessment (solutions must be hand-written)"
+AnnDict[290][3] = "zyBook reading\nReview Quiz\nWk3 Summative Assessment (solutions must be hand-written)"
 AnnDict[290][4] = "zyBook reading\nReview Quiz"
 AnnDict[290][5] = "zyBook reading\nReview Quiz"
-AnnDict[290][6] = "zyBook reading\nReview Quiz\nWk6 Summative Assessment"
-AnnDict[290][7] = "zyBook reading\nReview Quiz\nWk7 Summative Assessment"
+AnnDict[290][6] = "zyBook reading\nReview Quiz\nWk6 Summative Assessment (solutions must be hand-written)"
+AnnDict[290][7] = "zyBook reading\nReview Quiz\nWk7 Summative Assessment (solutions must be hand-written)"
 
 AnnDict[360] = {}
 AnnDict[360][1] = "zyBook reading"

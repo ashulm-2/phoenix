@@ -1694,7 +1694,136 @@ NewSummativeRubrics = {
         2:"In 3, your sketch is not quite incorrect.  It should look like a pair of eyeglasses with a small loop near the nose."
       },
     },
-  },   
+  },  
+  "MTH218Week2": {
+    1: {
+      0: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 10, 
+        2: "You're missing parts from the memo section."
+      },
+      1: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 20, 
+        2: "You're missing parts from the memo section."
+      },
+      2: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 40, 
+        2: "You're missing parts from the memo section."
+      },
+      3: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 100, 
+        2: "You're missing the memo section."
+      },
+    },
+    2: {
+      0: {
+        0: "Missing purpose part (should discuss chi-squared test)--add comments",
+        1: 10, 
+        2: "You're purpose description is missing parts."
+      },
+      1: {
+        0: "Missing purpose part--add comments",
+        1: 20, 
+        2: "You're purpose description is missing parts."
+      },
+      2: {
+        0: "Missing purpose part--add comments",
+        1: 40, 
+        2: "You're purpose description is missing parts."
+      },
+      3: {
+        0: "Missing purpose part--add comments",
+        1: 100, 
+        2: "You're purpose description is missing."
+      },
+    },
+    3: {
+      0: {
+        0: "Missing article info (enter what's missing)",
+        1: 10, 
+        2: "You're missing info about the article."
+      },
+      1: {
+        0: "Missing article info (enter what's missing)",
+        1: 20, 
+        2: "You're missing info about the article."
+      },
+      2: {
+        0: "Missing article info (enter what's missing)",
+        1: 40, 
+        2: "You're missing info about the article."
+      },
+      3: {
+        0: "Missing article info (enter what's missing)",
+        1: 100, 
+        2: "You're missing info about the article."
+      },
+    },
+    4: {
+      0: {
+        0: "Research question explanation (1-2 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the research question."
+      },
+      1: {
+        0: "Groups studied (2-4 sentences)",
+        1: 10, 
+        2: "You didn't explain what the groups they're studying are."
+      },
+      2: {
+        0: "Variables (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the variables of the study."
+      },
+      3: {
+        0: "Results including quantitative results and all statistics (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the results and all the statistics of the study."
+      },
+      4: {
+        0: "Discussion (3-5 sentences)",
+        1: 10, 
+        2: "You didn't discuss the meaning of the results."
+      },
+    },
+    5: {
+      0: {
+        0: "Background info about stats (sample size, number of groups, st.dev., st. error, mean, mean group diff, chi-squared stat, sample proportions, confidence interval, p-value in study (1-2 sentences per measure/stat)",
+        1: 10, 
+        2: "The background information should include the sample size, number of groups, standard deviation, standard error, mean, mean group difference, chi-squared statistic, sample proportions, confidence interval, and p-value."
+      },
+      1: {
+        0: "Background info about stats (same)",
+        1: 20, 
+        2: "The background information should include the sample size, number of groups, standard deviation, standard error, mean, mean group difference, chi-squared statistic, sample proportions, confidence interval, and p-value."
+      },
+      2: {
+        0: "Background info about stats (same) in study (1-2 sentences per measure/stat)",
+        1: 40, 
+        2: "The background information should include the sample size, number of groups, standard deviation, standard error, mean, mean group difference, chi-squared statistic, sample proportions, confidence interval, and p-value."
+      },
+      3: {
+        0: "Background info about stats (same)",
+        1: 100, 
+        2: "The background information should include the sample size, number of groups, standard deviation, standard error, mean, mean group difference, chi-squared statistic, sample proportions, confidence interval, and p-value."
+      },
+    },
+    6: {
+      0: {
+        0: "Bad grammar",
+        1: 10,
+        2: "There were some slight issues with your grammar, spelling, mechanics, etc."
+      },
+      1: {
+        0: "Bad grammar",
+        1: 25,
+        2: "There were some issues with your grammar, spelling, mechanics, etc."
+      }, 
+    },
+  },  
   "MTH218Week4": {
     1: {
       0: {
