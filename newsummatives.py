@@ -1036,6 +1036,11 @@ NewSummativeRubrics = {
         1: 15,
         2: "In #2, you're missing some major amount of the work in your solution."
       },
+      8: {
+        0: "missing work for sqrt(4-x^2)/2",
+        1: 10,
+        2: "In #2, where did the sqrt(4-x^2) come from in your final answer?  You should be using x = 2sin(theta) and then draw a triangle to figure out what cos(theta) is or what sin(theta) is in terms of x."
+      },
     },
     5: {
       0: {
@@ -1209,7 +1214,7 @@ NewSummativeRubrics = {
   "MTH290Week3": {
     1: {
       0: {
-        0:"1(a) should be #4, but student chose 3", #GUI display
+        0:"1(a) should be #4 (dy/dx = xe^{4x+5y}, but student chose 3 (dy/dx = 4(y^2+1))", #GUI display
         1: 10, #point deduction
         2:"For 1(a), you chose the separable equation but it IS an initial value problem.  You should've chosen equation #4." #student feedback
       },
@@ -1280,7 +1285,7 @@ NewSummativeRubrics = {
     },
     4: {
       0: {
-        0:"2(a) should be #3, but student chose 4", #GUI display
+        0:"2(a) should be #3 (dy/dx = 4(y^2+1)), but student chose 4", #GUI display
         1: 10, #point deduction
         2:"For 2(a), you chose the separable equation but it is NOT an initial value problem.  You should've chosen equation #3." #student feedback
       },
@@ -1337,6 +1342,11 @@ NewSummativeRubrics = {
         0:"Did not integrate dx side, or no credit can be given", #GUI display
         1: 25, #point deduction
         2:"In 2(c), no credit could be given for the integration of the dx side." #student feedback
+      },
+      6: {
+        0:"Did not find value of C correctly", #GUI display
+        1: 10, #point deduction
+        2:"In 2(c), you do not have the correct valule of the constant from the initial condition y(pi/4) = 1." #student feedback
       },
     },
     7: {

@@ -830,6 +830,20 @@ def NewDisplaySA(Course):
       text=f"{NewSummativeRubrics[Course][part][count][0]} (-{NewSummativeRubrics[Course][part][count][1]} points)", 
       variable=var,
       ).pack(pady=2, anchor="w")
+    
+    """    
+    #now add an extra part where I can insert my own point deduction
+    var = tk.IntVar(value=0)
+    TKVars.append((part,count+1,var))
+    tk.Checkbutton(scrollable_frame, 
+    text=f"Custom", 
+    variable=var,
+    ).pack(pady=2, anchor="w")
+    """
+    
+    
+    
+    
     ExtraText = tk.Text(scrollable_frame, height=3, width=80)
     ExtraText.pack(pady=5, anchor=tk.W)
     TKVarsText.append(ExtraText)  
@@ -953,16 +967,13 @@ def SelectedCheckButtons(Course):
   #now we loop through all the grade pills and set the ones we marked above
   D = driver.find_elements(By.CSS_SELECTOR,"div[class^='makeStyleslabel-0-2-']")
   for part,v in Scores.items():
+    if v < 50:
+      v = 0
     D[4*(part-1)+WhichButton(v)].click()
     time.sleep(0.5)
     Input = driver.find_elements(By.CSS_SELECTOR, "input[aria-label^='Add a value']")
     for i in Input:
-      if v >= 50:
-        i.send_keys(str(v))
-      elif v >= 40: #this is needed since you cannot enter scores below 50, except 0, so if the score is 40, we'll give them 50 and anything lower will be a 0
-        i.send_keys("50")
-      else:
-        i.send_keys("0")
+      i.send_keys(str(v))
       i.send_keys(Keys.ENTER)
   
   #the next line resets radio buttons for the next student 
