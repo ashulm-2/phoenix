@@ -2072,4 +2072,381 @@ NewSummativeRubrics = {
       }, 
     },
   },
+  "MTH217Week2": {
+    1: {
+      0: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 10, 
+        2: "You're missing parts from the memo section."
+      },
+      1: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 20, 
+        2: "You're missing parts from the memo section."
+      },
+      2: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 40, 
+        2: "You're missing parts from the memo section."
+      },
+      3: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 100, 
+        2: "You're missing the memo section."
+      },
+    },
+    2: {
+      0: {
+        0: "Missing purpose part (2-3 sentences, including basic stats)--add comments",
+        1: 10, 
+        2: "You're purpose description is missing parts."
+      },
+      1: {
+        0: "Missing purpose part--add comments",
+        1: 20, 
+        2: "You're purpose description is missing parts."
+      },
+      2: {
+        0: "Missing purpose part--add comments",
+        1: 40, 
+        2: "You're purpose description is missing parts."
+      },
+      3: {
+        0: "Missing purpose part--add comments",
+        1: 100, 
+        2: "You're purpose description is missing."
+      },
+    },
+    3: {
+      0: {
+        0: "Missing article info (enter what's missing)",
+        1: 10, 
+        2: "You're missing info about the article."
+      },
+      1: {
+        0: "Missing article info (enter what's missing)",
+        1: 20, 
+        2: "You're missing info about the article."
+      },
+      2: {
+        0: "Missing article info (enter what's missing)",
+        1: 40, 
+        2: "You're missing info about the article."
+      },
+      3: {
+        0: "Missing article info (enter what's missing)",
+        1: 100, 
+        2: "You're missing info about the article."
+      },
+    },
+    4: {
+      0: {
+        0: "Research question explanation (1-2 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the research question."
+      },
+      1: {
+        0: "Groups studied (2-4 sentences)",
+        1: 10, 
+        2: "You didn't explain what the groups they're studying are."
+      },
+      2: {
+        0: "Variables (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the variables of the study."
+      },
+      3: {
+        0: "Description of sample--st. dev, mean, central tendencies (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the different central tendency statisics, like standard deviation, mean, median, etc. of the study."
+      },
+    },
+    5: {
+      0: {
+        0: "Background info about stats (hypothesis, variables, distribution, sampling, mean, st. dev --1-2 sentences per measure/stat)",
+        1: 10, 
+        2: "The background information should include informaion about the hypothesis, variables, distribution, sampling, mean, standard deviation, and any other relevant statistics mentiond in the study."
+      },
+      1: {
+        0: "Background info about stats (same)",
+        1: 20, 
+        2: "The background information should include informaion about the hypothesis, variables, distribution, sampling, mean, standard deviation, and any other relevant statistics mentiond in the study."
+      },
+      2: {
+        0: "Background info about stats (same) in study (1-2 sentences per measure/stat)",
+        1: 40, 
+        2: "The background information should include informaion about the hypothesis, variables, distribution, sampling, mean, standard deviation, and any other relevant statistics mentiond in the study."
+      },
+      3: {
+        0: "Background info about stats (same)",
+        1: 100, 
+        2: "The background information should include informaion about the hypothesis, variables, distribution, sampling, mean, standard deviation, and any other relevant statistics mentiond in the study."
+      },
+    },
+    6: {
+      0: {
+        0: "Bad grammar",
+        1: 10,
+        2: "There were some slight issues with your grammar, spelling, mechanics, etc."
+      },
+      1: {
+        0: "Bad grammar",
+        1: 25,
+        2: "There were some issues with your grammar, spelling, mechanics, etc."
+      }, 
+    },
+  },
+  "MTH217Week3": {
+    1: {
+      0: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 10, 
+        2: "You're missing parts from the memo section."
+      },
+      1: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 20, 
+        2: "You're missing parts from the memo section."
+      },
+      2: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 40, 
+        2: "You're missing parts from the memo section."
+      },
+      3: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 100, 
+        2: "You're missing the memo section."
+      },
+    },
+    2: {
+      0: {
+        0: "Missing purpose part (2-3 sentences, discuss importance of generalization, estimation, and causation)--add comments",
+        1: 10, 
+        2: "You're purpose description is missing parts.  It should include the importance of generaliztion of the study, as well as estimation and causation."
+      },
+      1: {
+        0: "Missing purpose part--add comments",
+        1: 20, 
+        2: "You're purpose description is missing parts. It should include the importance of generaliztion of the study, as well as estimation and causation."
+      },
+      2: {
+        0: "Missing purpose part--add comments",
+        1: 40, 
+        2: "You're purpose description is missing parts. It should include the importance of generaliztion of the study, as well as estimation and causation."
+      },
+      3: {
+        0: "Missing purpose part--add comments",
+        1: 100, 
+        2: "You're purpose description is missing."
+      },
+    },
+    3: {
+      0: {
+        0: "Missing article info (enter what's missing)",
+        1: 10, 
+        2: "You're missing info about the article."
+      },
+      1: {
+        0: "Missing article info (enter what's missing)",
+        1: 20, 
+        2: "You're missing info about the article."
+      },
+      2: {
+        0: "Missing article info (enter what's missing)",
+        1: 40, 
+        2: "You're missing info about the article."
+      },
+      3: {
+        0: "Missing article info (enter what's missing)",
+        1: 100, 
+        2: "You're missing info about the article."
+      },
+    },
+    4: {
+      0: {
+        0: "Research question explanation (1-2 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the research question."
+      },
+      1: {
+        0: "Groups studied (2-4 sentences)",
+        1: 10, 
+        2: "You didn't explain what the groups they're studying are."
+      },
+      2: {
+        0: "Variables (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the variables of the study."
+      },
+      3: {
+        0: "Confidence intervals (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the confidence intervals and how they were used in the study or what they mean for the results."
+      },
+    },
+    5: {
+      0: {
+        0: "Background info about stats (confidence interval, estimation, generalization--1-2 sentences per measure/stat)",
+        1: 10, 
+        2: "The background information should include informaion about the confidence intervals, how they're used for estimation, and generalization."
+      },
+      1: {
+        0: "Background info about stats (same)",
+        1: 20, 
+        2: "The background information should include informaion about the confidence intervals, how they're used for estimation, and generalization."
+      },
+      2: {
+        0: "Background info about stats (same) in study (1-2 sentences per measure/stat)",
+        1: 40, 
+        2: "The background information should include informaion about the confidence intervals, how they're used for estimation, and generalization."
+      },
+      3: {
+        0: "Background info about stats (same)",
+        1: 100, 
+        2: "The background information should include informaion about the confidence intervals, how they're used for estimation, and generalization."
+      },
+    },
+    6: {
+      0: {
+        0: "Bad grammar",
+        1: 10,
+        2: "There were some slight issues with your grammar, spelling, mechanics, etc."
+      },
+      1: {
+        0: "Bad grammar",
+        1: 25,
+        2: "There were some issues with your grammar, spelling, mechanics, etc."
+      }, 
+    },
+  }, 
+  "MTH217Week5": {
+    1: {
+      0: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 10, 
+        2: "You're missing parts from the memo section."
+      },
+      1: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 20, 
+        2: "You're missing parts from the memo section."
+      },
+      2: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 40, 
+        2: "You're missing parts from the memo section."
+      },
+      3: {
+        0: "Missing to, from, subject, date (enter what's missing)",
+        1: 100, 
+        2: "You're missing the memo section."
+      },
+    },
+    2: {
+      0: {
+        0: "Missing purpose part (2-3 sentences, demonstrate comparison and analysis of two proportions and two means)--add comments",
+        1: 10, 
+        2: "You're purpose description is missing parts.  It should include a demonstration and analysis of comparing two proportions or two means."
+      },
+      1: {
+        0: "Missing purpose part--add comments",
+        1: 20, 
+        2: "You're purpose description is missing parts.  It should include a demonstration and analysis of comparing two proportions or two means."
+      },
+      2: {
+        0: "Missing purpose part--add comments",
+        1: 40, 
+        2: "You're purpose description is missing parts.  It should include a demonstration and analysis of comparing two proportions or two means."
+      },
+      3: {
+        0: "Missing purpose part--add comments",
+        1: 100, 
+        2: "You're purpose description is missing."
+      },
+    },
+    3: {
+      0: {
+        0: "Missing article info (enter what's missing)",
+        1: 10, 
+        2: "You're missing info about the article."
+      },
+      1: {
+        0: "Missing article info (enter what's missing)",
+        1: 20, 
+        2: "You're missing info about the article."
+      },
+      2: {
+        0: "Missing article info (enter what's missing)",
+        1: 40, 
+        2: "You're missing info about the article."
+      },
+      3: {
+        0: "Missing article info (enter what's missing)",
+        1: 100, 
+        2: "You're missing info about the article."
+      },
+    },
+    4: {
+      0: {
+        0: "Research question explanation (1-2 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the research question."
+      },
+      1: {
+        0: "Groups studied (2-4 sentences)",
+        1: 10, 
+        2: "You didn't explain what the groups they're studying are."
+      },
+      2: {
+        0: "Variables (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the variables of the study."
+      },
+      3: {
+        0: "Results (2-4 sentences)",
+        1: 10, 
+        2: "You didn't properly describe the confidence intervals and how they were used in the study or what they mean for the results."
+      },
+      4: {
+        0: "Discussion (3-5 sentences)",
+        1: 10, 
+        2: "You didn't discuss the meaning of the results."
+      },
+    },
+    5: {
+      0: {
+        0: "Background info about stats (sample size, number of groups, st. dev, mean, t-stat, p-value--1-2 sentences per measure/stat)",
+        1: 10, 
+        2: "The background information should include information about the sample size, number of groups in the study, standard deviation, mean, t-statistic, and p-value of the study."
+      },
+      1: {
+        0: "Background info about stats (same)",
+        1: 20, 
+        2: "The background information should include information about the sample size, number of groups in the study, standard deviation, mean, t-statistic, and p-value of the study."
+      },
+      2: {
+        0: "Background info about stats (same) in study (1-2 sentences per measure/stat)",
+        1: 40, 
+        2: "The background information should include information about the sample size, number of groups in the study, standard deviation, mean, t-statistic, and p-value of the study."
+      },
+      3: {
+        0: "Background info about stats (same)",
+        1: 100, 
+        2: "The background information should include information about the sample size, number of groups in the study, standard deviation, mean, t-statistic, and p-value of the study."
+      },
+    },
+    6: {
+      0: {
+        0: "Bad grammar",
+        1: 10,
+        2: "There were some slight issues with your grammar, spelling, mechanics, etc."
+      },
+      1: {
+        0: "Bad grammar",
+        1: 25,
+        2: "There were some issues with your grammar, spelling, mechanics, etc."
+      }, 
+    },
+  }, 
 }

@@ -371,15 +371,7 @@ def is_substantive_sentence(sentence, shallow_phrases, substantive_clues):
   # fallback: check length
   return len(sentence.split()) >= 6
 
-def SubstantiveBool(reply):
 
-  response = ollama.chat(
-    #model="gemma3",
-    model="llama3.1",
-    messages=[{"role": "user", "content": "Answer YES or NO.  Does the following post contain some substance or does it simply thank their classmate:" + reply}]
-  )
-  
-  return response['message']['content']
   
   
 def GenerativeAIPercentage(Content):
@@ -387,6 +379,16 @@ def GenerativeAIPercentage(Content):
     #model="gemma3",
     model="llama3.1",
     messages=[{"role": "user", "content": "The following content was written by a student in an online forum.  Give me a percentage likelihood that it was written by AI and not by the student and a brief explanation of at most 100 words why you gave that percentage.  Here is their post: " + Content}]
+  )
+  
+  return response['message']['content']
+  
+def SubstantiveBool(Content):
+
+  response = ollama.chat(
+    #model="gemma3",
+    model="llama3.1",
+    messages=[{"role": "user", "content": "The following content was written by a student in an online forum.  If someone were to ONLY read their post, is there something that someone could learn from what they've written?  Answer Yes or No.  Here is their post: " + Content}]
   )
   
   return response['message']['content']
@@ -605,14 +607,16 @@ def GetUserDiscussionInfo():
       #BDM = ""
       BeforeThursdayCount += 1
 
-    Substantive = SubstantiveBool(Content).strip()
+    Substantive = "Substantive:  " + SubstantiveBool(Content).strip()
     #Substantive1 = is_substantive_reply_advanced(Content)
     
     GenAI = GenerativeAIPercentage(Content).strip()
+    
+    Both = Substantive + "\n" + GenAI
 
     
     tk.Label(scrollable_frame,text=f"{User} on {Date} at {Time}: {WordCount} words").grid(row=Row,column=0,columnspan=5,pady=5,sticky="w")
-    tk.Label(scrollable_frame,text=GenAI, wraplength=1000, justify="left", bg="yellow").grid(row=Row+1,column=0,columnspan=5,pady=5,sticky="w")
+    tk.Label(scrollable_frame,text=Both, wraplength=1000, justify="left", bg="yellow").grid(row=Row+1,column=0,columnspan=5,pady=5,sticky="w")
     tk.Label(scrollable_frame, text=Content, wraplength=1000, justify="left", bg="lightgray").grid(row=Row+2,column=0,columnspan=5,pady=5,sticky="w")
     Row += 4
       
