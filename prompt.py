@@ -17,7 +17,7 @@ Thursday post on time (25% of credit): Yes
 First reply (25% of credit): Yes
 Second Reply (25% of credit): Yes
 
-Very nice job with your initial reply!  I did credit your replies this week, but they were a little light on content.  Replies should meet the 75 word minimum, but also push the conversation forward (by including new information or by asking leading questions).  Please try to include that in subsequent weeks, and let me know if you have any questions.""",
+Very nice job with your initial reply!  I did credit your replies this week, but they were a little light on content.  Replies should meet the 75 word minimum and should also push the conversation forward.  This means one of your classmates can learn something from your post.  Please try to include that in subsequent weeks, and let me know if you have any questions.""",
     2: "40",
     3:1},
 
@@ -28,7 +28,7 @@ Thursday post on time (25% of credit): Yes
 First reply (25% of credit): Yes
 Second Reply (25% of credit): No
 
-Great work with your initial post!  The only deduction this week was because your replies did not all meet the minimum word/substance requirement.  Remember replies should be at least 75 words in length and contain mathematical substance that pushes the conversation forward.  I combined your two posts to give you credit for one reply.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
+Great work with your initial post!  The only deduction this week was because your replies did not all meet the minimum word/substance requirement.  Remember replies should be at least 75 words in length and contain mathematical substance that pushes the conversation forward, meaning one of your classmates can learn something from your post.  I combined your two posts to give you credit for one reply.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
     2: "30",
     3:.75},
 
@@ -73,7 +73,7 @@ Thursday post on time (25% of credit): No
 First reply (25% of credit): Yes
 Second Reply (25% of credit): No
 
-Great work with your initial post!  Don't forget to have that initial reply done by the end of the day Thursday.  The other deduction this week was because your replies did not meet the minimum word/substance requirement.  Remember that replies should be at least 75 words in length and contain mathematical substance.  I combined your two posts to give you credit for one reply.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
+Great work with your initial post!  Don't forget to have that initial reply done by the end of the day Thursday.  The other deduction this week was because your replies did not meet the minimum word/substance requirement.  Remember that replies should be at least 75 words in length and contain mathematical substance, meaning one of your classmates can learn something from your post.  I combined your two posts to give you credit for one reply.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
     2: "20",
     3:.5},
 
@@ -84,7 +84,7 @@ Thursday post on time (25% of credit): Yes
 First reply (25% of credit): No
 Second Reply (25% of credit): No
 
-Nice work with your initial post!  Don't forget that you have to post two replies each week for the other half of participation credit.  Those replies should be at least 75 words in length and contain mathematical substance.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
+Nice work with your initial post!  Don't forget that you have to post two replies each week for the other half of participation credit.  Those replies should be at least 75 words in length and contain mathematical substance, meaning one of your classmates can learn something from your post.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
     2: "20",
     3:.5},
 
@@ -97,7 +97,7 @@ Thursday post on time (25% of credit): Yes
 First reply (25% of credit): No
 Second Reply (25% of credit): No
 
-Great job with your initial reply!  Unfortunately I could not credit your replies as they did not meet the minimum word count (75 words) or contain enough mathematical substance.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
+Great job with your initial reply!  Unfortunately I could not credit your replies as they did not meet the minimum word count (75 words) or contain enough mathematical substance, meaning one of your classmates can learn something from your post.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
     2: "20",
     3:.5},
 
@@ -119,7 +119,7 @@ Thursday post on time (25% of credit): Yes
 First reply (25% of credit): No
 Second Reply (25% of credit): No
 
-Your initial post was a little light on content and word count, but I did give you credit for it.  Make sure it meets the 175 word count for subsequent weeks.  Unfortunately I could not credit your replies as they did not meet the minimum word count (75 words) or contain enough mathematical substance.   You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
+Your initial post was a little light on content and word count, but I did give you credit for it.  Make sure it meets the 175 word count for subsequent weeks.  Unfortunately I could not credit your replies as they did not meet the minimum word count (75 words) or contain enough mathematical substance, meaning one of your classmates can learn something from your post.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
     2: "20",
     3:.5},
 
@@ -130,7 +130,7 @@ Thursday post on time (25% of credit): No
 First reply (25% of credit): Yes
 Second Reply (25% of credit): No
 
-Great work with your initial post!  Don't forget to have that initial reply done by the end of the day Thursday.  The other deduction this week was because your replies did not meet the minimum word/substance requirement.  Remember that replies should be at least 75 words in length and contain mathematical substance.  I combined your two posts to give you credit for one reply.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.
+Great work with your initial post!  Don't forget to have that initial reply done by the end of the day Thursday.  The other deduction this week was because your replies did not meet the minimum word/substance requirement.  Remember that replies should be at least 75 words in length and contain mathematical substance, meaning one of your classmates can learn something from your post.  I combined your two posts to give you credit for one reply.  You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.
 
 There was also a 5 point deduction for only posting one day of the week.  UOP requires your posts to be spread out among two separate days.""",
     2: "15"},
@@ -142,7 +142,7 @@ Thursday post on time (25% of credit): No
 First reply (25% of credit): No
 Second Reply (25% of credit): No
 
-Nice work with your initial post! Don't forget that initial post finished by Thursday next week, and also don't forget that your two replies should be at least 75 words in length and contain mathematical substance. Unfortunately I could not credit your replies as they did not meet the minimum requirements.  You are always welcome to respond to any of the questions I ask your classmates. Those questions are not just reserved for them, so feel free to answer them to earn reply credit. Let me know if you have any questions about the participation policies.""",
+Nice work with your initial post! Don't forget that initial post finished by Thursday next week, and also don't forget that your two replies should be at least 75 words in length and contain mathematical substance, meaning one of your classmates can learn something from your post. Unfortunately I could not credit your replies as they did not meet the minimum requirements.  You are always welcome to respond to any of the questions I ask your classmates. Those questions are not just reserved for them, so feel free to answer them to earn reply credit. Let me know if you have any questions about the participation policies.""",
     2: "10",
     3:.25},
 
@@ -153,7 +153,7 @@ Thursday post on time (25% of credit): No
 First reply (25% of credit): No
 Second Reply (25% of credit): No
 
-Great work with your initial post! Don't forget that initial post finished by Thursday next week, and also don't forget you have to post two replies each week for the other half of participation credit. Those replies should be at least 75 words in length and contain mathematical substance. You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
+Great work with your initial post! Don't forget that initial post finished by Thursday next week, and also don't forget you have to post two replies each week for the other half of participation credit. Those replies should be at least 75 words in length and contain mathematical substance, meaning one of your classmates can learn something from your post. You are always welcome to respond to any of the questions I ask your classmates.  Those questions are not just reserved for them, so feel free to answer them to earn reply credit.  Let me know if you have any questions about the participation policies.""",
     2: "10",
     3:.25},
 
@@ -163,7 +163,7 @@ Great work with your initial post! Don't forget that initial post finished by Th
 
   "01": {
     0: "no credit",
-    1: """Unfortunately no participation credit could be given this week.  Your initial post should be at least 175 words and posted by Thursday, and your two replies should be at least 75 words in length.  Let me know if you have any questions about the participation policies.""",
+    1: """Unfortunately no participation credit could be given this week.  Your initial post should be at least 175 words and posted by Thursday, and your two replies should be at least 75 words in length and contain mathemaqtical substance, meaning one of your classmates can learn something from your post.  Let me know if you have any questions about the participation policies.""",
     2: "0",
     3: 0},
     
