@@ -1226,21 +1226,55 @@ def SetTestingPage():
   
 def RunTest():
   wait = WebDriverWait(driver,10)
-  try:
-    SettingsButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[id='discussion-settings-button']")))
+  
+  try: #open discussion page
+    SettingsButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[data-analytics-id='course.engagement.link']")))
     SettingsButton.click()
   except:
-    print("Couldn't find the settings button")
+    print("Couldn't find the Discussions button")
+  
+  N = len(AnnDict[CourseNumber]) #number of weeks of the course
+
+
+  for Week in range(1,N+1):  
+    try: #Wk discussion
+      WeekButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,f"[aria-label^='Discussion, Wk {Week}']")))
+      WeekButton.click()
+      
+      
+      SettingsButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[aria-label='Discussion Settings']")))
+      SettingsButton.click()
+      
+      
+      time.sleep(2) #wait for elements to load
+      
+      CheckBox = driver.find_element(By.CSS_SELECTOR,"label[for='post-first']")
+      CheckBox.click()
+
+      
+      SaveButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[analytics-id='course.engagement.discussionSettings.saveForm.autosave.saveButtons.save.button']")))
+      SaveButton.click()
+      
+      time.sleep(2)
+      CloseButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[analytics-id='bb-close.course.content.discussion']")))
+      CloseButton.click()
+      
+      
+    except:
+      print(f"Couldn't complete 'post first' for Week {Week}")
+  
+
+  
+
+
+  
+
+  #driver.back()
+  #WebDriverWait(driver, 10).until(EC.url_changes(driver.current_url))
+  return
     
-  try:
-    CB = driver.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
-    print(len(CB))
-    for cb in CB:
-      print(cb.text)
-    PostFirst = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[id='post-first']")))
-    PostFirst.click()
-  except:
-    print("Couldn't find the post first button")
+
+
 
 
   
