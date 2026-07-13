@@ -1065,6 +1065,46 @@ def PostAnnouncements():
       subject="End of Week {} Reminder".format(Week),
       message="Hi everyone!\n\nWe're nearing the end of Week {}, which means its time to get those assignments in order.  Please finish up your two replies to me or your classmates (which should be at least 75 words and push the conversation forward), and finish the remaining assignments due by the end of the week (today) which include the following assignments:\n\nInteractive Overview (be honest!)\n".format(Week) + AnnDict[CourseNumber][Week] + "\n\nDon't hesitate to ask me if you have any questions!\n\nBest,\nDrew\n\nP.S. When I grade discussion replies, I will read the post and ask myself whether a classmate or I can learn something from your post, and if so, that is considered substantive.",
       ScheduleDate=NewDate.strftime("%m/%d/%y"))
+      
+  
+  #this part will update the "post first" button
+  wait = WebDriverWait(driver,10)
+  
+  try: #open discussion page
+    SettingsButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[data-analytics-id='course.engagement.link']")))
+    SettingsButton.click()
+  except:
+    print("Couldn't find the Discussions button")
+  
+  N = len(AnnDict[CourseNumber]) #number of weeks of the course
+
+
+  for Week in range(1,N+1):  
+    try: #Wk discussion
+      WeekButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,f"[aria-label^='Discussion, Wk {Week}']")))
+      WeekButton.click()
+      
+      
+      SettingsButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[aria-label='Discussion Settings']")))
+      SettingsButton.click()
+      
+      
+      time.sleep(2) #wait for elements to load
+      
+      CheckBox = driver.find_element(By.CSS_SELECTOR,"label[for='post-first']")
+      CheckBox.click()
+
+      
+      SaveButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[analytics-id='course.engagement.discussionSettings.saveForm.autosave.saveButtons.save.button']")))
+      SaveButton.click()
+      
+      time.sleep(2)
+      CloseButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[analytics-id='bb-close.course.content.discussion']")))
+      CloseButton.click()
+      
+      
+    except:
+      print(f"Couldn't complete 'post first' for Week {Week}")
 
 def PostIndividualAnnouncement(subject,message,ScheduleDate=None):
   wait = WebDriverWait(driver,10)
@@ -1235,33 +1275,49 @@ def RunTest():
   
   N = len(AnnDict[CourseNumber]) #number of weeks of the course
 
-
   for Week in range(1,N+1):  
     try: #Wk discussion
       WeekButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,f"[aria-label^='Discussion, Wk {Week}']")))
       WeekButton.click()
       
       
-      SettingsButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[aria-label='Discussion Settings']")))
-      SettingsButton.click()
+      EditButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[data-analytics-id='components.directives.discussion.edit.button']")))
+      EditButton.click()
       
       
       time.sleep(2) #wait for elements to load
       
-      CheckBox = driver.find_element(By.CSS_SELECTOR,"label[for='post-first']")
-      CheckBox.click()
+    
+      editor = driver.find_element(By.ID, "bb-editor-textbox")
+      driver.execute_script("""
+      const editor = arguments[0];
 
+      editor.innerHTML = editor.innerHTML.replace(
+          '</p><p>&nbsp;</p><p>&nbsp;</p><p>Copyright',
+          '</p><p>Your two replies should each be at least 75 words and contain mathematical substance (which means it should push the math conversation forward). Simply telling your classmate you agree with their post is not substantive. I will post follow-up questions to your classmates posts-- feel free to answer those questions even if it is not a reply to you.  In fact, it would be appreciated if one of your two responses is a reply to my questions, whether it is a question I asked you or one I asked of your classmates.</p><p>&nbsp;</p><p>&nbsp;</p><p>Copyright'
+      );
+      """, editor)
       
-      SaveButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[analytics-id='course.engagement.discussionSettings.saveForm.autosave.saveButtons.save.button']")))
-      SaveButton.click()
+
+      time.sleep(1)
       
-      time.sleep(2)
-      CloseButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[analytics-id='bb-close.course.content.discussion']")))
-      CloseButton.click()
+      try:
+        SaveButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[analytics-id='course.engagement.saveLabel']")))
+        SaveButton.click()
+      except Exception as e:
+        print(1,e)
+        
+      try:
+        CloseButton = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"[analytics-id='bb-close.course.content.discussion']")))
+        CloseButton.click()
+      except Exception as e:
+        print(2,e)
       
       
-    except:
+      
+    except Exception as e:
       print(f"Couldn't complete 'post first' for Week {Week}")
+      print(e)
   
 
   

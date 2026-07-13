@@ -1,0 +1,1 @@
+C:\Windows\System32\cmd.exe /k "cd /d C:\Users\ashul\OneDrive\Documents\GitHub\phoenix && start "" "C:\Program Files\Google\Chrome\Application\chrome.exe" https://faculty.phoenix.edu --remote-debugging-port=9222 --user-data-dir="C:\Users\ashul\AppData\Local\Google\Chrome\User Data\Default""

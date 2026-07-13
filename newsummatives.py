@@ -409,12 +409,12 @@ NewSummativeRubrics = {
       3: {
         0:"#1(b) -- graph of inverse not correct", #GUI display
         1: 5, #point deduction
-        2:"In #1(b), the graph you drawn is not the reflection of your chosen graph over the line y=x."  
+        2:"In #1(b), the graph you drawn is not the reflection of your chosen graph over the line y=x.  The graph of the inverse should look kind of like y=e^x-2."  
       },
       4: {
         0:"#1(b) -- graph of inverse not correct", #GUI display
         1: 10, #point deduction
-        2:"In #1(b), the graph you drawn is not the reflection of your chosen graph over the line y=x."  
+        2:"In #1(b), the graph you drawn is not the reflection of your chosen graph over the line y=x.  The graph of the inverse should look kind of like y=e^x-2."  
       },
       5: {
         0:"#1(c) -- explanation of one-to-one implies inverse", #GUI display
@@ -478,7 +478,7 @@ NewSummativeRubrics = {
       0: {
         0:"#3(a) -- should get 0/0", #GUI display
         1: 5, #point deduction
-        2:"In #3(a), when plugging in a=0, you should get 0 on the numerator and 0 in the denominator, so the fraction simplifies to the indeterminant form 0/0."  
+        2:"In #3(a), when plugging in a=0, you should get 0 on the numerator and 0 in the denominator, so the fraction simplifies to the indeterminant form 0/0.  Note that 0 and 0/0 are not the same thing."  
       },
       1: {
         0:"#3(b) -- minor mistake solving for x", #GUI display
@@ -520,15 +520,20 @@ NewSummativeRubrics = {
         1: 10, #point deduction
         2:"In #3(e), it should be the limit as t approaches 1 of (t-1) / [(t^n-1)/a].  Feel free to ask me for more details."  
       },
-      9: {
+      10: {
         0:"#3(e) -- incorrect limit (should be a/n)", #GUI display
         1: 2, #point deduction
         2:"In #3(e), using the hint, you can cancel the (t-1)'s and you'll have just a on the top and (t^{n-1} + t^{n-2} + ... + t+1) on the bottom, so when you plug in t=1, the top is a and the bottom is (1 + 1 + ... + 1 + 1) = n, so the limit is a/n."  
       },
-      10: {
+      9: {
         0:"#3(d) -- missing limit", #GUI display
         1: 10, #point deduction
         2:"In #3(e), using the hint, you can cancel the (t-1)'s and you'll have just a on the top and (t^{n-1} + t^{n-2} + ... + t+1) on the bottom, so when you plug in t=1, the top is a and the bottom is (1 + 1 + ... + 1 + 1) = n, so the limit is a/n."  
+      },
+      11: {
+        0:"#3(e) -- missing work", #GUI display
+        1: 10, #point deduction
+        2:"In #3(e), you're missing some of the work to show where your limit came from.  You should show the cancellation of the (t-1)'s, and then plug in t=1, showing why the denominator becomes n."  
       },
     },
   },
