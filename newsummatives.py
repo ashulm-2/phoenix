@@ -567,18 +567,28 @@ NewSummativeRubrics = {
         2:"In #2(a) you should use the quotient rule.  The correct answer should be [(1+e^{-t})(0)-(1)(-e^{-t})]/(1+e^{-t})^2 = e^{-t}/(1+e^{-t})^2."
       },
       2: {
+        0:"#2(a) -- did not show work", #GUI display
+        1: 40, #point deduction
+        2:"In #2(a) need to show all the work for finding the derivative.  The correct answer should be [(1+e^{-t})(0)-(1)(-e^{-t})]/(1+e^{-t})^2 = e^{-t}/(1+e^{-t})^2."
+      },
+      3: {
         0:"#2(b) -- wrong choice (should be (3) S'(t) = S(t)(1-S(t))", #GUI display
         1: 5, #point deduction
         2:"In #2(b), the correct answer is that S'(t) = S(t)(1-S(t))."
       },
-      3: {
+      4: {
         0:"#2(b) -- wrong explanation (should be (3) S'(t) = S(t)(1-S(t))", #GUI display
         1: 10, #point deduction
         2:"In #2(b), your explanation for your choice has errors."
       },
-      4: {
+      5: {
+        0:"#2(b) -- missing work in simplification", #GUI display
+        1: 15, #point deduction
+        2:"In #2(b), you didn't show all of the work.  You should be finding a common denominator when subtracting 1 - S(t) and then showing the product of S(t) and 1-S(t)."
+      },
+      6: {
         0:"#2(b) -- no explanation (should be (3) S'(t) = S(t)(1-S(t))", #GUI display
-        1: 20, #point deduction
+        1: 35, #point deduction
         2:"In #2(b), you did not explain why you made the choice you made."
       },
     },

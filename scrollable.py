@@ -461,7 +461,7 @@ def on_button_click(i):
   T1 = time.perf_counter()
   global AllPostsToggle, DiscussionIntro
 
-  #P is the amount of points discussion is worth; most times it is worth 30 points, but other times it is worth 4 points
+  #P is the amount of points discussion is worth; most times it is worth 30 points, but other times it is worth 40 points
   P = float(DiscussionValue.get("1.0", "end-1c"))
 
   Score = driver.find_elements(By.CSS_SELECTOR, "input[type='text'][placeholder='--']")
@@ -573,9 +573,13 @@ def GetUserDiscussionInfo():
   Messages = driver.find_elements(By.CSS_SELECTOR, "bb-message")
   Row = 10
   AllContent = ""
+  RespondedToMe = False
   for Message in Messages:  
+    
     User = GetMessageInfo(Message,"bb-linked-username[analytics-id='discussion.message.user']")
     
+    if User == "Drew Shulman":
+      RespondedToMe = True
     if User != Name.text:
       continue
         
@@ -624,8 +628,9 @@ def GetUserDiscussionInfo():
     #print(is_substantive_reply_advanced(Content))
     #print(AllContent,484)
 
+  print(RespondedToMe)
   #CountLabel.config(text = f"Distinct days: {len(DistinctDays)} and Before Thursday Count: {BeforeThursdayCount}")
-  CountLabel.config(text = f"At least two distinct days: {"YES" if len(DistinctDays) > 1 else "NO"} and at least one post on time: {"YES" if BeforeThursdayCount > 0 else "NO"}")
+  CountLabel.config(text = f"At least two distinct days: {"YES" if len(DistinctDays) > 1 else "NO"} and at least one post on time: {"YES" if BeforeThursdayCount > 0 else "NO"} and responded to me: {"YES" if RespondedToMe else "NO"}")
 
   response = ollama.chat(
     model="gemma3",
@@ -944,6 +949,11 @@ def SelectedCheckButtons(Course):
         Message += UserText.strip() + "\n"
         
     PreviousPart = part
+    
+  #this allows us to grab the last textbox  
+  UserText = TKVarsText[PreviousPart-1].get("1.0", tk.END)
+  if (UserText.strip() != ""):
+    Message += UserText.strip() + "\n"
       
 
       
@@ -958,8 +968,9 @@ def SelectedCheckButtons(Course):
   
   if Message == "":
     Message = "Fantastic job with this assignment!  You did everything perfectly!"
-  else:
-    Message += "Everything else looks good!"
+  #else:
+  #  Message += "Everything else looks good!"
+  
   
 
   #this part sets the message for the student
