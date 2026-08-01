@@ -1225,6 +1225,7 @@ tk.Button(left_frame, text="Create Discussion Replies", command= lambda :(Clear(
 
 Text = None
 ResponseText = None
+
 def DiscussionResponses():
   global Text, ResponseText
   tk.Label(scrollable_frame, text="Paste the response below, then hit the button!").pack(pady=10)
@@ -1269,9 +1270,15 @@ def LLM():
 tk.Button(left_frame, text="Testing", command= lambda :(Clear(), SetTestingPage()), bg="#444", width=30, fg="white").pack(pady=10) 
 
 
-
+CN = None
 def SetTestingPage():
+  global CN
   tk.Button(scrollable_frame, text="Testing", command=RunTest, bg="#444", width=30, fg="white").pack(pady=10) 
+  
+  CN = ttk.Combobox(scrollable_frame, values=CoursesList)
+  CN["state"] = "readonly"
+  CN.pack(pady=10)
+  CN.set("210")
   
   
   
@@ -1283,7 +1290,9 @@ def RunTest():
     SettingsButton.click()
   except:
     print("Couldn't find the Discussions button")
+    
   
+  CourseNumber = int(CN.get())
   N = len(AnnDict[CourseNumber]) #number of weeks of the course
 
   for Week in range(1,N+1):  

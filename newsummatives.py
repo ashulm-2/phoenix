@@ -666,7 +666,7 @@ NewSummativeRubrics = {
       },
       1: {
         0: "should have used part 1",
-        1: 0,
+        1: 50,
         2: "You did all the hard part in part 1, so you can just quote that part when finding the antiderivative in part 2."
       },
     },
@@ -690,8 +690,8 @@ NewSummativeRubrics = {
     4: {
       0: {
         0: "explanation where semi-circle came from",
-        1: 0,
-        2: "The graph should be a semi-circle.  You can see this since y = sqrt(R^2 - x^2) and if you square both sides, you get y^2 = R^2 - x^2 and then rewrite it as x^2 + y^2 = R^2 which is the equation of a circle centered at the origin of radius R.  Then since y is equal to a square root, this means y can only be non-negative which happens above the x-axis (the top half of the circle)."
+        1: 10,
+        2: "The graph is a semi-circle and you should explain why this is what the graph looks like.  Indeed, you can see this since y = sqrt(R^2 - x^2) and if you square both sides, you get y^2 = R^2 - x^2 and then rewrite it as x^2 + y^2 = R^2 which is the equation of a circle centered at the origin of radius R.  Then since y is equal to a square root, this means y can only be non-negative which happens above the x-axis (the top half of the circle)."
       },
       1: {
         0: "graph should be a semicircle",
@@ -704,9 +704,9 @@ NewSummativeRubrics = {
         2: "The integral is only from 0 to R, so the shading should be only in quadrant 1."
       },
       3: {
-        0: "no shading",
+        0: "no shading/wrong shading",
         1: 10,
-        2: "You didn't shade the area calculated by the definite integral.  The shading should be the quarter circle in quadrant 1."
+        2: "You didn't shade the correct area calculated by the definite integral.  The shading should be the quarter circle in quadrant 1."
       },
       4: {
         0: "graphed full circle in quadrants 3 and 4",
