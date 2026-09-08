@@ -33,6 +33,11 @@ NewSummativeRubrics = {
         1: 20, #point deduction
         2:"You didn't give two experiences for the first mathematician" #student feedback
       },
+      4: {
+        0: "#1 missing years associated with education",
+        1: 5,
+        2: "You didn't specify the years for the first mathematician's educational entries."
+      }
     },
     3: {
       0: {
@@ -126,6 +131,11 @@ NewSummativeRubrics = {
         1: 20, #point deduction
         2:"You didn't give two experiences for the second resume" #student feedback
       },
+      4: {
+        0: "#1 missing years associated with education",
+        1: 5,
+        2: "You didn't specify the years for the second mathematician's educational entries.  It is typical to specify at least the final year of the educational experience."
+      }
     },
     7: {
       0: {
@@ -275,6 +285,11 @@ NewSummativeRubrics = {
         2: "For your choice of L,W, your volume calculation is incorrect.  To find the proper volume, you need to find the volume of the rectangular prism at the bottom of the shed and the triangular prism at the top of the shed."
       },
       3: {
+        0: "Correct volume, bad range", 
+        1: 25, 
+        2: "For your choice of L,W, you have the right volume calculation, but the volume does not reside between the 600 and 1100 cubic feet allowed.  This means your choice of L and W are not allowed for this shed."
+      },
+      4: {
         0: "No work", 
         1: 100, 
         2: "You did not show any work depicting the volume of the shed."
@@ -378,11 +393,16 @@ NewSummativeRubrics = {
         2: "Your work for calculating the shelf distance wasn't correct.  It should have been tan(74) = 6.5/X, and then solve for X."
       },
       1: {
+        0: "Missing adequate work for shelf distance (should be tan(74) = 6.5/X)", 
+        1: 10, 
+        2: "You didn't show enough work for calculating the shelf distance.  The work should include the equation tan(74) = 6.5/X, and then solve for X."
+      },
+      2: {
         0: "Work for shelf distance not correct", 
         1: 40, 
         2: "Your work for calculating the shelf distance wasn't correct.  It should have been tan(74) = 6.5/X, and then solve for X."
       },
-      2: {
+      3: {
         0: "No work on shelf distance", 
         1: 100, 
         2: "It looks like you forgot to complete part 2 of the assignment where you find the shelf distance from the wall."
@@ -840,17 +860,17 @@ NewSummativeRubrics = {
       0: {
         0: "1(d) decent explanation of what went wrong, but not perfect",
         1: 10,
-        2: "The mistake made in 1(d) is that the student didn't draw a picture which would hel pthem recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
+        2: "The mistake made in 1(d) is that the student didn't draw a picture which would help them recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
       },
       1: {
         0: "1(d) poor explanation of what went wrong",
         1: 15,
-        2: "The mistake made in 1(d) is that the student didn't draw a picture which would hel pthem recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
+        2: "The mistake made in 1(d) is that the student didn't draw a picture which would help them recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
       },
       2: {
         0: "1(d) no explanation of what went wrong",
         1: 25,
-        2: "You didn't explain what mistake was made in 1(d).  The mistake made in 1(d) is that the student didn't draw a picture which would hel pthem recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
+        2: "You didn't explain what mistake was made in 1(d).  The mistake made in 1(d) is that the student didn't draw a picture which would help them recognize that y=x is on top of y=x^2 on the interval x=0 to x=1.  This would then make the integrand x-x^2 (instead of x^2-x)."
       },
       3: {
         0: "1(d) correction minor error",

@@ -640,6 +640,8 @@ def GetUserDiscussionInfo():
   ResponseContent = response['message']['content']
   NameText = Name.text
   FirstName = NameText.split(" ")[0]
+  if RespondedToMe:
+    ResponseContent = "Thanks for responding to one of my questions this week!\n\n" + ResponseContent
   DiscussionIntro = f"Hi {FirstName},\n\n" + ResponseContent
   
   
@@ -769,7 +771,8 @@ def SelectedRadio(Course):
   #this part sets the message for the student
   FB = driver.find_element(By.CSS_SELECTOR, "div[data-placeholder='Enter your feedback']")
   FB.send_keys(Message)
-  Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.page.body.overallFeedback.saveButton']")
+  #Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.page.body.overallFeedback.saveButton']")
+  Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.bodyToolbar.overallFeedback.saveButton']")
   Save.click()
   
   #now we loop through all the grade pills and set the ones we marked above
@@ -965,9 +968,20 @@ def SelectedCheckButtons(Course):
     if V != UV:
       Message += f"Your volume is incorrect.  The actual volume with length {L} feet and width {W} feet should be {V} cubic feet.  Let me know if you have questions about how to get this volume.\n"
 
+
+  PraiseVariations = [
+    "Amazing work on this assignment! You nailed every part of it!",
+    "You crushed this assignment!",
+    "Outstanding job! You executed this assignment flawlessly!",
+    "Incredible effort on this one! You got everything exactly right!",
+    "This assignment is fantastic — you did it all perfectly!",
+    "Wow, great work here! You hit every mark on this one!",
+    "You really knocked this assignment out of the park! Great execution!",
+    "Superb job on this! Everything was done just right!",
+  ]
   
   if Message == "":
-    Message = "Fantastic job with this assignment!  You did everything perfectly!"
+    Message = random.choice(PraiseVariations)
   #else:
   #  Message += "Everything else looks good!"
   
@@ -976,7 +990,7 @@ def SelectedCheckButtons(Course):
   #this part sets the message for the student
   FB = driver.find_element(By.CSS_SELECTOR, "div[data-placeholder='Enter your feedback']")
   FB.send_keys(Message)
-  Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.page.body.overallFeedback.saveButton']")
+  Save = driver.find_element(By.CSS_SELECTOR, "button[data-analytics-id='attemptGrading.bodyToolbar.overallFeedback.saveButton']")
   Save.click()
   
   #now we loop through all the grade pills and set the ones we marked above
@@ -1123,7 +1137,8 @@ def PostIndividualAnnouncement(subject,message,ScheduleDate=None):
     CA = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"button[aria-label='Create Announcement']")))
     CA.click()
   except:
-    print("Couldn't create an announcement")
+    print(f"Couldn't create an announcement with subject {subject}")
+    return 
     #sys.exit()
 
   Title = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,"input[placeholder='Type an announcement title']")))
